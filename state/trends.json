@@ -1,67 +1,56 @@
 {
  "attempted_at": "2026-11-12T16:31:07+00:00",
  "error": null,
- "note": "Next 14 videos ordered by trend score (ties keep plan order).",
+ "note": "Next 14 videos: trend score 6+ or a top-Reel topic goes first, the rest keep plan order.",
  "ok": true,
  "order_status": "trends",
  "performance_topics": [],
  "scores": {
   "wd-101": {
    "matched": [
-    "ai (+2: 7 news)",
     "safe (+1: 1 news)"
    ],
    "performance": 0,
-   "reason": "trend score 3: ai (+2: 7 news); safe (+1: 1 news)",
-   "score": 3,
-   "trend": 3
+   "reason": "trend score 1: safe (+1: 1 news)",
+   "score": 1,
+   "trend": 1
   },
   "wd-103": {
-   "matched": [
-    "ai (+2: 7 news)",
-    "photo (+3: 3 news)",
-    "prompt (+2: 2 news)"
-   ],
+   "matched": [],
    "performance": 0,
-   "reason": "trend score 7: ai (+2: 7 news); photo (+3: 3 news); prompt (+2: 2 news)",
-   "score": 7,
-   "trend": 7
+   "reason": "no trend match (plan order)",
+   "score": 0,
+   "trend": 0
   },
   "wd-104": {
    "matched": [
-    "ai (+2: 7 news)",
-    "letter (+1: 1 news)",
-    "prompt (+2: 2 news)"
+    "letter (+1: 1 news)"
    ],
    "performance": 0,
-   "reason": "trend score 5: ai (+2: 7 news); letter (+1: 1 news); prompt (+2: 2 news)",
-   "score": 5,
-   "trend": 5
+   "reason": "trend score 1: letter (+1: 1 news)",
+   "score": 1,
+   "trend": 1
   },
   "wd-105": {
    "matched": [
-    "ai (+2: 7 news)",
-    "photo (+3: 3 news)",
-    "point (+3: 1 trend)",
-    "prompt (+2: 2 news)"
+    "point (+3: 1 trend)"
    ],
    "performance": 0,
-   "reason": "trend score 10: ai (+2: 7 news); photo (+3: 3 news); point (+3: 1 trend); prompt (+2: 2 news)",
-   "score": 10,
-   "trend": 10
+   "reason": "trend score 3: point (+3: 1 trend)",
+   "score": 3,
+   "trend": 3
   },
   "wd-106": {
    "matched": [
     "bank (+2: 2 news)",
     "delivery (+2: 2 news)",
     "fake (+2: 2 news)",
-    "spot (+6: 2 trends, 1 news)",
-    "text (+2: 2 news)"
+    "spot (+6: 2 trends, 1 news)"
    ],
    "performance": 0,
-   "reason": "trend score 14: bank (+2: 2 news); delivery (+2: 2 news); fake (+2: 2 news); spot (+6: 2 trends, 1 news); text (+2: 2 news)",
-   "score": 14,
-   "trend": 14
+   "reason": "trend score 12: bank (+2: 2 news); delivery (+2: 2 news); fake (+2: 2 news); spot (+6: 2 trends, 1 news)",
+   "score": 12,
+   "trend": 12
   },
   "wd-107": {
    "matched": [
@@ -73,46 +62,34 @@
    "trend": 2
   },
   "wd-108": {
-   "matched": [
-    "ai (+2: 7 news)",
-    "prompt (+2: 2 news)"
-   ],
+   "matched": [],
    "performance": 0,
-   "reason": "trend score 4: ai (+2: 7 news); prompt (+2: 2 news)",
-   "score": 4,
-   "trend": 4
+   "reason": "no trend match (plan order)",
+   "score": 0,
+   "trend": 0
   },
   "wd-110": {
-   "matched": [
-    "ai (+2: 7 news)",
-    "prompt (+2: 2 news)",
-    "text (+2: 2 news)"
-   ],
+   "matched": [],
    "performance": 0,
-   "reason": "trend score 6: ai (+2: 7 news); prompt (+2: 2 news); text (+2: 2 news)",
-   "score": 6,
-   "trend": 6
+   "reason": "no trend match (plan order)",
+   "score": 0,
+   "trend": 0
   },
   "wd-111": {
-   "matched": [
-    "android (+2: 3 news)",
-    "device (+2: 2 news)",
-    "iphone (+2: 3 news)"
-   ],
+   "matched": [],
    "performance": 0,
-   "reason": "trend score 6: android (+2: 3 news); device (+2: 2 news); iphone (+2: 3 news)",
-   "score": 6,
-   "trend": 6
+   "reason": "no trend match (plan order)",
+   "score": 0,
+   "trend": 0
   },
   "wd-112": {
    "matched": [
-    "spot (+6: 2 trends, 1 news)",
-    "text (+2: 2 news)"
+    "spot (+6: 2 trends, 1 news)"
    ],
    "performance": 0,
-   "reason": "trend score 8: spot (+6: 2 trends, 1 news); text (+2: 2 news)",
-   "score": 8,
-   "trend": 8
+   "reason": "trend score 6: spot (+6: 2 trends, 1 news)",
+   "score": 6,
+   "trend": 6
   },
   "wd-113": {
    "matched": [
@@ -127,35 +104,32 @@
   "wd-114": {
    "matched": [
     "home (+1: 1 news)",
-    "iphone (+2: 3 news)",
     "safe (+1: 1 news)"
    ],
    "performance": 0,
-   "reason": "trend score 4: home (+1: 1 news); iphone (+2: 3 news); safe (+1: 1 news)",
-   "score": 4,
-   "trend": 4
+   "reason": "trend score 2: home (+1: 1 news); safe (+1: 1 news)",
+   "score": 2,
+   "trend": 2
   },
   "wd-115": {
    "matched": [
-    "iphone (+2: 3 news)",
     "show (+6: 2 trends, 1 news)"
    ],
    "performance": 0,
-   "reason": "trend score 8: iphone (+2: 3 news); show (+6: 2 trends, 1 news)",
-   "score": 8,
-   "trend": 8
+   "reason": "trend score 6: show (+6: 2 trends, 1 news)",
+   "score": 6,
+   "trend": 6
   },
   "wd-116": {
    "matched": [
     "fake (+2: 2 news)",
     "red (+6: 3 trends)",
-    "spot (+6: 2 trends, 1 news)",
-    "text (+2: 2 news)"
+    "spot (+6: 2 trends, 1 news)"
    ],
    "performance": 0,
-   "reason": "trend score 16: fake (+2: 2 news); red (+6: 3 trends); spot (+6: 2 trends, 1 news); text (+2: 2 news)",
-   "score": 16,
-   "trend": 16
+   "reason": "trend score 14: fake (+2: 2 news); red (+6: 3 trends); spot (+6: 2 trends, 1 news)",
+   "score": 14,
+   "trend": 14
   },
   "wd-117": {
    "matched": [
@@ -168,213 +142,173 @@
   },
   "wd-118": {
    "matched": [
-    "ai (+2: 7 news)",
     "area (+1: 1 news)",
-    "group (+2: 2 news)",
-    "prompt (+2: 2 news)"
+    "group (+2: 2 news)"
    ],
    "performance": 0,
-   "reason": "trend score 7: ai (+2: 7 news); area (+1: 1 news); group (+2: 2 news); prompt (+2: 2 news)",
-   "score": 7,
-   "trend": 7
+   "reason": "trend score 3: area (+1: 1 news); group (+2: 2 news)",
+   "score": 3,
+   "trend": 3
   },
   "wd-119": {
    "matched": [
-    "ai (+2: 7 news)",
-    "money (+1: 1 news)",
-    "prompt (+2: 2 news)"
-   ],
-   "performance": 0,
-   "reason": "trend score 5: ai (+2: 7 news); money (+1: 1 news); prompt (+2: 2 news)",
-   "score": 5,
-   "trend": 5
-  },
-  "wd-120": {
-   "matched": [
-    "ai (+2: 7 news)",
-    "money (+1: 1 news)",
-    "prompt (+2: 2 news)"
-   ],
-   "performance": 0,
-   "reason": "trend score 5: ai (+2: 7 news); money (+1: 1 news); prompt (+2: 2 news)",
-   "score": 5,
-   "trend": 5
-  },
-  "wd-121": {
-   "matched": [
-    "ai (+2: 7 news)",
-    "kids (+6: 2 trends)",
-    "list (+1: 1 news)",
-    "prompt (+2: 2 news)"
-   ],
-   "performance": 0,
-   "reason": "trend score 11: ai (+2: 7 news); kids (+6: 2 trends); list (+1: 1 news); prompt (+2: 2 news)",
-   "score": 11,
-   "trend": 11
-  },
-  "wd-122": {
-   "matched": [
-    "ai (+2: 7 news)",
-    "prompt (+2: 2 news)"
-   ],
-   "performance": 0,
-   "reason": "trend score 4: ai (+2: 7 news); prompt (+2: 2 news)",
-   "score": 4,
-   "trend": 4
-  },
-  "wd-123": {
-   "matched": [
-    "ai (+2: 7 news)",
-    "prepare (+1: 1 news)",
-    "prompt (+2: 2 news)",
-    "question (+4: 4 news)"
-   ],
-   "performance": 0,
-   "reason": "trend score 9: ai (+2: 7 news); prepare (+1: 1 news); prompt (+2: 2 news); question (+4: 4 news)",
-   "score": 9,
-   "trend": 9
-  },
-  "wd-124": {
-   "matched": [
-    "ai (+2: 7 news)",
-    "prompt (+2: 2 news)",
-    "say (+1: 1 news)"
-   ],
-   "performance": 0,
-   "reason": "trend score 5: ai (+2: 7 news); prompt (+2: 2 news); say (+1: 1 news)",
-   "score": 5,
-   "trend": 5
-  },
-  "wd-125": {
-   "matched": [
-    "ai (+2: 7 news)",
-    "explain (+3: 1 trend)",
-    "prompt (+2: 2 news)"
-   ],
-   "performance": 0,
-   "reason": "trend score 7: ai (+2: 7 news); explain (+3: 1 trend); prompt (+2: 2 news)",
-   "score": 7,
-   "trend": 7
-  },
-  "wd-126": {
-   "matched": [
-    "ai (+2: 7 news)",
-    "christmas (+2: 2 news)",
-    "holiday (+1: 1 news)",
-    "prompt (+2: 2 news)"
-   ],
-   "performance": 0,
-   "reason": "trend score 7: ai (+2: 7 news); christmas (+2: 2 news); holiday (+1: 1 news); prompt (+2: 2 news)",
-   "score": 7,
-   "trend": 7
-  },
-  "wd-127": {
-   "matched": [
-    "ai (+2: 7 news)",
-    "buy (+6: 2 trends, 2 news)",
-    "product (+1: 1 news)",
-    "prompt (+2: 2 news)"
-   ],
-   "performance": 0,
-   "reason": "trend score 11: ai (+2: 7 news); buy (+6: 2 trends, 2 news); product (+1: 1 news); prompt (+2: 2 news)",
-   "score": 11,
-   "trend": 11
-  },
-  "wd-128": {
-   "matched": [
-    "ai (+2: 7 news)",
-    "prompt (+2: 2 news)"
-   ],
-   "performance": 0,
-   "reason": "trend score 4: ai (+2: 7 news); prompt (+2: 2 news)",
-   "score": 4,
-   "trend": 4
-  },
-  "wd-129": {
-   "matched": [
-    "ai (+2: 7 news)",
-    "prompt (+2: 2 news)"
-   ],
-   "performance": 0,
-   "reason": "trend score 4: ai (+2: 7 news); prompt (+2: 2 news)",
-   "score": 4,
-   "trend": 4
-  },
-  "wd-130": {
-   "matched": [
-    "ai (+2: 7 news)",
-    "note (+1: 1 news)",
-    "prompt (+2: 2 news)"
-   ],
-   "performance": 0,
-   "reason": "trend score 5: ai (+2: 7 news); note (+1: 1 news); prompt (+2: 2 news)",
-   "score": 5,
-   "trend": 5
-  },
-  "wd-131": {
-   "matched": [
-    "ai (+2: 7 news)",
-    "list (+1: 1 news)",
-    "long (+1: 1 news)",
-    "prompt (+2: 2 news)"
-   ],
-   "performance": 0,
-   "reason": "trend score 6: ai (+2: 7 news); list (+1: 1 news); long (+1: 1 news); prompt (+2: 2 news)",
-   "score": 6,
-   "trend": 6
-  },
-  "wd-132": {
-   "matched": [
-    "ai (+2: 7 news)",
-    "firm (+1: 1 news)",
-    "ignore (+1: 1 news)",
-    "prompt (+2: 2 news)"
-   ],
-   "performance": 0,
-   "reason": "trend score 6: ai (+2: 7 news); firm (+1: 1 news); ignore (+1: 1 news); prompt (+2: 2 news)",
-   "score": 6,
-   "trend": 6
-  },
-  "wd-135": {
-   "matched": [
-    "android (+2: 3 news)",
-    "iphone (+2: 3 news)",
-    "text (+2: 2 news)"
-   ],
-   "performance": 0,
-   "reason": "trend score 6: android (+2: 3 news); iphone (+2: 3 news); text (+2: 2 news)",
-   "score": 6,
-   "trend": 6
-  },
-  "wd-137": {
-   "matched": [
-    "iphone (+2: 3 news)",
-    "limit (+1: 1 news)"
-   ],
-   "performance": 0,
-   "reason": "trend score 3: iphone (+2: 3 news); limit (+1: 1 news)",
-   "score": 3,
-   "trend": 3
-  },
-  "wd-142": {
-   "matched": [
-    "iphone (+2: 3 news)",
-    "security (+3: 3 news)"
-   ],
-   "performance": 0,
-   "reason": "trend score 5: iphone (+2: 3 news); security (+3: 3 news)",
-   "score": 5,
-   "trend": 5
-  },
-  "wd-143": {
-   "matched": [
-    "iphone (+2: 3 news)",
     "money (+1: 1 news)"
    ],
    "performance": 0,
-   "reason": "trend score 3: iphone (+2: 3 news); money (+1: 1 news)",
+   "reason": "trend score 1: money (+1: 1 news)",
+   "score": 1,
+   "trend": 1
+  },
+  "wd-120": {
+   "matched": [
+    "money (+1: 1 news)"
+   ],
+   "performance": 0,
+   "reason": "trend score 1: money (+1: 1 news)",
+   "score": 1,
+   "trend": 1
+  },
+  "wd-121": {
+   "matched": [
+    "kids (+6: 2 trends)",
+    "list (+1: 1 news)"
+   ],
+   "performance": 0,
+   "reason": "trend score 7: kids (+6: 2 trends); list (+1: 1 news)",
+   "score": 7,
+   "trend": 7
+  },
+  "wd-122": {
+   "matched": [],
+   "performance": 0,
+   "reason": "no trend match (plan order)",
+   "score": 0,
+   "trend": 0
+  },
+  "wd-123": {
+   "matched": [
+    "prepare (+1: 1 news)",
+    "question (+4: 4 news)"
+   ],
+   "performance": 0,
+   "reason": "trend score 5: prepare (+1: 1 news); question (+4: 4 news)",
+   "score": 5,
+   "trend": 5
+  },
+  "wd-124": {
+   "matched": [
+    "say (+1: 1 news)"
+   ],
+   "performance": 0,
+   "reason": "trend score 1: say (+1: 1 news)",
+   "score": 1,
+   "trend": 1
+  },
+  "wd-125": {
+   "matched": [
+    "explain (+3: 1 trend)"
+   ],
+   "performance": 0,
+   "reason": "trend score 3: explain (+3: 1 trend)",
    "score": 3,
    "trend": 3
+  },
+  "wd-126": {
+   "matched": [
+    "christmas (+2: 2 news)",
+    "holiday (+1: 1 news)"
+   ],
+   "performance": 0,
+   "reason": "trend score 3: christmas (+2: 2 news); holiday (+1: 1 news)",
+   "score": 3,
+   "trend": 3
+  },
+  "wd-127": {
+   "matched": [
+    "buy (+6: 2 trends, 2 news)",
+    "product (+1: 1 news)"
+   ],
+   "performance": 0,
+   "reason": "trend score 7: buy (+6: 2 trends, 2 news); product (+1: 1 news)",
+   "score": 7,
+   "trend": 7
+  },
+  "wd-128": {
+   "matched": [],
+   "performance": 0,
+   "reason": "no trend match (plan order)",
+   "score": 0,
+   "trend": 0
+  },
+  "wd-129": {
+   "matched": [],
+   "performance": 0,
+   "reason": "no trend match (plan order)",
+   "score": 0,
+   "trend": 0
+  },
+  "wd-130": {
+   "matched": [
+    "note (+1: 1 news)"
+   ],
+   "performance": 0,
+   "reason": "trend score 1: note (+1: 1 news)",
+   "score": 1,
+   "trend": 1
+  },
+  "wd-131": {
+   "matched": [
+    "list (+1: 1 news)",
+    "long (+1: 1 news)"
+   ],
+   "performance": 0,
+   "reason": "trend score 2: list (+1: 1 news); long (+1: 1 news)",
+   "score": 2,
+   "trend": 2
+  },
+  "wd-132": {
+   "matched": [
+    "firm (+1: 1 news)",
+    "ignore (+1: 1 news)"
+   ],
+   "performance": 0,
+   "reason": "trend score 2: firm (+1: 1 news); ignore (+1: 1 news)",
+   "score": 2,
+   "trend": 2
+  },
+  "wd-135": {
+   "matched": [],
+   "performance": 0,
+   "reason": "no trend match (plan order)",
+   "score": 0,
+   "trend": 0
+  },
+  "wd-137": {
+   "matched": [
+    "limit (+1: 1 news)"
+   ],
+   "performance": 0,
+   "reason": "trend score 1: limit (+1: 1 news)",
+   "score": 1,
+   "trend": 1
+  },
+  "wd-142": {
+   "matched": [
+    "security (+3: 3 news)"
+   ],
+   "performance": 0,
+   "reason": "trend score 3: security (+3: 3 news)",
+   "score": 3,
+   "trend": 3
+  },
+  "wd-143": {
+   "matched": [
+    "money (+1: 1 news)"
+   ],
+   "performance": 0,
+   "reason": "trend score 1: money (+1: 1 news)",
+   "score": 1,
+   "trend": 1
   },
   "wd-144": {
    "matched": [
@@ -400,37 +334,31 @@
   },
   "wd-146": {
    "matched": [
-    "ai (+2: 7 news)",
-    "call (+3: 3 news)",
     "lower (+1: 1 news)",
-    "money (+1: 1 news)",
-    "prompt (+2: 2 news)"
+    "money (+1: 1 news)"
    ],
    "performance": 0,
-   "reason": "trend score 9: ai (+2: 7 news); call (+3: 3 news); lower (+1: 1 news); money (+1: 1 news); prompt (+2: 2 news)",
-   "score": 9,
-   "trend": 9
-  },
-  "wd-148": {
-   "matched": [
-    "iphone (+2: 3 news)"
-   ],
-   "performance": 0,
-   "reason": "trend score 2: iphone (+2: 3 news)",
+   "reason": "trend score 2: lower (+1: 1 news); money (+1: 1 news)",
    "score": 2,
    "trend": 2
+  },
+  "wd-148": {
+   "matched": [],
+   "performance": 0,
+   "reason": "no trend match (plan order)",
+   "score": 0,
+   "trend": 0
   },
   "wd-149": {
    "matched": [
     "money (+1: 1 news)",
     "note (+1: 1 news)",
-    "photo (+3: 3 news)",
     "swap (+3: 1 trend)"
    ],
    "performance": 0,
-   "reason": "trend score 8: money (+1: 1 news); note (+1: 1 news); photo (+3: 3 news); swap (+3: 1 trend)",
-   "score": 8,
-   "trend": 8
+   "reason": "trend score 5: money (+1: 1 news); note (+1: 1 news); swap (+3: 1 trend)",
+   "score": 5,
+   "trend": 5
   }
  },
  "sources": [
