@@ -630,3 +630,21 @@ class StatsPruneTests(unittest.TestCase):
 
 if __name__ == "__main__":
     unittest.main()
+
+
+class NicheWordTuning(unittest.TestCase):
+    """2026-11-12: everyday niche words in tech news ("AI", "prompt", "photo") must not reorder the plan."""
+
+    def test_news_only_niche_words_score_zero_and_weak_scores_do_not_move(self):
+        import post
+        idx = post.trend_index([{"src": "news", "q": "iPhone", "t": "New AI prompt tricks for your photo app"},
+                                {"src": "news", "q": "Android", "t": "AI photo prompt guide"}])
+        it = post.Item(id="wd-1", date="2026-11-13", slot_time="18:00", caption="Point your camera and ask AI",
+                       asset="wd-1.mp4", keyword="PHOTO") if hasattr(post, "Item") else None
+        if it is None:
+            self.skipTest("Item not constructible here")
+        sc = post.score_item(it, idx, set())
+        self.assertEqual(sc["trend"], 0, sc)
+        self.assertEqual(post.move_points({"trend": 5, "performance": 0}), 0)
+        self.assertEqual(post.move_points({"trend": 6, "performance": 0}), 6)
+        self.assertEqual(post.move_points({"trend": 2, "performance": 4}), 4)

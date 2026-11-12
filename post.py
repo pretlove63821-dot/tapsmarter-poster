@@ -1785,14 +1785,28 @@ def performance_topics(stats: dict | None) -> tuple[set[str], list[str]]:
     return topics, names
 
 
+NICHE_WORDS = frozenset("prompt prompts photo text texts call calls message messages device chatgpt gemini email".split())
+MOVE_MIN = 6        # trend points only move a video ahead of the research-based plan order from this score up
+
+
+def move_points(sc: dict) -> int:
+    """Ranking points: a weak trend match (< MOVE_MIN) counts 0; our own top-Reel performance boost always counts."""
+    trend = int(sc.get("trend") or 0)
+    return (trend if trend >= MOVE_MIN else 0) + int(sc.get("performance") or 0)
+
+
 def score_item(it: Item, idx: dict[str, dict], perf: set[str]) -> dict:
     trend, matched = 0, []
     for w in sorted(item_words(it)):
         e = idx.get(w)
         if not e:
             continue
-        news = min(e["news"], QUERY_NEWS_CAP) if w in QUERY_WORDS else e["news"]
+        # Words that are simply our niche (our own news searches + everyday words like "prompt", "photo") are
+        # always "in the news": they only count when they are a real Google Trends topic today (2026-11-12 tuning).
+        news = 0 if (w in QUERY_WORDS or w in NICHE_WORDS) else e["news"]
         pts = min(3 * e["trends"] + news, TOKEN_CAP)
+        if not pts:
+            continue
         trend += pts
         bits = [f"{e['trends']} trend" + ("s" if e["trends"] != 1 else "")] if e["trends"] else []
         bits += [f"{e['news']} news"] if e["news"] else []
@@ -1829,10 +1843,10 @@ def compute_order(sched: Schedule, state: dict, live: bool, trends: dict | None,
                                        + scores[it.id]["reason"])[:300]
         rest = [it for it in remaining if it.id not in pinned_ids]
         window = pinned + sorted(rest[:max(0, TREND_WINDOW - len(pinned))],
-                                 key=lambda it: (-scores[it.id]["score"], idx_of[it.id]))
+                                 key=lambda it: (-move_points(scores[it.id]), idx_of[it.id]))
         queue = window + rest[max(0, TREND_WINDOW - len(pinned)):]
         status = "trends"
-        note = (f"Next {len(window)} videos ordered by trend score (ties keep plan order)"
+        note = (f"Next {len(window)} videos: trend score {MOVE_MIN}+ or a top-Reel topic goes first, the rest keep plan order"
                 + (f"; top Reels so far: {', '.join(top_names)}" if top_names else "") + ".")
     else:
         queue = remaining
