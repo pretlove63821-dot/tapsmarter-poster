@@ -1,0 +1,87 @@
+# Posts at most one Instagram Reel per run (and per day) from schedule.json. See SETUP.md.
+#
+# Times: at :05, :25 and :45 past every hour from 14:05 to 21:45 UTC (15:05-22:45 Rome in winter, 16:05-23:45 in
+# summer). The posting slots are 12:00 weekday / 10:00 weekend New York time (= 18:00 / 16:00 Rome), so every slot
+# gets 15+ tries after it, all year, DST included. post.py posts only after the slot written in schedule.json.
+# GitHub often starts scheduled runs late or drops some (worst at the top of the hour, so no :00 runs): with many
+# tries after the slot, a dropped run only delays the Reel by ~20 minutes, never a whole day.
+# Cost: 24 short runs a day (free: Actions minutes are unlimited for public repos).
+#
+# Switches (Settings > Secrets and variables > Actions > Variables): LIVE=true to really post (anything else =
+# dry run), PAUSED=true to stop everything. Secret IG_TOKEN. Variable IG_USER_ID.
+#
+# No third-party actions at all (not even actions/checkout): the repo is fetched and pushed with plain git and
+# the built-in, short-lived GITHUB_TOKEN.
+name: Post daily Reel
+
+on:
+  schedule:
+    - cron: "5,25,45 14-21 * * *"
+  workflow_dispatch:
+
+permissions:
+  contents: write          # only to commit state/posted.json back (and read the release videos)
+
+concurrency:
+  group: post-reel
+  cancel-in-progress: false
+
+jobs:
+  post:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 40
+    steps:
+      - name: Get the repo
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          set -euo pipefail
+          AUTH="$(printf 'x-access-token:%s' "$GH_TOKEN" | base64 -w0)"
+          echo "::add-mask::$AUTH"
+          git init -q repo
+          cd repo
+          git config http.https://github.com/.extraheader "AUTHORIZATION: basic $AUTH"
+          git remote add origin "https://github.com/${GITHUB_REPOSITORY}.git"
+          git fetch -q --depth 1 origin "${GITHUB_REF_NAME}"
+          git checkout -q -B "${GITHUB_REF_NAME}" FETCH_HEAD
+
+      - name: Post today's Reel
+        working-directory: repo
+        env:
+          IG_TOKEN: ${{ secrets.IG_TOKEN }}
+          IG_USER_ID: ${{ vars.IG_USER_ID }}
+          LIVE: ${{ vars.LIVE }}
+          PAUSED: ${{ vars.PAUSED }}
+          GITHUB_TOKEN: ${{ github.token }}
+        run: python3 -I post.py
+
+      - name: Save state/posted.json
+        if: always()
+        working-directory: repo
+        run: |
+          set -euo pipefail
+          [ -f state/posted.json ] || exit 0
+          # The robot is the only writer of this file: put our copy on top of the newest branch tip and push.
+          cp state/posted.json "$RUNNER_TEMP/posted.json"
+          for i in 1 2 3 4 5; do
+            git fetch -q --depth 1 origin "${GITHUB_REF_NAME}"
+            git reset -q --hard FETCH_HEAD
+            mkdir -p state
+            cp "$RUNNER_TEMP/posted.json" state/posted.json
+            git add state/posted.json
+            if git diff --cached --quiet; then
+              echo "State unchanged."
+              exit 0
+            fi
+            git -c user.name="github-actions[bot]" \
+                -c user.email="41898282+github-actions[bot]@users.noreply.github.com" \
+                commit -q -m "Reel robot: update state/posted.json"
+            if git push -q origin "HEAD:${GITHUB_REF_NAME}"; then
+              echo "State saved."
+              exit 0
+            fi
+            echo "Push refused (someone pushed meanwhile); retrying."
+            sleep $((i * 3))
+          done
+          echo "::error::Could not save state/posted.json. The next run re-checks Instagram before posting, so nothing is posted twice."
+          exit 1
