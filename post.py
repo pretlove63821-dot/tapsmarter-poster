@@ -56,6 +56,7 @@ UPLOAD_TIMEOUT = 600
 DOWNLOAD_TIMEOUT = 600
 BACKOFF = (2, 8, 30)
 UPLOAD_ATTEMPTS = 5
+UPLOAD_CHUNK = 4 * 1024 * 1024      # bytes per rupload request (one 30 MB request is refused)
 PROCESS_DEADLINE = 900                     # wait up to 15 min for Meta to process the video
 PENDING_GIVE_UP = timedelta(days=3)
 MAX_TRIES_PER_DAY = 3                      # failed live attempts at one video per day, then wait for tomorrow
@@ -756,12 +757,20 @@ class Poster:
         url = f"{RUPLOAD}/{container}"
         for attempt in range(UPLOAD_ATTEMPTS):
             resp = None
-            with open(video, "rb") as f:
-                f.seek(offset)
-                chunk = f.read()
-            headers = {"Authorization": f"OAuth {self.env.token}", "offset": str(offset), "file_size": str(size)}
             try:
-                resp = self.transport("POST", url, headers, chunk, UPLOAD_TIMEOUT, False)
+                # Meta refuses a ~30 MB file in one request ("Request processing failed", 2026-11-12) but takes it
+                # in 4 MB pieces: each piece answers 206 "Partial request", the last one 200 success.
+                while True:
+                    with open(video, "rb") as f:
+                        f.seek(offset)
+                        chunk = f.read(UPLOAD_CHUNK)
+                    headers = {"Authorization": f"OAuth {self.env.token}", "offset": str(offset),
+                               "file_size": str(size)}
+                    resp = self.transport("POST", url, headers, chunk, UPLOAD_TIMEOUT, False)
+                    if resp.status == 206 and offset + len(chunk) < size:
+                        offset += len(chunk)
+                        continue
+                    break
                 body = resp.json()
                 if resp.ok and body.get("success"):
                     return

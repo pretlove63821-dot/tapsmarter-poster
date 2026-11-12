@@ -367,6 +367,32 @@ class DryRunTests(Base):
 
 
 class LiveTests(Base):
+    def test_upload_goes_in_chunks_and_206_means_keep_going(self):
+        class Chunky(FakeMeta):
+            def __call__(self, method, url, headers, body, timeout, follow):
+                if "rupload.facebook.com" in url:
+                    self.calls.append((method, url, dict(headers), body))
+                    off, size = int(headers["offset"]), int(headers["file_size"])
+                    assert size == len(VIDEO) and body == VIDEO[off:off + len(body)]
+                    if off + len(body) < size:
+                        return post.Response(206, {"content-type": "application/json"},
+                                             b'{"debug_info":{"retriable":true,"type":"PartialRequestError"}}')
+                    return post.Response(200, {"content-type": "application/json"}, b'{"success":true}')
+                return super().__call__(method, url, headers, body, timeout, follow)
+        fake = Chunky()
+        old = post.UPLOAD_CHUNK
+        post.UPLOAD_CHUNK = max(1, len(VIDEO) // 3)
+        try:
+            code = self.run_post(rome(2026, 11, 12, 12, 5), fake, live=True)
+        finally:
+            post.UPLOAD_CHUNK = old
+        self.assertEqual(code, 0, self.out.getvalue())
+        up = [c for c in fake.calls if "rupload" in c[1]]
+        self.assertGreaterEqual(len(up), 3)
+        self.assertEqual(b"".join(c[3] for c in up), VIDEO)
+        self.assertEqual([int(c[2]["offset"]) for c in up][0], 0)
+        self.assertEqual(len(fake.posts_to("/media_publish")), 1)
+
     def test_live_posts_once_with_exact_caption(self):
         fake = FakeMeta()
         code = self.run_post(rome(2026, 11, 12, 12, 5), fake, live=True)
