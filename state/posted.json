@@ -1,14 +1,22 @@
 {
   "version": 1,
-  "posted": [],
+  "posted": [
+    {
+      "id": "wd-102",
+      "date": "2026-11-12",
+      "posted_at": "2026-11-12T15:22:48+00:00",
+      "media_id": "17900739435397375",
+      "permalink": "https://www.instagram.com/reel/DfpXmhqTTFS/",
+      "container_id": "17983805156915954",
+      "caption_sha256": "5a71e47a32f05dc9f5971641227b46a7a4b7ca9ee264229cee8515821b6afcf3",
+      "source": "robot"
+    }
+  ],
   "dry_runs": [],
-  "pending": {
-    "id": "wd-102",
-    "container_id": "17983803158915954",
-    "caption_sha256": "5a71e47a32f05dc9f5971641227b46a7a4b7ca9ee264229cee8515821b6afcf3",
-    "started_at": "2026-11-12T15:15:03+00:00"
-  },
-  "first_comments": [],
+  "pending": null,
+  "first_comments": [
+    "17900739435397375"
+  ],
   "failures": {
     "wd-102": {
       "date": "2026-11-12",
@@ -19,8 +27,8 @@
   },
   "blocked": {},
   "last_run": {
-    "at": "2026-11-12T15:15:03+00:00",
-    "outcome": "failed",
+    "at": "2026-11-12T15:22:48+00:00",
+    "outcome": "posted",
     "mode": "live"
   }
 }
