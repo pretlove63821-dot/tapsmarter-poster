@@ -45,12 +45,13 @@
     "bank (+2: 2 news)",
     "delivery (+2: 2 news)",
     "fake (+2: 2 news)",
+    "red (+6: 3 trends)",
     "spot (+6: 2 trends, 1 news)"
    ],
    "performance": 0,
-   "reason": "trend score 12: bank (+2: 2 news); delivery (+2: 2 news); fake (+2: 2 news); spot (+6: 2 trends, 1 news)",
-   "score": 12,
-   "trend": 12
+   "reason": "trend score 18: bank (+2: 2 news); delivery (+2: 2 news); fake (+2: 2 news); red (+6: 3 trends); spot (+6: 2 trends, 1 news)",
+   "score": 18,
+   "trend": 18
   },
   "wd-107": {
    "matched": [
@@ -161,12 +162,13 @@
   },
   "wd-120": {
    "matched": [
-    "money (+1: 1 news)"
+    "money (+1: 1 news)",
+    "month (+1: 1 news)"
    ],
    "performance": 0,
-   "reason": "trend score 1: money (+1: 1 news)",
-   "score": 1,
-   "trend": 1
+   "reason": "trend score 2: money (+1: 1 news); month (+1: 1 news)",
+   "score": 2,
+   "trend": 2
   },
   "wd-121": {
    "matched": [
@@ -225,13 +227,15 @@
   },
   "wd-127": {
    "matched": [
+    "black (+1: 1 news)",
     "buy (+6: 2 trends, 2 news)",
+    "friday (+1: 1 news)",
     "product (+1: 1 news)"
    ],
    "performance": 0,
-   "reason": "trend score 7: buy (+6: 2 trends, 2 news); product (+1: 1 news)",
-   "score": 7,
-   "trend": 7
+   "reason": "trend score 9: black (+1: 1 news); buy (+6: 2 trends, 2 news); friday (+1: 1 news); product (+1: 1 news)",
+   "score": 9,
+   "trend": 9
   },
   "wd-128": {
    "matched": [],
@@ -241,11 +245,13 @@
    "trend": 0
   },
   "wd-129": {
-   "matched": [],
+   "matched": [
+    "practice (+1: 1 news)"
+   ],
    "performance": 0,
-   "reason": "no trend match (plan order)",
-   "score": 0,
-   "trend": 0
+   "reason": "trend score 1: practice (+1: 1 news)",
+   "score": 1,
+   "trend": 1
   },
   "wd-130": {
    "matched": [
@@ -359,6 +365,142 @@
    "reason": "trend score 5: money (+1: 1 news); note (+1: 1 news); swap (+3: 1 trend)",
    "score": 5,
    "trend": 5
+  },
+  "wd-151": {
+   "matched": [
+    "black (+1: 1 news)",
+    "friday (+1: 1 news)",
+    "hold (+3: 1 trend)",
+    "order (+2: 2 news)"
+   ],
+   "performance": 0,
+   "reason": "trend score 7: black (+1: 1 news); friday (+1: 1 news); hold (+3: 1 trend); order (+2: 2 news)",
+   "score": 7,
+   "trend": 7
+  },
+  "wd-152": {
+   "matched": [
+    "black (+1: 1 news)",
+    "buy (+6: 2 trends, 2 news)",
+    "deal (+4: 1 trend, 1 news)",
+    "friday (+1: 1 news)",
+    "holiday (+1: 1 news)",
+    "money (+1: 1 news)"
+   ],
+   "performance": 0,
+   "reason": "trend score 14: black (+1: 1 news); buy (+6: 2 trends, 2 news); deal (+4: 1 trend, 1 news); friday (+1: 1 news); holiday (+1: 1 news); money (+1: 1 news)",
+   "score": 14,
+   "trend": 14
+  },
+  "wd-153": {
+   "matched": [
+    "fake (+2: 2 news)",
+    "pay (+1: 1 news)"
+   ],
+   "performance": 0,
+   "reason": "trend score 3: fake (+2: 2 news); pay (+1: 1 news)",
+   "score": 3,
+   "trend": 3
+  },
+  "wd-155": {
+   "matched": [
+    "agent (+3: 3 news)",
+    "buy (+6: 2 trends, 2 news)",
+    "shop (+1: 1 news)",
+    "shopping (+2: 2 news)"
+   ],
+   "performance": 0,
+   "reason": "trend score 12: agent (+3: 3 news); buy (+6: 2 trends, 2 news); shop (+1: 1 news); shopping (+2: 2 news)",
+   "score": 12,
+   "trend": 12
+  },
+  "wd-156": {
+   "matched": [],
+   "performance": 0,
+   "reason": "no trend match (plan order)",
+   "score": 0,
+   "trend": 0
+  },
+  "wd-157": {
+   "matched": [
+    "holiday (+1: 1 news)"
+   ],
+   "performance": 0,
+   "reason": "trend score 1: holiday (+1: 1 news)",
+   "score": 1,
+   "trend": 1
+  },
+  "wd-158": {
+   "matched": [
+    "ads (+1: 1 news)",
+    "black (+1: 1 news)",
+    "fake (+2: 2 news)",
+    "friday (+1: 1 news)",
+    "pay (+1: 1 news)"
+   ],
+   "performance": 0,
+   "reason": "trend score 6: ads (+1: 1 news); black (+1: 1 news); fake (+2: 2 news); friday (+1: 1 news); pay (+1: 1 news)",
+   "score": 6,
+   "trend": 6
+  },
+  "wd-159": {
+   "matched": [
+    "holiday (+1: 1 news)",
+    "return (+3: 1 trend)",
+    "wrong (+1: 1 news)"
+   ],
+   "performance": 0,
+   "reason": "trend score 5: holiday (+1: 1 news); return (+3: 1 trend); wrong (+1: 1 news)",
+   "score": 5,
+   "trend": 5
+  },
+  "wd-160": {
+   "matched": [],
+   "performance": 0,
+   "reason": "no trend match (plan order)",
+   "score": 0,
+   "trend": 0
+  },
+  "wd-161": {
+   "matched": [
+    "holiday (+1: 1 news)"
+   ],
+   "performance": 0,
+   "reason": "trend score 1: holiday (+1: 1 news)",
+   "score": 1,
+   "trend": 1
+  },
+  "wd-162": {
+   "matched": [
+    "card (+1: 1 news)",
+    "pay (+1: 1 news)"
+   ],
+   "performance": 0,
+   "reason": "trend score 2: card (+1: 1 news); pay (+1: 1 news)",
+   "score": 2,
+   "trend": 2
+  },
+  "wd-163": {
+   "matched": [
+    "deal (+4: 1 trend, 1 news)",
+    "lower (+1: 1 news)",
+    "money (+1: 1 news)",
+    "price (+2: 2 news)"
+   ],
+   "performance": 0,
+   "reason": "trend score 8: deal (+4: 1 trend, 1 news); lower (+1: 1 news); money (+1: 1 news); price (+2: 2 news)",
+   "score": 8,
+   "trend": 8
+  },
+  "wd-164": {
+   "matched": [
+    "chat (+2: 2 news)",
+    "private (+1: 1 news)"
+   ],
+   "performance": 0,
+   "reason": "trend score 3: chat (+2: 2 news); private (+1: 1 news)",
+   "score": 3,
+   "trend": 3
   }
  },
  "sources": [
