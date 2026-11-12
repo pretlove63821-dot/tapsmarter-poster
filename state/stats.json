@@ -5,10 +5,15 @@
     "at": "2026-11-12T16:31:07+00:00",
     "followers_count": 0,
     "media_count": 1
+   },
+   {
+    "at": "2026-11-12T22:26:13+00:00",
+    "followers_count": 0,
+    "media_count": 1
    }
   ],
   "latest": {
-   "at": "2026-11-12T16:31:07+00:00",
+   "at": "2026-11-12T22:26:13+00:00",
    "followers_count": 0,
    "media_count": 1
   }
@@ -19,10 +24,10 @@
     "comments": 1,
     "d": "2026-11-12",
     "likes": 0,
-    "reach": 26,
+    "reach": 68,
     "saved": 0,
     "shares": 0,
-    "views": 37
+    "views": 75
    }
   ]
  },
@@ -32,25 +37,25 @@
    "caption": "iPhone call screening for unknown callers",
    "category": null,
    "comments_count": 1,
-   "ig_reels_avg_watch_time": 8548,
-   "ig_reels_video_view_total_time": 230806,
+   "ig_reels_avg_watch_time": 5552,
+   "ig_reels_video_view_total_time": 388652,
    "keyword": null,
    "like_count": 0,
    "media_id": "17900739435397375",
    "permalink": "https://www.instagram.com/reel/DfpXmhqTTFS/",
-   "reach": 26,
+   "reach": 68,
    "saved": 0,
    "shares": 0,
    "timestamp": "2026-11-12T15:23:54+0000",
    "total_interactions": 1,
-   "updated_at": "2026-11-12T16:31:07+00:00",
+   "updated_at": "2026-11-12T22:26:13+00:00",
    "video_id": "wd-102",
-   "views": 37
+   "views": 75
   }
  },
  "note": "views, reach, saves and shares are on",
  "permission": "ok",
  "unsupported_metrics": [],
- "updated_at": "2026-11-12T16:31:07+00:00",
+ "updated_at": "2026-11-12T22:26:13+00:00",
  "version": 1
 }

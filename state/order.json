@@ -1,9 +1,9 @@
 {
  "based_on": {
-  "stats_updated_at": "2026-11-12T16:31:07+00:00",
+  "stats_updated_at": "2026-11-12T22:26:13+00:00",
   "trends_updated_at": "2026-11-12T16:31:07+00:00"
  },
- "generated_at": "2026-11-12T18:06:03+00:00",
+ "generated_at": "2026-11-12T22:26:13+00:00",
  "note": "Next 14 videos: trend score 6+ or a top-Reel topic goes first, the rest keep plan order.",
  "order": [
   "wd-106",
@@ -57,7 +57,8 @@
   "wd-114",
   "wd-115",
   "wd-116",
-  "wd-128"
+  "wd-128",
+  "wd-165"
  ],
  "reasons": {
   "wd-101": "trend score 1: safe (+1: 1 news)",
@@ -75,7 +76,7 @@
   "wd-152": "trend score 14: black (+1: 1 news); buy (+6: 2 trends, 2 news); deal (+4: 1 trend, 1 news); friday (+1: 1 news); holiday (+1: 1 news); money (+1: 1 news)",
   "wd-153": "trend score 3: fake (+2: 2 news); pay (+1: 1 news)"
  },
- "schedule_sha256": "93f289596bd594d1c142b90c9f50bd4bbaca09f37063c0d55c50b38b57673134",
+ "schedule_sha256": "5a908033e9b0d37d8dd55b10a3d20b2b59eabdb900f74c17a713300270c9a47b",
  "status": "trends",
  "upcoming": [
   {

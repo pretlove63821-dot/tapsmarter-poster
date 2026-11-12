@@ -501,6 +501,18 @@
    "reason": "trend score 3: chat (+2: 2 news); private (+1: 1 news)",
    "score": 3,
    "trend": 3
+  },
+  "wd-165": {
+   "matched": [
+    "advanced (+1: 1 news)",
+    "change (+1: 1 news)",
+    "december (+3: 3 news)",
+    "standard (+1: 1 news)"
+   ],
+   "performance": 0,
+   "reason": "trend score 6: advanced (+1: 1 news); change (+1: 1 news); december (+3: 3 news); standard (+1: 1 news)",
+   "score": 6,
+   "trend": 6
   }
  },
  "sources": [
