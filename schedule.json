@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "generated_at": "2026-11-12T17:54:31+00:00",
+  "generated_at": "2026-11-12T19:03:46+00:00",
   "timezone": "Europe/Rome",
   "start_date": "2026-11-13",
   "slots": {
@@ -101,7 +101,9 @@
     "2026-12-21T17:00:00+00:00",
     "2026-12-22T00:00:00+00:00",
     "2026-12-22T17:00:00+00:00",
-    "2026-12-23T00:00:00+00:00"
+    "2026-12-23T00:00:00+00:00",
+    "2026-12-23T17:00:00+00:00",
+    "2026-12-24T00:00:00+00:00"
   ],
   "release_tag": "videos",
   "items": [
@@ -1196,6 +1198,27 @@
       "title": "Tailor your resume to a job ad with AI",
       "category": "AI PROMPT",
       "phone_os": null
+    },
+    {
+      "id": "wd-165",
+      "date": "2026-12-09",
+      "slot_time": "18:00",
+      "slot_at": "2026-12-09T17:00:00+00:00",
+      "slot_et": "2026-12-09T12:00-05:00",
+      "slot_index": 0,
+      "plan_index": 53,
+      "caption": "ChatGPT voice mode change December 11: Advanced and Standard voice retiring\nOn Dec 11, 2026, OpenAI retires Advanced and Standard voice in ChatGPT. Anyone still using them is moved to Live voice automatically.\n\n1. Open ChatGPT → Settings → Voice and check which voice model you use\n2. Try Live now, the way you normally use voice, so nothing surprises you on the day\n3. Use voice for a routine (like a language lesson)? Save your instructions in a note to paste into a new chat\n\nYour past voice chats stay in your history. Live video and screen sharing keep running on Advanced voice until Live supports them. Free plans have daily voice limits that can change.\n\nComment VOICE and we'll DM you the free guide (everything that's changing, in plain English).\nSend this to the friend who talks to ChatGPT every day.\n\nMade with an AI voice and AI visuals.\n\n#chatgpt #chatgpttips #aitips #ainews",
+      "caption_sha256": "54696a5f8533ea915cf8bfed30374b502df8bad8ca7377dfa67befb1ffb7347c",
+      "asset": "wd-165.mp4",
+      "asset_size": 30272152,
+      "asset_sha256": "1a47d3caa08c754c6513a63768e402c157980a32f8cf22c424805aee4d7f997b",
+      "thumb_offset_ms": 0,
+      "cover_url": null,
+      "first_comment": "Prefer typing? Any voice chat can be continued as a normal text chat after the switch.",
+      "keyword": "VOICE",
+      "title": "ChatGPT voice mode changes on December 11: what to do first",
+      "category": "AI PROMPT",
+      "phone_os": "neutral"
     }
   ]
 }
