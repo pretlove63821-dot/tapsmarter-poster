@@ -1,0 +1,1343 @@
+{
+ "attempted_at": "2026-11-12T16:31:07+00:00",
+ "error": null,
+ "note": "Next 14 videos ordered by trend score (ties keep plan order).",
+ "ok": true,
+ "order_status": "trends",
+ "performance_topics": [],
+ "scores": {
+  "wd-101": {
+   "matched": [
+    "ai (+2: 7 news)",
+    "safe (+1: 1 news)"
+   ],
+   "performance": 0,
+   "reason": "trend score 3: ai (+2: 7 news); safe (+1: 1 news)",
+   "score": 3,
+   "trend": 3
+  },
+  "wd-103": {
+   "matched": [
+    "ai (+2: 7 news)",
+    "photo (+3: 3 news)",
+    "prompt (+2: 2 news)"
+   ],
+   "performance": 0,
+   "reason": "trend score 7: ai (+2: 7 news); photo (+3: 3 news); prompt (+2: 2 news)",
+   "score": 7,
+   "trend": 7
+  },
+  "wd-104": {
+   "matched": [
+    "ai (+2: 7 news)",
+    "letter (+1: 1 news)",
+    "prompt (+2: 2 news)"
+   ],
+   "performance": 0,
+   "reason": "trend score 5: ai (+2: 7 news); letter (+1: 1 news); prompt (+2: 2 news)",
+   "score": 5,
+   "trend": 5
+  },
+  "wd-105": {
+   "matched": [
+    "ai (+2: 7 news)",
+    "photo (+3: 3 news)",
+    "point (+3: 1 trend)",
+    "prompt (+2: 2 news)"
+   ],
+   "performance": 0,
+   "reason": "trend score 10: ai (+2: 7 news); photo (+3: 3 news); point (+3: 1 trend); prompt (+2: 2 news)",
+   "score": 10,
+   "trend": 10
+  },
+  "wd-106": {
+   "matched": [
+    "bank (+2: 2 news)",
+    "delivery (+2: 2 news)",
+    "fake (+2: 2 news)",
+    "spot (+6: 2 trends, 1 news)",
+    "text (+2: 2 news)"
+   ],
+   "performance": 0,
+   "reason": "trend score 14: bank (+2: 2 news); delivery (+2: 2 news); fake (+2: 2 news); spot (+6: 2 trends, 1 news); text (+2: 2 news)",
+   "score": 14,
+   "trend": 14
+  },
+  "wd-107": {
+   "matched": [
+    "price (+2: 2 news)"
+   ],
+   "performance": 0,
+   "reason": "trend score 2: price (+2: 2 news)",
+   "score": 2,
+   "trend": 2
+  },
+  "wd-108": {
+   "matched": [
+    "ai (+2: 7 news)",
+    "prompt (+2: 2 news)"
+   ],
+   "performance": 0,
+   "reason": "trend score 4: ai (+2: 7 news); prompt (+2: 2 news)",
+   "score": 4,
+   "trend": 4
+  },
+  "wd-110": {
+   "matched": [
+    "ai (+2: 7 news)",
+    "prompt (+2: 2 news)",
+    "text (+2: 2 news)"
+   ],
+   "performance": 0,
+   "reason": "trend score 6: ai (+2: 7 news); prompt (+2: 2 news); text (+2: 2 news)",
+   "score": 6,
+   "trend": 6
+  },
+  "wd-111": {
+   "matched": [
+    "android (+2: 3 news)",
+    "device (+2: 2 news)",
+    "iphone (+2: 3 news)"
+   ],
+   "performance": 0,
+   "reason": "trend score 6: android (+2: 3 news); device (+2: 2 news); iphone (+2: 3 news)",
+   "score": 6,
+   "trend": 6
+  },
+  "wd-112": {
+   "matched": [
+    "spot (+6: 2 trends, 1 news)",
+    "text (+2: 2 news)"
+   ],
+   "performance": 0,
+   "reason": "trend score 8: spot (+6: 2 trends, 1 news); text (+2: 2 news)",
+   "score": 8,
+   "trend": 8
+  },
+  "wd-113": {
+   "matched": [
+    "fake (+2: 2 news)",
+    "pay (+1: 1 news)"
+   ],
+   "performance": 0,
+   "reason": "trend score 3: fake (+2: 2 news); pay (+1: 1 news)",
+   "score": 3,
+   "trend": 3
+  },
+  "wd-114": {
+   "matched": [
+    "home (+1: 1 news)",
+    "iphone (+2: 3 news)",
+    "safe (+1: 1 news)"
+   ],
+   "performance": 0,
+   "reason": "trend score 4: home (+1: 1 news); iphone (+2: 3 news); safe (+1: 1 news)",
+   "score": 4,
+   "trend": 4
+  },
+  "wd-115": {
+   "matched": [
+    "iphone (+2: 3 news)",
+    "show (+6: 2 trends, 1 news)"
+   ],
+   "performance": 0,
+   "reason": "trend score 8: iphone (+2: 3 news); show (+6: 2 trends, 1 news)",
+   "score": 8,
+   "trend": 8
+  },
+  "wd-116": {
+   "matched": [
+    "fake (+2: 2 news)",
+    "red (+6: 3 trends)",
+    "spot (+6: 2 trends, 1 news)",
+    "text (+2: 2 news)"
+   ],
+   "performance": 0,
+   "reason": "trend score 16: fake (+2: 2 news); red (+6: 3 trends); spot (+6: 2 trends, 1 news); text (+2: 2 news)",
+   "score": 16,
+   "trend": 16
+  },
+  "wd-117": {
+   "matched": [
+    "verification (+1: 1 news)"
+   ],
+   "performance": 0,
+   "reason": "trend score 1: verification (+1: 1 news)",
+   "score": 1,
+   "trend": 1
+  },
+  "wd-118": {
+   "matched": [
+    "ai (+2: 7 news)",
+    "area (+1: 1 news)",
+    "group (+2: 2 news)",
+    "prompt (+2: 2 news)"
+   ],
+   "performance": 0,
+   "reason": "trend score 7: ai (+2: 7 news); area (+1: 1 news); group (+2: 2 news); prompt (+2: 2 news)",
+   "score": 7,
+   "trend": 7
+  },
+  "wd-119": {
+   "matched": [
+    "ai (+2: 7 news)",
+    "money (+1: 1 news)",
+    "prompt (+2: 2 news)"
+   ],
+   "performance": 0,
+   "reason": "trend score 5: ai (+2: 7 news); money (+1: 1 news); prompt (+2: 2 news)",
+   "score": 5,
+   "trend": 5
+  },
+  "wd-120": {
+   "matched": [
+    "ai (+2: 7 news)",
+    "money (+1: 1 news)",
+    "prompt (+2: 2 news)"
+   ],
+   "performance": 0,
+   "reason": "trend score 5: ai (+2: 7 news); money (+1: 1 news); prompt (+2: 2 news)",
+   "score": 5,
+   "trend": 5
+  },
+  "wd-121": {
+   "matched": [
+    "ai (+2: 7 news)",
+    "kids (+6: 2 trends)",
+    "list (+1: 1 news)",
+    "prompt (+2: 2 news)"
+   ],
+   "performance": 0,
+   "reason": "trend score 11: ai (+2: 7 news); kids (+6: 2 trends); list (+1: 1 news); prompt (+2: 2 news)",
+   "score": 11,
+   "trend": 11
+  },
+  "wd-122": {
+   "matched": [
+    "ai (+2: 7 news)",
+    "prompt (+2: 2 news)"
+   ],
+   "performance": 0,
+   "reason": "trend score 4: ai (+2: 7 news); prompt (+2: 2 news)",
+   "score": 4,
+   "trend": 4
+  },
+  "wd-123": {
+   "matched": [
+    "ai (+2: 7 news)",
+    "prepare (+1: 1 news)",
+    "prompt (+2: 2 news)",
+    "question (+4: 4 news)"
+   ],
+   "performance": 0,
+   "reason": "trend score 9: ai (+2: 7 news); prepare (+1: 1 news); prompt (+2: 2 news); question (+4: 4 news)",
+   "score": 9,
+   "trend": 9
+  },
+  "wd-124": {
+   "matched": [
+    "ai (+2: 7 news)",
+    "prompt (+2: 2 news)",
+    "say (+1: 1 news)"
+   ],
+   "performance": 0,
+   "reason": "trend score 5: ai (+2: 7 news); prompt (+2: 2 news); say (+1: 1 news)",
+   "score": 5,
+   "trend": 5
+  },
+  "wd-125": {
+   "matched": [
+    "ai (+2: 7 news)",
+    "explain (+3: 1 trend)",
+    "prompt (+2: 2 news)"
+   ],
+   "performance": 0,
+   "reason": "trend score 7: ai (+2: 7 news); explain (+3: 1 trend); prompt (+2: 2 news)",
+   "score": 7,
+   "trend": 7
+  },
+  "wd-126": {
+   "matched": [
+    "ai (+2: 7 news)",
+    "christmas (+2: 2 news)",
+    "holiday (+1: 1 news)",
+    "prompt (+2: 2 news)"
+   ],
+   "performance": 0,
+   "reason": "trend score 7: ai (+2: 7 news); christmas (+2: 2 news); holiday (+1: 1 news); prompt (+2: 2 news)",
+   "score": 7,
+   "trend": 7
+  },
+  "wd-127": {
+   "matched": [
+    "ai (+2: 7 news)",
+    "buy (+6: 2 trends, 2 news)",
+    "product (+1: 1 news)",
+    "prompt (+2: 2 news)"
+   ],
+   "performance": 0,
+   "reason": "trend score 11: ai (+2: 7 news); buy (+6: 2 trends, 2 news); product (+1: 1 news); prompt (+2: 2 news)",
+   "score": 11,
+   "trend": 11
+  },
+  "wd-128": {
+   "matched": [
+    "ai (+2: 7 news)",
+    "prompt (+2: 2 news)"
+   ],
+   "performance": 0,
+   "reason": "trend score 4: ai (+2: 7 news); prompt (+2: 2 news)",
+   "score": 4,
+   "trend": 4
+  },
+  "wd-129": {
+   "matched": [
+    "ai (+2: 7 news)",
+    "prompt (+2: 2 news)"
+   ],
+   "performance": 0,
+   "reason": "trend score 4: ai (+2: 7 news); prompt (+2: 2 news)",
+   "score": 4,
+   "trend": 4
+  },
+  "wd-130": {
+   "matched": [
+    "ai (+2: 7 news)",
+    "note (+1: 1 news)",
+    "prompt (+2: 2 news)"
+   ],
+   "performance": 0,
+   "reason": "trend score 5: ai (+2: 7 news); note (+1: 1 news); prompt (+2: 2 news)",
+   "score": 5,
+   "trend": 5
+  },
+  "wd-131": {
+   "matched": [
+    "ai (+2: 7 news)",
+    "list (+1: 1 news)",
+    "long (+1: 1 news)",
+    "prompt (+2: 2 news)"
+   ],
+   "performance": 0,
+   "reason": "trend score 6: ai (+2: 7 news); list (+1: 1 news); long (+1: 1 news); prompt (+2: 2 news)",
+   "score": 6,
+   "trend": 6
+  },
+  "wd-132": {
+   "matched": [
+    "ai (+2: 7 news)",
+    "firm (+1: 1 news)",
+    "ignore (+1: 1 news)",
+    "prompt (+2: 2 news)"
+   ],
+   "performance": 0,
+   "reason": "trend score 6: ai (+2: 7 news); firm (+1: 1 news); ignore (+1: 1 news); prompt (+2: 2 news)",
+   "score": 6,
+   "trend": 6
+  },
+  "wd-135": {
+   "matched": [
+    "android (+2: 3 news)",
+    "iphone (+2: 3 news)",
+    "text (+2: 2 news)"
+   ],
+   "performance": 0,
+   "reason": "trend score 6: android (+2: 3 news); iphone (+2: 3 news); text (+2: 2 news)",
+   "score": 6,
+   "trend": 6
+  },
+  "wd-137": {
+   "matched": [
+    "iphone (+2: 3 news)",
+    "limit (+1: 1 news)"
+   ],
+   "performance": 0,
+   "reason": "trend score 3: iphone (+2: 3 news); limit (+1: 1 news)",
+   "score": 3,
+   "trend": 3
+  },
+  "wd-142": {
+   "matched": [
+    "iphone (+2: 3 news)",
+    "security (+3: 3 news)"
+   ],
+   "performance": 0,
+   "reason": "trend score 5: iphone (+2: 3 news); security (+3: 3 news)",
+   "score": 5,
+   "trend": 5
+  },
+  "wd-143": {
+   "matched": [
+    "iphone (+2: 3 news)",
+    "money (+1: 1 news)"
+   ],
+   "performance": 0,
+   "reason": "trend score 3: iphone (+2: 3 news); money (+1: 1 news)",
+   "score": 3,
+   "trend": 3
+  },
+  "wd-144": {
+   "matched": [
+    "card (+1: 1 news)",
+    "money (+1: 1 news)"
+   ],
+   "performance": 0,
+   "reason": "trend score 2: card (+1: 1 news); money (+1: 1 news)",
+   "score": 2,
+   "trend": 2
+  },
+  "wd-145": {
+   "matched": [
+    "black (+1: 1 news)",
+    "friday (+1: 1 news)",
+    "money (+1: 1 news)",
+    "price (+2: 2 news)"
+   ],
+   "performance": 0,
+   "reason": "trend score 5: black (+1: 1 news); friday (+1: 1 news); money (+1: 1 news); price (+2: 2 news)",
+   "score": 5,
+   "trend": 5
+  },
+  "wd-146": {
+   "matched": [
+    "ai (+2: 7 news)",
+    "call (+3: 3 news)",
+    "lower (+1: 1 news)",
+    "money (+1: 1 news)",
+    "prompt (+2: 2 news)"
+   ],
+   "performance": 0,
+   "reason": "trend score 9: ai (+2: 7 news); call (+3: 3 news); lower (+1: 1 news); money (+1: 1 news); prompt (+2: 2 news)",
+   "score": 9,
+   "trend": 9
+  },
+  "wd-148": {
+   "matched": [
+    "iphone (+2: 3 news)"
+   ],
+   "performance": 0,
+   "reason": "trend score 2: iphone (+2: 3 news)",
+   "score": 2,
+   "trend": 2
+  },
+  "wd-149": {
+   "matched": [
+    "money (+1: 1 news)",
+    "note (+1: 1 news)",
+    "photo (+3: 3 news)",
+    "swap (+3: 1 trend)"
+   ],
+   "performance": 0,
+   "reason": "trend score 8: money (+1: 1 news); note (+1: 1 news); photo (+3: 3 news); swap (+3: 1 trend)",
+   "score": 8,
+   "trend": 8
+  }
+ },
+ "sources": [
+  {
+   "count": 40,
+   "name": "Google Trends US",
+   "ok": true
+  },
+  {
+   "count": 20,
+   "name": "Google News: iPhone",
+   "ok": true
+  },
+  {
+   "count": 20,
+   "name": "Google News: ChatGPT",
+   "ok": true
+  },
+  {
+   "count": 20,
+   "name": "Google News: Android",
+   "ok": true
+  },
+  {
+   "count": 20,
+   "name": "Google News: AI",
+   "ok": true
+  },
+  {
+   "count": 20,
+   "name": "Google News: scam",
+   "ok": true
+  },
+  {
+   "count": 20,
+   "name": "Google News: battery",
+   "ok": true
+  },
+  {
+   "count": 20,
+   "name": "Google News: iOS update",
+   "ok": true
+  }
+ ],
+ "titles": [
+  {
+   "src": "trends",
+   "t": "türkiye vs belgium"
+  },
+  {
+   "src": "trends",
+   "t": "Turkey vs Belgium: UEFA Nations League stats & head-to-head"
+  },
+  {
+   "src": "trends",
+   "t": "Turkey vs. Belgium Nations League prediction, start time, how to watch"
+  },
+  {
+   "src": "trends",
+   "t": "Turkiye vs Belgium Predictions: Three points a must for both sides"
+  },
+  {
+   "src": "trends",
+   "t": "turquía - bélgica"
+  },
+  {
+   "src": "trends",
+   "t": "A qué hora y dónde ver el partido Turquía vs. Bélgica de UEFA Nations League 2026-27"
+  },
+  {
+   "src": "trends",
+   "t": "Alineaciones de Turquía y Bélgica por la Liga de Naciones: formaciones probables"
+  },
+  {
+   "src": "trends",
+   "t": "Turquía-Bélgica: Los turcos quieren volver a ganar ante los suyos"
+  },
+  {
+   "src": "trends",
+   "t": "hurricanes vs kraken"
+  },
+  {
+   "src": "trends",
+   "t": "Projected Lineup: November 12 at Seattle"
+  },
+  {
+   "src": "trends",
+   "t": "Kraken vs. Hurricanes: Preview, How to Watch, and Game Thread"
+  },
+  {
+   "src": "trends",
+   "t": "Hurricanes vs. Kraken NHL odds, picks: Carolina looks to keep rolling in rare Thursday matinee from Finland"
+  },
+  {
+   "src": "trends",
+   "t": "noah kahan fenway"
+  },
+  {
+   "src": "trends",
+   "t": "Noah Kahan adds two more Fenway Park shows to tour next summer"
+  },
+  {
+   "src": "trends",
+   "t": "Thousands fight for chance to see Noah Kahan at Fenway Park in 'the ticket war'"
+  },
+  {
+   "src": "trends",
+   "t": "Noah Kahan adds second Ford Field show amid heavy ticket demand"
+  },
+  {
+   "src": "trends",
+   "t": "whoopi goldberg"
+  },
+  {
+   "src": "trends",
+   "t": "Whoopi Goldberg scolds Democrats with blunt rebuke on The View"
+  },
+  {
+   "src": "trends",
+   "t": "Whoopi Goldberg Speaks Directly to Pete Hegseth & Democrats on ‘The View’"
+  },
+  {
+   "src": "trends",
+   "t": "WATCH: The View Debates Pete Hegseth Impeachment Articles [Video]"
+  },
+  {
+   "src": "trends",
+   "t": "steve witkoff"
+  },
+  {
+   "src": "trends",
+   "t": "CNN doorstops US envoy Steve Witkoff"
+  },
+  {
+   "src": "trends",
+   "t": "U.S. envoys meet with Putin in the Kremlin after Ukraine talks in Abu Dhabi"
+  },
+  {
+   "src": "trends",
+   "t": "Russia, Ukraine reach deal on prisoner swap as US says lack of trust holds back talks"
+  },
+  {
+   "src": "trends",
+   "t": "robbie avila"
+  },
+  {
+   "src": "trends",
+   "t": "Robbie Avila Nears Contract for New Landing Spot in Latest Rumors After Lakers Stint, SLU Transfer"
+  },
+  {
+   "src": "trends",
+   "t": "TCU closing in on adding Saint Louis transfer Robbie Avila"
+  },
+  {
+   "src": "trends",
+   "t": "A college basketball cult hero is eligible to return. His team doesn’t have a spot for him"
+  },
+  {
+   "src": "trends",
+   "t": "salma hayek"
+  },
+  {
+   "src": "trends",
+   "t": "Salma Hayek Is A Vision In A Red Sparkly Gown At LACMA Gala With Her Billionaire Husband: 'Divine'"
+  },
+  {
+   "src": "trends",
+   "t": "Salma Hayek Wears Crimson Gucci Gown for LACMA Gala 2026 Red Carpet"
+  },
+  {
+   "src": "trends",
+   "t": "Salma Hayek Pinault Shimmers in Slinky Red-Hot Off-the-Shoulder Gown for Red Carpet Date Night"
+  },
+  {
+   "src": "trends",
+   "t": "penelope cruz"
+  },
+  {
+   "src": "trends",
+   "t": "Penélope Cruz Says Her Kids with Javier Bardem Have More ‘Freedom’ Living in Madrid: ‘They Deserve That’"
+  },
+  {
+   "src": "trends",
+   "t": "Penélope Cruz Explains Why Living in Spain Is “Easier” for Her Two Kids With Husband Javier Bardem"
+  },
+  {
+   "src": "trends",
+   "t": "Penelope Cruz, husband open on why they moved to Spain"
+  },
+  {
+   "src": "trends",
+   "t": "air bakin"
+  },
+  {
+   "src": "trends",
+   "t": "Where to Buy the Nike Air Bakin Varsity Royal"
+  },
+  {
+   "src": "trends",
+   "t": "Where To Buy The Nike Air Bakin “Varsity Royal”"
+  },
+  {
+   "src": "trends",
+   "t": "Nike’s Air Bakin Retro Revival Continues in Multi-Color Tweed Next Spring"
+  },
+  {
+   "q": "iPhone",
+   "src": "news",
+   "t": "Apple iPhone Duo, one month in: I'm never going back to the Pro - Mashable"
+  },
+  {
+   "q": "iPhone",
+   "src": "news",
+   "t": "All the news about the iPhone Duo - The Verge"
+  },
+  {
+   "q": "iPhone",
+   "src": "news",
+   "t": "‘Immediate Action Required’—Urgent Warning To ‘Delete’ These Money-Stealing iPhone Apps Issued - Forbes"
+  },
+  {
+   "q": "iPhone",
+   "src": "news",
+   "t": "The iPhone 18: What We Know About Apple’s Spring Lineup - CNET"
+  },
+  {
+   "q": "iPhone",
+   "src": "news",
+   "t": "Apple's Official iPhone 18 Pro Cases and Watch Bands Get Big Discounts on Amazon - MacRumors"
+  },
+  {
+   "q": "iPhone",
+   "src": "news",
+   "t": "HomeView is Apple’s first post-iPhone device - Macworld"
+  },
+  {
+   "q": "iPhone",
+   "src": "news",
+   "t": "Apple adjusts iPhone and Apple Watch trade-in values, adds Samsung foldables - 9to5Mac"
+  },
+  {
+   "q": "iPhone",
+   "src": "news",
+   "t": "Google’s new Android XR glasses work with iOS, Made for iPhone certified - 9to5Google"
+  },
+  {
+   "q": "iPhone",
+   "src": "news",
+   "t": "Google's AI smart glasses work with iPhone, preorders are live - AppleInsider"
+  },
+  {
+   "q": "iPhone",
+   "src": "news",
+   "t": "How long your iPhone 15 really lasts before Apple drops support - The Mac Observer"
+  },
+  {
+   "q": "iPhone",
+   "src": "news",
+   "t": "Where to buy the iPhone Duo for best chance of UK delivery before Christmas 2026 - Radio Times"
+  },
+  {
+   "q": "iPhone",
+   "src": "news",
+   "t": "30 Percent ⭐ - Thurrott.com"
+  },
+  {
+   "q": "iPhone",
+   "src": "news",
+   "t": "Apple's $299 HomeView lands with reviews calling it great for iPhone owners - Startup Fortune"
+  },
+  {
+   "q": "iPhone",
+   "src": "news",
+   "t": "Urgent warning: An unpatched iPhone flaw is putting crypto holders at risk - PhoneArena"
+  },
+  {
+   "q": "iPhone",
+   "src": "news",
+   "t": "30% of iPhone Duo buyers may have returned it, but I don’t think Apple should worry - 9to5Mac"
+  },
+  {
+   "q": "iPhone",
+   "src": "news",
+   "t": "Why We're Folding the iPhone Duo Hundreds of Thousands of Times: 16 Questions, Answered - CNET"
+  },
+  {
+   "q": "iPhone",
+   "src": "news",
+   "t": "iPhone 11 | Release Dates, Features, Specs, Prices - AppleInsider"
+  },
+  {
+   "q": "iPhone",
+   "src": "news",
+   "t": "Foxconn revenue climbs 46%; Bloomberg forecasts 16M iPhone Duo sales - 9to5Mac"
+  },
+  {
+   "q": "iPhone",
+   "src": "news",
+   "t": "Best iPhone 18 Pro and 18 Pro Max Cases of 2026 - CNET"
+  },
+  {
+   "q": "iPhone",
+   "src": "news",
+   "t": "iPhone Duo one week later: The future, or not for me? - 9to5Mac"
+  },
+  {
+   "q": "ChatGPT",
+   "src": "news",
+   "t": "Catching rogue agents and preventing cyberattacks—quantum computing is about to have its ‘ChatGPT moment’ - Fortune"
+  },
+  {
+   "q": "ChatGPT",
+   "src": "news",
+   "t": "Clipto enables ChatGPT and Claude to search and analyze years of people's meetings and video calls - SiliconANGLE"
+  },
+  {
+   "q": "ChatGPT",
+   "src": "news",
+   "t": "OpenAI To Retire ChatGPT Advanced And Standard Voice On December 11 - Dataconomy"
+  },
+  {
+   "q": "ChatGPT",
+   "src": "news",
+   "t": "ChatGPT Brand Metrics, $64B Anthropic IPO: DesignRush AI Roundup - DesignRush"
+  },
+  {
+   "q": "ChatGPT",
+   "src": "news",
+   "t": "How to Submit Your Website to ChatGPT Business Hub - Search Engine Journal"
+  },
+  {
+   "q": "ChatGPT",
+   "src": "news",
+   "t": "Google's Gemini Joins ChatGPT As an Option for AI Voice Chats Via CarPlay - PCMag"
+  },
+  {
+   "q": "ChatGPT",
+   "src": "news",
+   "t": "5 ChatGPT Prompts To Build Generational Wealth - Forbes"
+  },
+  {
+   "q": "ChatGPT",
+   "src": "news",
+   "t": "This AI stock picker brings a ChatGPT-like experience to investing - Popular Science"
+  },
+  {
+   "q": "ChatGPT",
+   "src": "news",
+   "t": "ChatGPT Adds Business Profiles and Agents to Answer Shoppers’ Questions - WinBuzzer"
+  },
+  {
+   "q": "ChatGPT",
+   "src": "news",
+   "t": "ChatGPT Accurately Outlines Peripheral Nerve Procedures but Falters Without Structured Prompts - Bioengineer.org"
+  },
+  {
+   "q": "ChatGPT",
+   "src": "news",
+   "t": "OnePlan's November 2026 Release Brings Portfolio Data into ChatGPT, Claude and Copilot, and Adds Outcome Tracking for Strategic Investments - Yahoo Finance"
+  },
+  {
+   "q": "ChatGPT",
+   "src": "news",
+   "t": "How do you claim your business in ChatGPT? - Axia Public Relations"
+  },
+  {
+   "q": "ChatGPT",
+   "src": "news",
+   "t": "I Already Pay for ChatGPT Business. Which Card Should I Use? - Upgraded Points"
+  },
+  {
+   "q": "ChatGPT",
+   "src": "news",
+   "t": "The Honorable ChatGPT presiding: What if the judge were an AI bot? - American Council on Science and Health"
+  },
+  {
+   "q": "ChatGPT",
+   "src": "news",
+   "t": "Your Next Customer May Never Visit Google. Here's What Every Business Owner Needs to Do Now - Inc.com"
+  },
+  {
+   "q": "ChatGPT",
+   "src": "news",
+   "t": "ProjectTeam, Inc. Brings ChatGPT, Claude, and Gemini Into Construction Management With MCP Connector - The National Law Review"
+  },
+  {
+   "q": "ChatGPT",
+   "src": "news",
+   "t": "Aleph Becomes OpenAI’s Exclusive ChatGPT Ads Reseller in 44 Countries - Unite.AI"
+  },
+  {
+   "q": "ChatGPT",
+   "src": "news",
+   "t": "Grok vs ChatGPT: $6 vs $10 per 1M Output Tokens [2026] - shattered.io"
+  },
+  {
+   "q": "ChatGPT",
+   "src": "news",
+   "t": "Maybelline brings virtual makeup try-on to ChatGPT as AI transforms beauty shopping - Marketing Tech News"
+  },
+  {
+   "q": "ChatGPT",
+   "src": "news",
+   "t": "I asked ChatGPT, Gemini, Claude & Perplexity about AI companions in 2030 — here's what surprised me - Yahoo Tech"
+  },
+  {
+   "q": "Android",
+   "src": "news",
+   "t": "Google and Samsung’s Android XR Smart Glasses Are Finally Here - WIRED"
+  },
+  {
+   "q": "Android",
+   "src": "news",
+   "t": "Google’s new Android XR glasses work with iOS, Made for iPhone certified - 9to5Google"
+  },
+  {
+   "q": "Android",
+   "src": "news",
+   "t": "Android Auto is getting a killer Gemini feature every driver actually wants - Android Police"
+  },
+  {
+   "q": "Android",
+   "src": "news",
+   "t": "Android XR Glasses from Warby Parker & Gentle Monster Coming December 10, Pre-orders Now Live - Road to VR"
+  },
+  {
+   "q": "Android",
+   "src": "news",
+   "t": "Google’s $395 smart glasses work with iPhones but not most Android brands - Martin Cid Magazine"
+  },
+  {
+   "q": "Android",
+   "src": "news",
+   "t": "The first batch of Android XR smartglasses made me rethink my stance on specs without displays - Engadget"
+  },
+  {
+   "q": "Android",
+   "src": "news",
+   "t": "Android Auto’s next Gemini upgrade is leaving non-Pixel phones behind - Android Authority"
+  },
+  {
+   "q": "Android",
+   "src": "news",
+   "t": "GhostMap Android Vulnerability Can Trigger Persistent Boot Loops Without App Permissions - Cybersecurity Insiders"
+  },
+  {
+   "q": "Android",
+   "src": "news",
+   "t": "Google’s new Android XR glasses are stylish with a lower ‘creep factor’ than its competitors - ZDNET"
+  },
+  {
+   "q": "Android",
+   "src": "news",
+   "t": "First Android XR Smart Glasses From Warby Parker Gentle Monster Are Launching in December - Thurrott.com"
+  },
+  {
+   "q": "Android",
+   "src": "news",
+   "t": "Bring your Android apps, notifications, and files to Windows with this free open-source hub - MakeUseOf"
+  },
+  {
+   "q": "Android",
+   "src": "news",
+   "t": "Google's Android XR Glasses Challenge Meta's Smart Eyewear Lead - The Tech Buzz"
+  },
+  {
+   "q": "Android",
+   "src": "news",
+   "t": "Here’s how Google’s Android XR glasses are handling the camera & privacy - 9to5Google"
+  },
+  {
+   "q": "Android",
+   "src": "news",
+   "t": "You can finally pre-order Samsung’s smart glasses with Android XR - Android Authority"
+  },
+  {
+   "q": "Android",
+   "src": "news",
+   "t": "Hands-on: Google and Samsung’s vision for Android XR glasses is 20/20 - 9to5Google"
+  },
+  {
+   "q": "Android",
+   "src": "news",
+   "t": "YouTube Server Error 400 on Android is now fixed, Google confirms - Android Authority"
+  },
+  {
+   "q": "Android",
+   "src": "news",
+   "t": "The iPhone Duo’s rocky launch is a reminder of how far Android foldables have come - 9to5Google"
+  },
+  {
+   "q": "Android",
+   "src": "news",
+   "t": "Missing Gboard’s Rambler on your Pixel 10? Here’s how to manually enable it - Android Authority"
+  },
+  {
+   "q": "Android",
+   "src": "news",
+   "t": "‘Hey Gemini’ hotword debuts on Android XR glasses - 9to5Google"
+  },
+  {
+   "q": "Android",
+   "src": "news",
+   "t": "Samsung and Google's first Android XR glasses are here, starting at $395 - Android Police"
+  },
+  {
+   "q": "AI",
+   "src": "news",
+   "t": "Jensen Huang's exit from Nvidia raises critical questions about the future of AI - CNBC"
+  },
+  {
+   "q": "AI",
+   "src": "news",
+   "t": "S&P 500, Nasdaq fall as Nvidia CEO's exit rattles AI stocks - Reuters"
+  },
+  {
+   "q": "AI",
+   "src": "news",
+   "t": "Five Cornell Thought Summits to explore emerging questions in AI and data science - Cornell Chronicle"
+  },
+  {
+   "q": "AI",
+   "src": "news",
+   "t": "Scaling AI value without losing control: Lessons from Frontier Firms - The Official Microsoft Blog"
+  },
+  {
+   "q": "AI",
+   "src": "news",
+   "t": "Jensen Huang resigns. - Marcus on AI | Substack"
+  },
+  {
+   "q": "AI",
+   "src": "news",
+   "t": "Italy's latest approach to AI, privacy and cybersecurity - IAPP"
+  },
+  {
+   "q": "AI",
+   "src": "news",
+   "t": "Why you should expect an AI crash - The Economist"
+  },
+  {
+   "q": "AI",
+   "src": "news",
+   "t": "How AI Search Amplifies The Cost Of Bad Business Data - Forbes"
+  },
+  {
+   "q": "AI",
+   "src": "news",
+   "t": "IAB Releases AI-Era Attribution Blueprint, Giving the Industry a Shared Way to Account for AI’s Role in Purchases - Interactive Advertising Bureau"
+  },
+  {
+   "q": "AI",
+   "src": "news",
+   "t": "Attackers Use Autonomous AI to Target Semiconductor, Defense and Civil Society Sectors - Unit 42"
+  },
+  {
+   "q": "AI",
+   "src": "news",
+   "t": "🔥 Jensen Huang and the future of the AI boom - Exponential View | Azeem Azhar"
+  },
+  {
+   "q": "AI",
+   "src": "news",
+   "t": "How Public Health Agencies Can Use Artificial Intelligence Effectively and Responsibly - The Pew Charitable Trusts"
+  },
+  {
+   "q": "AI",
+   "src": "news",
+   "t": "AI found widespread IoT vulnerabilities more quickly and cheaply than humans could - Cybersecurity Dive"
+  },
+  {
+   "q": "AI",
+   "src": "news",
+   "t": "AI and the Practice of Medicine: Examining Accountability and Responsibility in the AI Era - American Medical Association | AMA"
+  },
+  {
+   "q": "AI",
+   "src": "news",
+   "t": "UNESCO joins EU-funded CULTURAI project to advance responsible AI in the cultural and creative sectors - UNESCO"
+  },
+  {
+   "q": "AI",
+   "src": "news",
+   "t": "Jensen Huang, an architect of the AI boom, resigns as Nvidia CEO - Axios"
+  },
+  {
+   "q": "AI",
+   "src": "news",
+   "t": "Nvidia CEO Jensen Huang resigns in big blow to AI boom - Reuters"
+  },
+  {
+   "q": "AI",
+   "src": "news",
+   "t": "AI sceptics focus on the wrong threats - The Economist"
+  },
+  {
+   "q": "AI",
+   "src": "news",
+   "t": "How a new AI model could help crushed rock fight climate change - Microsoft Source"
+  },
+  {
+   "q": "AI",
+   "src": "news",
+   "t": "United Airlines Alone In Blocking AI Agents From Booking Flights—Rivals Say Customers Assume Risk - Forbes"
+  },
+  {
+   "q": "scam",
+   "src": "news",
+   "t": "Getting Too Little Sleep Makes You Easier to Scam - Time Magazine"
+  },
+  {
+   "q": "scam",
+   "src": "news",
+   "t": "Scams: What Psychiatrists Need to Know - Psychiatric Times"
+  },
+  {
+   "q": "scam",
+   "src": "news",
+   "t": "SOCIAL SECURITY: Scam awareness resources for your community - Big Rapids Pioneer"
+  },
+  {
+   "q": "scam",
+   "src": "news",
+   "t": "City of Norman warns residents of scam phone calls - KFOR"
+  },
+  {
+   "q": "scam",
+   "src": "news",
+   "t": "Tennessee Officials Warn About Rise of ‘Memo of Sale’ Scam Targeting Homeowners - Insurance Journal"
+  },
+  {
+   "q": "scam",
+   "src": "news",
+   "t": "Norman police warn of phone scammers pretending to be your child - KOCO"
+  },
+  {
+   "q": "scam",
+   "src": "news",
+   "t": "Suspect steals $9M in gold bars in scam targeting Upper West Side man: NYPD - Audacy"
+  },
+  {
+   "q": "scam",
+   "src": "news",
+   "t": "Column | If you’ve been scammed on a dating app, reporting it could soon get easier - The Washington Post"
+  },
+  {
+   "q": "scam",
+   "src": "news",
+   "t": "Why scammers want you to allow push notifications - Malwarebytes"
+  },
+  {
+   "q": "scam",
+   "src": "news",
+   "t": "NYC man loses $9M in gold bar scam; NYPD releases photos of suspect - SILive.com"
+  },
+  {
+   "q": "scam",
+   "src": "news",
+   "t": "Letter: Response to ‘R.I. sues Meta, alleging company profited from scam advertising, failed to protect users’ - Brown Daily Herald"
+  },
+  {
+   "q": "scam",
+   "src": "news",
+   "t": "Scammers stole his image to lure the lovesick. Then the lovesick came looking for him - AP News"
+  },
+  {
+   "q": "scam",
+   "src": "news",
+   "t": "Customer Tried to Scam LA Pizza Shop With AI Image - PetaPixel"
+  },
+  {
+   "q": "scam",
+   "src": "news",
+   "t": "42% of Scam Victims Who Report to Banks Recover Every Dollar - PYMNTS.com"
+  },
+  {
+   "q": "scam",
+   "src": "news",
+   "t": "How to spot fake FTC websites and FTC impersonators - Consumer Advice | Federal Trade Commission (.gov)"
+  },
+  {
+   "q": "scam",
+   "src": "news",
+   "t": "Holiday shopping scams are getting harder to detect. Here’s how to protect yourself - KNSI"
+  },
+  {
+   "q": "scam",
+   "src": "news",
+   "t": "Three charged in $129M AI deepfake CEO fraud case - Bitdefender"
+  },
+  {
+   "q": "scam",
+   "src": "news",
+   "t": "Area law enforcement search for information on man who reportedly scammed multiple banks - BG Independent News"
+  },
+  {
+   "q": "scam",
+   "src": "news",
+   "t": "CCSO: Don’t be Trixed by elaborate cereal scam - Clay Today"
+  },
+  {
+   "q": "scam",
+   "src": "news",
+   "t": "Fake check scam targets local small bakeries: ‘Really disheartening’ - WLNS 6 News"
+  },
+  {
+   "q": "battery",
+   "src": "news",
+   "t": "What to know about the rise in lithium-ion battery fires - IAFF"
+  },
+  {
+   "q": "battery",
+   "src": "news",
+   "t": "Forbes Daily: The Startup Challenging Tesla’s Home Battery Dominance - Forbes"
+  },
+  {
+   "q": "battery",
+   "src": "news",
+   "t": "This American Battery Could Break China’s Grip On The EV Supply Chain - InsideEVs"
+  },
+  {
+   "q": "battery",
+   "src": "news",
+   "t": "This battery runs on vitamin B12 - Anthropocene Magazine"
+  },
+  {
+   "q": "battery",
+   "src": "news",
+   "t": "‘It is much, much faster’: could China’s battery-swapping e-trucks be the answer to EV range anxiety? - The Guardian"
+  },
+  {
+   "q": "battery",
+   "src": "news",
+   "t": "Utility tariff links 600 MWh Utah battery to Meta data center - ESS News"
+  },
+  {
+   "q": "battery",
+   "src": "news",
+   "t": "PLC Battery Phaseouts Test What Maintenance Contracts Cover - Environment+Energy Leader"
+  },
+  {
+   "q": "battery",
+   "src": "news",
+   "t": "German utility to build 7.5MW/30MWh project using Eos’ zinc-bromide battery tech - Energy-Storage.News"
+  },
+  {
+   "q": "battery",
+   "src": "news",
+   "t": "Did Walmart Use Market Power to Rig Battery Prices? - Washington Monthly"
+  },
+  {
+   "q": "battery",
+   "src": "news",
+   "t": "A new form of carbon for safer battery anodes - Chemistry World"
+  },
+  {
+   "q": "battery",
+   "src": "news",
+   "t": "Walmart is blowing out Greenworks battery-powered yard tools for up to $500 during its early Black Friday sale - Popular Science"
+  },
+  {
+   "q": "battery",
+   "src": "news",
+   "t": "Joanna could be site of a battery-storage facility - The Clinton Chronicle"
+  },
+  {
+   "q": "battery",
+   "src": "news",
+   "t": "Big Law Cashes In on AI-Driven Solar, Battery Deal Surge in Texas - Bloomberg Law News"
+  },
+  {
+   "q": "battery",
+   "src": "news",
+   "t": "Six batteries off the bench, the drill in a hard case, and a clip on every tool - The Gadgeteer"
+  },
+  {
+   "q": "battery",
+   "src": "news",
+   "t": "Clarios Expands hAGM Battery Technology Across Markets - AftermarketNews"
+  },
+  {
+   "q": "battery",
+   "src": "news",
+   "t": "GET OUT: E-Bike Battery Fires are a Crisis We Can No Longer Ignore - Streetsblog New York City"
+  },
+  {
+   "q": "battery",
+   "src": "news",
+   "t": "Lithium-CO₂ battery catalyst made from iron and molybdenum avoids platinum and iridium - Electric & Hybrid Vehicle Technology International"
+  },
+  {
+   "q": "battery",
+   "src": "news",
+   "t": "Automotive Adhesives Market Forecast to 2035: Lightweighting and EV Battery Assembly Drive Growth - IndexBox"
+  },
+  {
+   "q": "battery",
+   "src": "news",
+   "t": "2022 Ford Maverick Hybrid Recalled Over Loose 12-Volt Battery Cable - Ford Authority"
+  },
+  {
+   "q": "battery",
+   "src": "news",
+   "t": "Solid-State Cells Can Make The U.S. Competitive In Batteries Again: CEO - InsideEVs"
+  },
+  {
+   "q": "iOS update",
+   "src": "news",
+   "t": "The iPhone 18: What We Know About Apple’s Spring Lineup - CNET"
+  },
+  {
+   "q": "iOS update",
+   "src": "news",
+   "t": "All the news about the iPhone Duo - The Verge"
+  },
+  {
+   "q": "iOS update",
+   "src": "news",
+   "t": "No Man's Sky is now available on iOS alongside the Forsaken update for all platforms - OpenCritic"
+  },
+  {
+   "q": "iOS update",
+   "src": "news",
+   "t": "Elastic OSC: iOS/Android polysynth with MI algorithms: update 2.2 with mod animations, better MIDI & more - synth anatomy"
+  },
+  {
+   "q": "iOS update",
+   "src": "news",
+   "t": "Where to buy the iPhone Duo for best chance of UK delivery before Christmas 2026 - Radio Times"
+  },
+  {
+   "q": "iOS update",
+   "src": "news",
+   "t": "Apple Drops New Updates: What Users Should Know - DailyVoice.com"
+  },
+  {
+   "q": "iOS update",
+   "src": "news",
+   "t": "Apple patches iMessage flaws that could expose private group chats to outsiders - Bitdefender"
+  },
+  {
+   "q": "iOS update",
+   "src": "news",
+   "t": "Apple Invites App Updated With Two New Features - MacRumors"
+  },
+  {
+   "q": "iOS update",
+   "src": "news",
+   "t": "Just weeks post-launch, app devs are embracing iPhone Duo with fresh apps, increased support - Malay Mail"
+  },
+  {
+   "q": "iOS update",
+   "src": "news",
+   "t": "4 Major New Features Coming to the Notes App in the iOS 27 Update - آي-فون إسلام"
+  },
+  {
+   "q": "iOS update",
+   "src": "news",
+   "t": "Apple Releases iOS 27.2.1 Security Update, Urges iPhone Users to Install - JournalArta"
+  },
+  {
+   "q": "iOS update",
+   "src": "news",
+   "t": "Apple Leaves Crypto Wallet Security Bug Unresolved in Latest iOS Update - Gadgets 360"
+  },
+  {
+   "q": "iOS update",
+   "src": "news",
+   "t": "IOS 27.3 Update May Let Siri Access Health Records, Sleep Patterns And Workout Data: All You Need to Know - Mashable India"
+  },
+  {
+   "q": "iOS update",
+   "src": "news",
+   "t": "Apple releases iOS 27.2.1 update to fix an embarrassing vulnerability in iMessage groups - آي-فون إسلام"
+  },
+  {
+   "q": "iOS update",
+   "src": "news",
+   "t": "iOS 27.2 update allows age verification with a quick selfie while fully protecting your privacy - آي-فون إسلام"
+  },
+  {
+   "q": "iOS update",
+   "src": "news",
+   "t": "Apple prepares to upgrade base iPhone 18 memory to 9GB - آي-فون إسلام"
+  },
+  {
+   "q": "iOS update",
+   "src": "news",
+   "t": "Even blocking has its limits! iOS 26.6 update will alert you when your blocked list is full - آي-فون إسلام"
+  },
+  {
+   "q": "iOS update",
+   "src": "news",
+   "t": "More Than Just an Annual Update: 15 New Products Apple Is Preparing to Launch This Year! - آي-فون إسلام"
+  },
+  {
+   "q": "iOS update",
+   "src": "news",
+   "t": "iPhone Handoff feature in iOS 27 update: One number for two devices, how to activate it, and the cost - آي-فون إسلام"
+  },
+  {
+   "q": "iOS update",
+   "src": "news",
+   "t": "A Strange Bug When Upgrading to iOS 27 Shows iOS 26.7.. Here is the Truth and a Safe Solution - آي-فون إسلام"
+  }
+ ],
+ "top_reels": [],
+ "updated_at": "2026-11-12T16:31:07+00:00",
+ "version": 1
+}
