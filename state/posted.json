@@ -4,22 +4,22 @@
   "dry_runs": [],
   "pending": {
     "id": "wd-102",
-    "container_id": "17983799981915954",
+    "container_id": "17983803158915954",
     "caption_sha256": "5a71e47a32f05dc9f5971641227b46a7a4b7ca9ee264229cee8515821b6afcf3",
-    "started_at": "2026-11-12T15:01:49+00:00"
+    "started_at": "2026-11-12T15:15:03+00:00"
   },
   "first_comments": [],
   "failures": {
     "wd-102": {
       "date": "2026-11-12",
-      "count": 1,
+      "count": 2,
       "last_error": "Meta rejected the video upload: Request processing failed",
       "permanent_days": []
     }
   },
   "blocked": {},
   "last_run": {
-    "at": "2026-11-12T15:01:49+00:00",
+    "at": "2026-11-12T15:15:03+00:00",
     "outcome": "failed",
     "mode": "live"
   }
