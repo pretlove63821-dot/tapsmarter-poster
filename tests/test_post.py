@@ -142,7 +142,7 @@ class Base(unittest.TestCase):
 
     def env(self, live=False, **kw):
         e = {"IG_TOKEN": TOKEN, "IG_USER_ID": IG, "GITHUB_TOKEN": GH_TOKEN, "GITHUB_REPOSITORY": "preet/reels",
-             "GITHUB_STEP_SUMMARY": str(self.summary)}
+             "GITHUB_STEP_SUMMARY": str(self.summary), "VIDEO_SOURCE": "upload"}
         if live:
             e["LIVE"] = "true"
         e.update(kw)
@@ -367,6 +367,17 @@ class DryRunTests(Base):
 
 
 class LiveTests(Base):
+    def test_public_repo_lets_instagram_fetch_the_video_by_url(self):
+        fake = FakeMeta()
+        code = self.run_post(rome(2026, 11, 12, 12, 5), fake, live=True, VIDEO_SOURCE="")
+        self.assertEqual(code, 0, self.out.getvalue())
+        form = parse_qs(fake.posts_to(f"{IG}/media")[0][3].decode())
+        self.assertEqual(form["video_url"][0],
+                         "https://github.com/preet/reels/releases/download/videos/wd-102.mp4")
+        self.assertNotIn("upload_type", form)
+        self.assertFalse(any("rupload" in c[1] for c in fake.calls))
+        self.assertEqual(len(fake.posts_to("/media_publish")), 1)
+
     def test_upload_goes_in_chunks_and_206_means_keep_going(self):
         class Chunky(FakeMeta):
             def __call__(self, method, url, headers, body, timeout, follow):

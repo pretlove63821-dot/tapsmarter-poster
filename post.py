@@ -530,6 +530,7 @@ class Env:
     repo: str
     in_actions: bool
     summary_path: str | None
+    video_source: str = "url"
 
 
 def truthy(v: str | None) -> bool:
@@ -544,6 +545,7 @@ def read_env(environ: dict, force_dry_run: bool) -> Env:
         ig_id=str(environ.get("IG_USER_ID") or "").strip(),
         gh_token=str(environ.get("GITHUB_TOKEN") or "").strip(),
         repo=str(environ.get("GITHUB_REPOSITORY") or "").strip(),
+        video_source=str(environ.get("VIDEO_SOURCE") or "url").strip().lower(),
         in_actions=str(environ.get("GITHUB_ACTIONS") or "") == "true",
         summary_path=environ.get("GITHUB_STEP_SUMMARY") or None,
     )
@@ -725,8 +727,21 @@ class Poster:
             return None
         return url if r.status == 200 and r.headers.get("content-type", "").lower().startswith("image/jp") else None
 
-    def create_container(self, item: Item) -> str:
-        base = {"media_type": "REELS", "upload_type": "resumable", "caption": item.caption, "is_ai_generated": "true"}
+    def public_video_url(self, item: Item) -> str | None:
+        """The repo is public (2026-11-12), so Instagram can fetch the release asset itself. Meta's rupload refuses
+        our ~30 MB Reels ("Request processing failed") while video_url works. Repo variable VIDEO_SOURCE=upload
+        switches back to the byte upload."""
+        if self.env.video_source == "upload" or not self.env.repo:
+            return None
+        return (f"https://github.com/{self.env.repo}/releases/download/"
+                f"{quote(self.sched.release_tag, safe='')}/{quote(item.asset, safe='')}")
+
+    def create_container(self, item: Item, video_url: str | None = None) -> str:
+        base = {"media_type": "REELS", "caption": item.caption, "is_ai_generated": "true"}
+        if video_url:
+            base["video_url"] = video_url
+        else:
+            base["upload_type"] = "resumable"
         extra = {"share_to_feed": "true"}
         cover = self.usable_cover(item.cover_url)
         if cover:
@@ -1026,12 +1041,16 @@ class Poster:
         return EXIT_OK
 
     def live_post(self, item: Item, video: Path) -> int:
-        container = self.create_container(item)
+        video_url = self.public_video_url(item)
+        container = self.create_container(item, video_url)
         self.state["pending"] = {"id": item.id, "container_id": container, "caption_sha256": sha256_text(item.caption),
                                  "started_at": self.now.astimezone(timezone.utc).isoformat(timespec="seconds")}
         self.save("uploading")
-        self.say(f"Instagram container {container} created; uploading the video.")
-        self.upload(container, video)
+        if video_url:
+            self.say(f"Instagram container {container} created; Instagram is fetching the video from GitHub.")
+        else:
+            self.say(f"Instagram container {container} created; uploading the video.")
+            self.upload(container, video)
         if not self.wait_ready(container):
             self.say("Instagram is still processing the video after 15 minutes; the next run checks it.")
             self.save("processing")

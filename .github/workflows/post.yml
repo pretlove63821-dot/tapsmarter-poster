@@ -52,6 +52,7 @@ jobs:
           IG_USER_ID: ${{ vars.IG_USER_ID }}
           LIVE: ${{ vars.LIVE }}
           PAUSED: ${{ vars.PAUSED }}
+          VIDEO_SOURCE: ${{ vars.VIDEO_SOURCE }}
           GITHUB_TOKEN: ${{ github.token }}
         run: python3 -I post.py
 
