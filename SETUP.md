@@ -1,7 +1,8 @@
 # Reel robot: setup (about 20 minutes, once)
 
-**What it does:** a free robot on GitHub posts one Instagram Reel every day, even when your Mac is asleep.
-It wakes up every 30 minutes in the morning, checks if today's Reel is due, and posts it. The Mac keeps answering
+**What it does:** a free robot on GitHub posts two Instagram Reels a day (one per slot), even when your Mac is
+asleep. It wakes up three times an hour, checks if a slot's Reel is due, and posts it. The same runs also save
+your follower and Reel numbers (`state/stats.json`) and move trending topics up the queue (`state/order.json`). The Mac keeps answering
 comments and DMs when it is awake, but it no longer posts Reels itself.
 
 It starts in **practice mode** (DRY-RUN): it checks everything and writes what it *would* post, but posts nothing.
@@ -74,9 +75,10 @@ just run it again: videos already uploaded are skipped. At the end it says `Done
 A green tick and lines like `DRY-RUN: would post wd-102 now` (or `wd-102 goes out after today's slot ...`)
 mean everything works. A red cross: read the summary, it says what to fix.
 
-From now on it runs by itself three times an hour, 14:05-21:45 UTC (15:05-22:45 Italy time in winter), and posts
-at the first run after the slot time written in the schedule (GitHub sometimes skips a run; the next one, about
-20 minutes later, posts instead). You do not need the Mac for it.
+From now on it runs by itself three times an hour, 13:05-02:45 UTC (14:05-03:45 Italy time in winter), and posts
+at the first run after each slot: weekdays 12:00 and 19:00 New York time (18:00 and 01:00 Italy in winter),
+weekends 10:00 and 18:00 (16:00 and 00:00 Italy). GitHub sometimes skips a run; the next one, about 20 minutes
+later, posts instead. You do not need the Mac for it.
 
 ## 9. Go live (only when you decide)
 Settings > Secrets and variables > Actions > **Variables** > `LIVE` > edit > type `true` > **Update variable**.
@@ -86,6 +88,11 @@ the next slot, in Italy time).
 ## Everyday switches
 * **Pause everything:** set `PAUSED` to `true`. Back on: `false`.
 * **Back to practice mode:** set `LIVE` to `false`.
+* **Stats off / trend order off:** add a variable `STATS` = `off` or `TRENDS` = `off` (`TRENDS=off` = plain plan
+  order). Delete the variable (or set `on`) to turn it back on.
+* **Views, reach, saves, shares:** need the `instagram_manage_insights` permission on the token. Until the new token
+  is in `IG_TOKEN`, `state/stats.json` says "stats unavailable: needs insights permission" (followers and likes
+  still come in) and posting is not affected.
 * **Schedule changed on the Mac:** run step 3 again, then in Terminal:
   `cd "/Users/preet/Automation Bots/cloud-poster" && git add schedule.json && git commit -m "New schedule" && git pull --rebase && git push`
 * **New or re-made videos:** run `./upload_videos.sh` again.
@@ -99,7 +106,12 @@ GitHub emails you when a run gets a **red cross**. Open it and read the summary:
   account. The robot checks again itself and never posts the same Reel twice.
 
 ## Good to know
-* One Reel per day, never two. If a day is missed (GitHub outage), that Reel goes out the next day and the
-  rest move back one day.
-* The robot writes what it posted into `state/posted.json` in the repo (do not edit it).
+* One Reel per slot, never two; at most 2 a day (Italy calendar) and at least 3 hours apart. If a slot is missed
+  completely (GitHub outage for more than 4 hours), it is skipped: the next slot takes the next Reel and the rest
+  move back one slot. Never a burst of catch-up posts.
+* Trend order: once a day the robot reads Google Trends and Google News (free, no keys) and lets the best-matching
+  of the next 14 videos go first. It never changes captions. If the trend sites can't be reached: plan order.
+* The robot writes what it posted into `state/posted.json`, and its numbers into `state/stats.json`,
+  `state/trends.json` and `state/order.json` (do not edit them). Your Mac reads them with
+  `python -m autopilot growth` or the Telegram `/growth` command.
 * Free: this uses no paid minutes (Actions are free for public repos).

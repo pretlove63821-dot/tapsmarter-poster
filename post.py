@@ -1,5 +1,6 @@
 #!/usr/bin/env python3
-"""Tap Smarter cloud poster: posts at most ONE Instagram Reel per run (and per day) from schedule.json.
+"""Tap Smarter cloud poster: posts at most ONE Instagram Reel per run (one per slot, 2 slots a day) from schedule.json,
+then refreshes state/stats.json (every 3 h), state/trends.json (daily) and state/order.json (trend order).
 
 Runs inside GitHub Actions (.github/workflows/post.yml) so Reels go out even when the Mac is asleep.
 Python 3.12, standard library only (nothing to pip install on the runner).
@@ -7,6 +8,7 @@ Python 3.12, standard library only (nothing to pip install on the runner).
 Switches (GitHub repo variables, read from the environment):
   PAUSED=true  -> do nothing at all.
   LIVE=true    -> really post. Anything else = DRY-RUN: every check runs, nothing is created or published.
+  STATS=off    -> no stats.   TRENDS=off -> no trend fetch, plan order only.
 Secret: IG_TOKEN (never printed, masked, scrubbed from every message). Variable: IG_USER_ID.
 
 The Instagram request shapes copy autopilot/publish/instagram_login.py (Unified-login "EAA..." token on
@@ -14,7 +16,8 @@ graph.facebook.com/v27.0, {IG_ID}/media REELS resumable -> rupload -> status_cod
 
 Exit codes: 0 ok (posted / nothing due / dry-run / paused), 1 setup problem (fix something),
             2 failed but safe to retry next run, 3 unclear outcome (a person should look; never re-posted blindly).
-See SCHEMA.md for schedule.json and state/posted.json.
+Stats and trends never change the exit code and never delay a post (they run after the posting step).
+See SCHEMA.md for schedule.json and the state/*.json files.
 """
 from __future__ import annotations
 
@@ -67,7 +70,38 @@ IG_CAPTION_MAX = 2200
 IG_HASHTAG_MAX = 30
 TRANSIENT_CODES = {1, 2, 4, 17, 32, 341, 613, 80001, 80002, 80004}
 AUTH_CODES = {102, 190}
-CRON_WINDOW_UTC = (dtime(14, 5), dtime(21, 45))  # post.yml runs at :05/:25/:45, 14:05-21:45 UTC
+# post.yml crons (UTC). Both US-Eastern evening slots (19:00 / 18:00 ET = 23:00-00:00 UTC) get runs in both DST states.
+CRON_SPECS = ("5,25,45 13-23 * * *", "5,25,45 0-2 * * *")
+
+# ---- posting rhythm (2 Reels a day): see SCHEMA.md "Robot rules"
+SLOT_GRACE = timedelta(hours=4)            # a slot can be filled until 4 h after it starts; later = missed (queue shifts)
+MIN_GAP = timedelta(hours=3)               # at least 3 h between two Reels
+MAX_PER_DAY = 2                            # never more than 2 Reels per Rome calendar day
+SLOT_TZ_DEFAULT = "America/New_York"
+
+# ---- stats (state/stats.json)
+STATS_EVERY = timedelta(hours=3)
+STATS_KEEP = timedelta(days=60)
+INSIGHT_METRICS = ("views", "reach", "saved", "shares", "total_interactions", "ig_reels_avg_watch_time",
+                   "ig_reels_video_view_total_time")
+MAX_INSIGHT_MEDIA = 60                     # insights calls per stats run, at most
+STATS_BUDGET = 240                         # seconds a stats run may take (the job has 40 minutes for everything)
+STATS_MAX_ERRORS = 3                       # consecutive insights errors (not permission) before giving up this run
+NEEDS_PERMISSION = "needs_insights_permission"
+PERMISSION_NOTE = "stats unavailable: needs insights permission"
+
+# ---- trends (state/trends.json, state/order.json)
+TRENDS_RSS = "https://trends.google.com/trending/rss?geo=US"
+NEWS_RSS = "https://news.google.com/rss/search?q={q}&hl=en-US&gl=US&ceid=US:en"
+NEWS_TERMS = ("iPhone", "ChatGPT", "Android", "AI", "scam", "battery", "iOS update")
+TRENDS_RETRY = timedelta(hours=3)          # after a failed fetch
+TRENDS_MAX_AGE = timedelta(hours=36)       # older trend titles are not used (plan order instead)
+TREND_WINDOW = 14                          # only the next 14 videos of the plan can be moved (about a week)
+TOKEN_CAP = 6                              # points one matched word can add
+RSS_MAX_BYTES = 3 * 1024 * 1024
+RSS_TIMEOUT = 20
+TRENDS_BUDGET = 90                         # seconds all trend feeds together may take; later feeds are skipped
+MAX_OVERTAKES = 4                          # a video passed over by this many later-planned posts is pinned first
 
 EXIT_OK, EXIT_SETUP, EXIT_RETRY, EXIT_CHECK = 0, 1, 2, 3
 
@@ -197,7 +231,8 @@ _OPEN_STAY = urllib.request.build_opener(_NoRedirect())
 
 
 def urllib_transport(method: str, url: str, headers: dict, body: bytes | None, timeout: float,
-                     follow_redirects: bool) -> Response:
+                     follow_redirects: bool, max_bytes: int | None = None) -> Response:
+    """max_bytes: read at most that many bytes of the body (+1, so the caller can see it was too large)."""
     req = urllib.request.Request(url, data=body, method=method)
     for k, v in headers.items():
         if k.lower() == "authorization":
@@ -207,7 +242,8 @@ def urllib_transport(method: str, url: str, headers: dict, body: bytes | None, t
     opener = _OPEN_FOLLOW if follow_redirects else _OPEN_STAY
     try:
         with opener.open(req, timeout=timeout) as r:
-            return Response(r.status, {k.lower(): v for k, v in r.headers.items()}, r.read())
+            data = r.read() if max_bytes is None else r.read(max_bytes + 1)
+            return Response(r.status, {k.lower(): v for k, v in r.headers.items()}, data)
     except urllib.error.HTTPError as e:
         try:
             data = e.read()
@@ -285,6 +321,9 @@ class Item:
     cover_url: str | None = None
     first_comment: str | None = None
     keyword: str | None = None
+    title: str | None = None
+    category: str | None = None
+    slot_at: datetime | None = None           # exact planned moment (UTC) when the exporter gives one
 
 
 @dataclass
@@ -292,9 +331,26 @@ class Schedule:
     items: list[Item]
     tz: ZoneInfo
     tz_name: str
-    slots: dict[str, dtime] = field(default_factory=dict)
+    slots: dict[str, list[dtime]] = field(default_factory=dict)       # in `timezone` (legacy / fallback)
     release_tag: str = DEFAULT_TAG
     generated_at: str | None = None
+    slot_tz: ZoneInfo | None = None                                   # set: slot_times are authoritative
+    slot_times: dict[str, list[dtime]] = field(default_factory=dict)  # in slot_tz, e.g. ET 12:00 + 19:00
+    slot_calendar: list[datetime] = field(default_factory=list)       # explicit UTC slot moments
+
+
+def _times_list(v: Any, where: str) -> list[dtime]:
+    vals = v if isinstance(v, list) else [v]
+    if not vals or len(vals) > 6:
+        raise SetupError(f"schedule.json: {where} needs 1 to 6 \"HH:MM\" times.")
+    return sorted({_hhmm(x, where) for x in vals})
+
+
+def _utc(v: Any, where: str) -> datetime:
+    dt = parse_ig_time(v) if isinstance(v, str) else None
+    if dt is None:
+        raise SetupError(f"schedule.json: {where} must be an ISO time with offset, got {v!r}")
+    return dt.astimezone(timezone.utc)
 
 
 _ID_RE = re.compile(r"^[A-Za-z0-9][A-Za-z0-9_.-]{0,63}$")
@@ -326,10 +382,29 @@ def parse_schedule(raw: Any) -> Schedule:
         tz = ZoneInfo(tz_name)
     except Exception:
         raise SetupError(f"schedule.json: unknown timezone {tz_name!r}") from None
-    slots = {}
+    slots: dict[str, list[dtime]] = {}
+    raw_slots = raw.get("slots") or {}
+    if not isinstance(raw_slots, dict):
+        raise SetupError("schedule.json: slots must be {\"weekday\": ..., \"weekend\": ...}.")
     for k in ("weekday", "weekend"):
-        if (raw.get("slots") or {}).get(k):
-            slots[k] = _hhmm(raw["slots"][k], f"slots.{k}")
+        if raw_slots.get(k):
+            slots[k] = _times_list(raw_slots[k], f"slots.{k}")
+    slot_tz = None
+    slot_times: dict[str, list[dtime]] = {}
+    if raw.get("slot_times"):
+        st_raw = raw["slot_times"]
+        if not isinstance(st_raw, dict) or not all(st_raw.get(k) for k in ("weekday", "weekend")):
+            raise SetupError("schedule.json: slot_times needs both \"weekday\" and \"weekend\" lists.")
+        slot_times = {k: _times_list(st_raw[k], f"slot_times.{k}") for k in ("weekday", "weekend")}
+        stz_name = str(raw.get("slot_timezone") or SLOT_TZ_DEFAULT)
+        try:
+            slot_tz = ZoneInfo(stz_name)
+        except Exception:
+            raise SetupError(f"schedule.json: unknown slot_timezone {stz_name!r}") from None
+    cal_raw = raw.get("slot_calendar") or []
+    if not isinstance(cal_raw, list):
+        raise SetupError("schedule.json: slot_calendar must be a list of ISO times.")
+    calendar = sorted({_utc(v, f"slot_calendar[{n}]") for n, v in enumerate(cal_raw)})
     items_raw = raw.get("items")
     if not isinstance(items_raw, list):
         raise SetupError("schedule.json has no \"items\" list.")
@@ -366,9 +441,13 @@ def parse_schedule(raw: Any) -> Schedule:
             cover_url=(str(it["cover_url"]) if it.get("cover_url") else None),
             first_comment=(str(it["first_comment"]) if it.get("first_comment") else None),
             keyword=(str(it["keyword"]) if it.get("keyword") else None),
+            title=(str(it["title"]) if it.get("title") else None),
+            category=(str(it["category"]) if it.get("category") else None),
+            slot_at=(_utc(it["slot_at"], f"{vid}.slot_at") if it.get("slot_at") else None),
         ))
     return Schedule(items=items, tz=tz, tz_name=tz_name, slots=slots,
-                    release_tag=str(raw.get("release_tag") or DEFAULT_TAG), generated_at=raw.get("generated_at"))
+                    release_tag=str(raw.get("release_tag") or DEFAULT_TAG), generated_at=raw.get("generated_at"),
+                    slot_tz=slot_tz, slot_times=slot_times, slot_calendar=calendar)
 
 
 def load_schedule(path: Path) -> Schedule:
@@ -413,13 +492,17 @@ def save_state(path: Path, state: dict) -> None:
     tmp.replace(path)
 
 
-# ====================================================================== choosing today's video (pure)
+# ====================================================================== choosing the next video (pure)
 @dataclass
 class Decision:
-    kind: str                     # post | waiting | posted_today | nothing_due | finished
+    kind: str                     # post | waiting | posted_today (slot filled / day full) | nothing_due | finished | gave_up_today
     item: Item | None = None
     slot: datetime | None = None
     note: str = ""
+    reason: str = "plan order"    # why this video (trend score or plan order)
+
+
+UTC = timezone.utc
 
 
 def done_ids(state: dict, live: bool) -> set[str]:
@@ -429,12 +512,23 @@ def done_ids(state: dict, live: bool) -> set[str]:
     return ids
 
 
-def posted_on(state: dict, day: date, live: bool) -> dict | None:
+def post_times(state: dict, live: bool, tz: ZoneInfo) -> list[datetime]:
+    """When every Reel went out (UTC). Dry runs count only in dry-run mode. A hand-written row with only a date
+    counts as posted at the end of that day (the safe side: it fills that day's slots)."""
     rows = list(state.get("posted", [])) + ([] if live else list(state.get("dry_runs", [])))
+    out = []
     for r in rows:
-        if r.get("date") == day.isoformat():
-            return r
-    return None
+        if not isinstance(r, dict):
+            continue
+        dt = parse_ig_time(r.get("posted_at") or r.get("at"))
+        if dt is None and r.get("date"):
+            try:
+                dt = datetime.combine(date.fromisoformat(str(r["date"])), dtime(23, 59, 59), tzinfo=tz)
+            except ValueError:
+                dt = None
+        if dt is not None:
+            out.append(dt.astimezone(UTC))
+    return sorted(out)
 
 
 def fingerprint(item: Item) -> dict:
@@ -450,42 +544,165 @@ def is_blocked(state: dict, item: Item) -> bool:
     return all(b.get(k) == v for k, v in fingerprint(item).items())
 
 
-def slot_for_day(sched: Schedule, day: date, fallback: Item) -> dtime:
-    """The item planned for that day knows its own (DST-aware) slot; `slots` only covers catch-up days."""
-    for it in sched.items:
-        if it.date == day:
-            return it.slot_time
-    key = "weekend" if day.weekday() >= 5 else "weekday"
-    if key in sched.slots:
-        return sched.slots[key]
-    return fallback.slot_time
-
-
-def choose(sched: Schedule, state: dict, now: datetime, live: bool) -> Decision:
-    today = now.astimezone(sched.tz).date()
+def remaining_items(sched: Schedule, state: dict, live: bool) -> list[Item]:
     done = done_ids(state, live)
-    already = posted_on(state, today, live)
-    remaining = [it for it in sched.items if it.id not in done and not is_blocked(state, it)]
-    if already:
-        nxt = remaining[0] if remaining else None
-        return Decision("posted_today", nxt, note=f"{already.get('id')} already went out today; one Reel per day.")
+    return [it for it in sched.items if it.id not in done and not is_blocked(state, it)]
+
+
+def planned_at(sched: Schedule, it: Item) -> datetime:
+    """The earliest moment this video may go out (UTC)."""
+    if it.slot_at is not None:
+        return it.slot_at
+    return datetime.combine(it.date, it.slot_time, tzinfo=sched.tz).astimezone(UTC)
+
+
+def day_slots(sched: Schedule, d: date, fallback: list[dtime]) -> list[datetime]:
+    """Posting slots of one calendar day (aware). With slot_times (new exports) the day is a `slot_timezone` day
+    and the times are authoritative (DST-aware every day). Legacy exports: the items dated that day (in
+    `timezone`) define its slots, else the `slots` block, else the next video's own time."""
+    key = "weekend" if d.weekday() >= 5 else "weekday"
+    if sched.slot_tz is not None:
+        return [datetime.combine(d, t, tzinfo=sched.slot_tz) for t in sched.slot_times[key]]
+    own = sorted({it.slot_time for it in sched.items if it.date == d})
+    times = own or sched.slots.get(key) or fallback
+    return [datetime.combine(d, t, tzinfo=sched.tz) for t in times]
+
+
+def slots_between(sched: Schedule, start: datetime, end: datetime, fallback: list[dtime] | None = None) -> list[datetime]:
+    """Every slot moment in [start, end] (UTC, sorted, unique). slot_calendar entries are included as given."""
+    tz = sched.slot_tz or sched.tz
+    out = {c for c in sched.slot_calendar if start <= c <= end}
+    d = start.astimezone(tz).date() - timedelta(days=1)
+    last = end.astimezone(tz).date() + timedelta(days=1)
+    while d <= last:
+        for sl in day_slots(sched, d, fallback or []):
+            u = sl.astimezone(UTC)
+            if start <= u <= end:
+                out.add(u)
+        d += timedelta(days=1)
+    return sorted(out)
+
+
+def schedule_sha(sched: Schedule) -> str:
+    return sha256_text(json.dumps([it.id for it in sched.items]))
+
+
+def ranked_items(sched: Schedule, remaining: list[Item], order: dict | None) -> tuple[list[Item], dict] | None:
+    """The trend order from state/order.json, or None (= plan order). It is used only when it was computed for
+    this very schedule; it can only reorder: posted / blocked videos were already taken out of `remaining`."""
+    if not isinstance(order, dict) or order.get("status") != "trends":
+        return None
+    if order.get("schedule_sha256") != schedule_sha(sched):
+        return None
+    q = order.get("order")
+    if not isinstance(q, list):
+        return None
+    pos: dict[str, int] = {}
+    for n, vid in enumerate(q):
+        if isinstance(vid, str) and vid not in pos:
+            pos[vid] = n
+    idx = {it.id: n for n, it in enumerate(sched.items)}
+    ranked = sorted(remaining, key=lambda it: (pos.get(it.id, len(pos)), idx[it.id]))
+    reasons = order.get("reasons") if isinstance(order.get("reasons"), dict) else {}
+    return ranked, reasons
+
+
+def choose(sched: Schedule, state: dict, now: datetime, live: bool, order: dict | None = None,
+           extra_posts: list[datetime] | tuple = (), exclude: set[str] | frozenset = frozenset()) -> Decision:
+    """One Reel per SLOT. A slot can be filled from its start until SLOT_GRACE later; a missed slot is simply
+    skipped (the queue shifts, never a burst). Never 2 in one slot, never more than MAX_PER_DAY per Rome day,
+    never closer than MIN_GAP to the previous Reel. A slot takes a video only when the plan has one due by
+    then (so the plan's pace is kept), and then the best one: trend order if any, else the first due one.
+    `exclude` = videos that used up today's tries: they still count for the pace, but another video goes instead."""
+    now_u = now.astimezone(UTC)
+    today = now.astimezone(sched.tz).date()
+    remaining = remaining_items(sched, state, live)
     if not remaining:
         return Decision("finished", note="Every video in schedule.json is posted.")
-    due = [it for it in remaining if it.date <= today]
-    if not due:
-        first = remaining[0]
-        slot = datetime.combine(first.date, first.slot_time, tzinfo=sched.tz)
-        return Decision("nothing_due", first, slot, note=f"Next video {first.id} is planned for {fmt(slot)}.")
-    item = due[0]
-    slot = datetime.combine(today, slot_for_day(sched, today, item), tzinfo=sched.tz)
-    if now < slot:
-        return Decision("waiting", item, slot, note=f"{item.id} goes out after today's slot {fmt(slot)}.")
-    late = f" (planned for {item.date.isoformat()}: catching up)" if item.date < today else ""
-    return Decision("post", item, slot, note=f"{item.id} is due now{late}.")
+    candidates = [it for it in remaining if it.id not in exclude]
+    if not candidates:
+        return Decision("gave_up_today", note="Every remaining video failed too often today; trying again "
+                        "tomorrow.")
+    posts = sorted(post_times(state, live, sched.tz) + [p.astimezone(UTC) for p in extra_posts])
+    fallback = [remaining[0].slot_time]
+    earliest = min(planned_at(sched, it) for it in remaining)
+    ranked = ranked_items(sched, candidates, order)
+
+    def pick(at: datetime) -> tuple[Item, str]:
+        if ranked is not None:
+            it = ranked[0][0]
+            return it, str(ranked[1].get(it.id) or "trend order")
+        due = [it for it in candidates if planned_at(sched, it) <= at]
+        return (due or candidates)[0], "plan order"
+
+    def per_day(day: date) -> int:
+        return sum(1 for p in posts if p.astimezone(sched.tz).date() == day)
+
+    recent = slots_between(sched, now_u - SLOT_GRACE - timedelta(days=1), now_u, fallback)
+    live_slots = [sl for sl in recent if sl <= now_u < sl + SLOT_GRACE]
+    current = live_slots[-1] if live_slots else None
+    if current is not None:
+        item, why = pick(now_u)
+        if any(p >= current for p in posts):
+            return Decision("posted_today", item, current, f"The Reel for the {fmt_slot(sched, current)} slot "
+                            "already went out; one Reel per slot.", why)
+        if per_day(today) >= MAX_PER_DAY:
+            return Decision("posted_today", item, current, f"{MAX_PER_DAY} Reels already went out today "
+                            f"(Rome); at most {MAX_PER_DAY} a day.", why)
+        if earliest <= now_u:
+            last = posts[-1] if posts else None
+            if last is not None and now_u - last < MIN_GAP:
+                ready = last + MIN_GAP
+                tail = "" if ready < current + SLOT_GRACE else " That is after this slot's window, so it moves on."
+                return Decision("waiting", item, ready, f"{item.id} goes out after today's slot, but at least 3 hours "
+                                f"after the last Reel: not before {fmt_slot(sched, ready)}.{tail}", why)
+            late = (f" (planned for {item.date.isoformat()}: catching up)" if item.date < today else "")
+            moved = f" Picked by {why}." if why != "plan order" else ""
+            return Decision("post", item, current, f"{item.id} is due now for the {fmt_slot(sched, current)} "
+                            f"slot{late}.{moved}", why)
+    # between slots, the slot is not usable, or nothing is due yet: name the next slot that will take a Reel
+    start = max(now_u, earliest)
+    item, why = pick(start)
+    last_post = posts[-1] if posts else None
+    upcoming = [sl for sl in slots_between(sched, start - SLOT_GRACE, start + timedelta(days=16), fallback)
+                if sl + SLOT_GRACE > start and (last_post is None or sl > last_post)
+                and per_day(sl.astimezone(sched.tz).date()) < MAX_PER_DAY]
+    when = max(upcoming[0], earliest) if upcoming else earliest
+    day_tz = sched.slot_tz or sched.tz                 # "today" = the slots' own calendar day
+    if when.astimezone(day_tz).date() == now.astimezone(day_tz).date():
+        return Decision("waiting", item, when, f"{item.id} goes out after today's slot {fmt_slot(sched, when)}.", why)
+    return Decision("nothing_due", item, when, f"Next video {item.id} is planned for {fmt_slot(sched, when)}.", why)
 
 
 def fmt(dt: datetime) -> str:
     return dt.strftime("%a %d %b %Y %H:%M %Z")
+
+
+def fmt_slot(sched: Schedule, dt: datetime) -> str:
+    out = fmt(dt.astimezone(sched.tz))
+    if sched.slot_tz is not None:
+        out += f" = {dt.astimezone(sched.slot_tz):%H:%M %Z}"
+    return out
+
+
+def cron_minutes(specs: tuple[str, ...] = CRON_SPECS) -> list[int]:
+    """Minutes of the UTC day at which post.yml starts a run (e.g. 13*60+5)."""
+    def expand(field_: str, top: int) -> set[int]:
+        vals: set[int] = set()
+        for part in field_.split(","):
+            if part == "*":
+                vals |= set(range(top + 1))
+            elif "-" in part:
+                a, b = part.split("-")
+                vals |= set(range(int(a), int(b) + 1))
+            else:
+                vals.add(int(part))
+        return vals
+    out: set[int] = set()
+    for spec in specs:
+        m, h = spec.split()[:2]
+        out |= {hh * 60 + mm for hh in expand(h, 23) for mm in expand(m, 59)}
+    return sorted(out)
 
 
 # ====================================================================== caption matching
@@ -531,10 +748,16 @@ class Env:
     in_actions: bool
     summary_path: str | None
     video_source: str = "url"
+    stats: bool = True            # STATS=off disables state/stats.json
+    trends: bool = True           # TRENDS=off disables trend fetching and the trend order (plan order only)
 
 
 def truthy(v: str | None) -> bool:
     return str(v or "").strip().lower() in ("true", "1", "yes", "on")
+
+
+def switched_off(v: str | None) -> bool:
+    return str(v or "").strip().lower() in ("false", "0", "no", "off")
 
 
 def read_env(environ: dict, force_dry_run: bool) -> Env:
@@ -548,6 +771,8 @@ def read_env(environ: dict, force_dry_run: bool) -> Env:
         video_source=str(environ.get("VIDEO_SOURCE") or "url").strip().lower(),
         in_actions=str(environ.get("GITHUB_ACTIONS") or "") == "true",
         summary_path=environ.get("GITHUB_STEP_SUMMARY") or None,
+        stats=not switched_off(environ.get("STATS")),
+        trends=not switched_off(environ.get("TRENDS")),
     )
 
 
@@ -563,6 +788,11 @@ class Poster:
         self._media: list[dict] | None = None
         self.mode = "LIVE" if env.live else "DRY-RUN"
         self._saved = self._content()
+        state_dir = state_path.parent
+        self.stats_path = state_dir / "stats.json"
+        self.trends_path = state_dir / "trends.json"
+        self.order_path = state_dir / "order.json"
+        self.order = read_json(self.order_path) if env.trends else None
 
     # ---------------------------------------------------------------- helpers
     def say(self, msg: str) -> None:
@@ -611,12 +841,16 @@ class Poster:
         return None
 
     def record_posted(self, item: Item, *, media_id: str | None, permalink: str | None, container: str | None,
-                      source: str, when: datetime | None) -> dict:
+                      source: str, when: datetime | None, slot: datetime | None = None,
+                      reason: str | None = None) -> dict:
         when = when or self.now
         row = {"id": item.id, "date": when.astimezone(self.sched.tz).date().isoformat(),
                "posted_at": when.astimezone(timezone.utc).isoformat(timespec="seconds"),
                "media_id": media_id, "permalink": permalink, "container_id": container,
-               "caption_sha256": sha256_text(item.caption), "source": source}
+               "caption_sha256": sha256_text(item.caption), "source": source,
+               "slot": slot.astimezone(timezone.utc).isoformat(timespec="seconds") if slot else None}
+        if reason:
+            row["pick"] = reason[:200]
         self.state["posted"] = [r for r in self.state["posted"] if r.get("id") != item.id] + [row]
         return row
 
@@ -941,8 +1175,16 @@ class Poster:
             self.save("needs_check" if code == EXIT_CHECK else "retry")
             return code
 
-        for _ in range(len(self.sched.items) + 1):
-            d = choose(self.sched, self.state, self.now, self.env.live)
+        out_of_tries: set[str] = set()           # videos that failed MAX_TRIES_PER_DAY times today
+        for _ in range(2 * len(self.sched.items) + 2):
+            d = choose(self.sched, self.state, self.now, self.env.live, self.order, exclude=out_of_tries)
+            if d.kind == "post" and self.graph is not None:
+                # Videos of the schedule already on Instagram (a lost state commit, posted by hand) are recorded
+                # first; any other recent Reel on the account counts too: still one per slot, 2 a day, 3 h apart.
+                if self.record_found_elsewhere():
+                    continue
+                d = choose(self.sched, self.state, self.now, self.env.live, self.order, self.instagram_times(),
+                           exclude=out_of_tries)
             if d.kind != "post":
                 self.say(d.note)
                 self._window_hint(d)
@@ -960,11 +1202,12 @@ class Poster:
                 continue                          # choose() now sees it (and today's limit if it was today)
             tries = self.failures_today(item)
             if self.env.live and tries >= MAX_TRIES_PER_DAY:
-                # the failing run already raised the alert; the rest of today's runs stay quiet (green)
-                self.say(f"{item.id} failed {tries} times today; not trying again until tomorrow. Last error: "
-                         f"{self.state['failures'][item.id].get('last_error')}")
-                self.save("gave_up_today")
-                return EXIT_OK
+                # the failing run already raised the alert; this slot goes to the next video instead (every
+                # other guard - slot, day, gap, find_on_instagram - is checked again for it)
+                self.say(f"{item.id} failed {tries} times today; not trying it again until tomorrow, the next "
+                         f"video goes instead. Last error: {self.state['failures'][item.id].get('last_error')}")
+                out_of_tries.add(item.id)
+                continue
             try:
                 self.validate(item)
                 return self.post(item, d)
@@ -974,6 +1217,29 @@ class Poster:
                 self.save("failed")
                 raise
         raise PosterError("Selection loop did not settle (schedule.json may be inconsistent).")
+
+    def record_found_elsewhere(self) -> bool:
+        """Record every not-yet-recorded schedule video that Instagram already shows. True if any was found."""
+        found_any = False
+        for it in remaining_items(self.sched, self.state, True):
+            m = self.find_on_instagram(it)
+            if m:
+                row = self.record_posted(it, media_id=m.get("id"), permalink=m.get("permalink"), container=None,
+                                         source="found_on_instagram", when=parse_ig_time(m.get("timestamp")))
+                self.say(f"{it.id} is already on Instagram ({row['permalink'] or row['media_id']}); recorded, "
+                         "not posted again.")
+                found_any = True
+        return found_any
+
+    def instagram_times(self) -> list[datetime]:
+        """Publish times of the account's recent media that our records do not already cover."""
+        known = {str(r.get("media_id")) for r in self.state.get("posted", []) if r.get("media_id")}
+        out = []
+        for m in self.recent_media():
+            ts = parse_ig_time(m.get("timestamp"))
+            if ts is not None and str(m.get("id")) not in known and self.now - ts < timedelta(days=2):
+                out.append(ts)
+        return out
 
     def failures_today(self, item: Item) -> int:
         f = (self.state.get("failures") or {}).get(item.id) or {}
@@ -998,14 +1264,13 @@ class Poster:
     def _window_hint(self, d: Decision) -> None:
         if d.slot is None:
             return
-        utc = d.slot.astimezone(timezone.utc).time()
-        mins = lambda t: t.hour * 60 + t.minute
-        # a slot up to 15 min before the first run is fine (it goes out at the first run); later than the
-        # last run is not (it would only go out the next day)
-        if not (mins(CRON_WINDOW_UTC[0]) - 15 <= mins(utc) <= mins(CRON_WINDOW_UTC[1])):
-            self.say(f"Warning: the slot {fmt(d.slot)} is {utc:%H:%M} UTC, outside the robot's "
-                     f"{CRON_WINDOW_UTC[0]:%H:%M}-{CRON_WINDOW_UTC[1]:%H:%M} UTC run "
-                     "window; it will only go out on the next run inside the window. Widen the cron in post.yml.")
+        utc = d.slot.astimezone(timezone.utc)
+        slot_min = utc.hour * 60 + utc.minute
+        grace = int(SLOT_GRACE.total_seconds() // 60)
+        if not any((r - slot_min) % 1440 < grace for r in cron_minutes()):
+            self.say(f"Warning: no robot run starts within {grace // 60} hours after the slot "
+                     f"{fmt_slot(self.sched, d.slot)} ({utc:%H:%M} UTC), so that slot would be missed. "
+                     "Widen the cron in post.yml.")
 
     def post(self, item: Item, d: Decision) -> int:
         self.say(f"Due: {item.id} ({d.note})")
@@ -1027,24 +1292,27 @@ class Poster:
                 self.say(f"Dry run: could not get the video ({e}).")
                 video = None
             if not self.env.live:
-                return self.dry_run(item, video)
-            return self.live_post(item, video)
+                return self.dry_run(item, video, d)
+            return self.live_post(item, video, d)
 
-    def dry_run(self, item: Item, video: Path | None) -> int:
+    def dry_run(self, item: Item, video: Path | None, d: Decision | None = None) -> int:
         first = norm_caption(item.caption).split("\n", 1)[0]
         self.say(f"DRY-RUN: would post {item.id} now. Caption: {len(item.caption)} characters, starts "
                  f"\"{first[:80]}\", sha256 {sha256_text(item.caption)[:12]}. Nothing was created or published.")
         self.state["dry_runs"] = [r for r in self.state["dry_runs"] if r.get("id") != item.id] + [{
             "id": item.id, "date": self.today().isoformat(),
-            "at": self.now.astimezone(timezone.utc).isoformat(timespec="seconds")}]
+            "at": self.now.astimezone(timezone.utc).isoformat(timespec="seconds"),
+            "slot": d.slot.astimezone(timezone.utc).isoformat(timespec="seconds") if d and d.slot else None}]
         self.save("dry_run")
         return EXIT_OK
 
-    def live_post(self, item: Item, video: Path) -> int:
+    def live_post(self, item: Item, video: Path, d: Decision | None = None) -> int:
         video_url = self.public_video_url(item)
         container = self.create_container(item, video_url)
         self.state["pending"] = {"id": item.id, "container_id": container, "caption_sha256": sha256_text(item.caption),
-                                 "started_at": self.now.astimezone(timezone.utc).isoformat(timespec="seconds")}
+                                 "started_at": self.now.astimezone(timezone.utc).isoformat(timespec="seconds"),
+                                 "slot": d.slot.astimezone(timezone.utc).isoformat(timespec="seconds")
+                                 if d and d.slot else None}
         self.save("uploading")
         if video_url:
             self.say(f"Instagram container {container} created; Instagram is fetching the video from GitHub.")
@@ -1066,12 +1334,553 @@ class Poster:
         if info and not same_caption(str(info.get("caption") or ""), item.caption):
             self.say("Warning: the caption Instagram shows differs from schedule.json.")
         row = self.record_posted(item, media_id=media_id, permalink=info.get("permalink"), container=container,
-                                 source="robot", when=self.now)
+                                 source="robot", when=self.now, slot=d.slot if d else None,
+                                 reason=d.reason if d else None)
         self.state["pending"] = None
         self.save("posted")
         self.say(f"POSTED {item.id}: {row['permalink'] or media_id}")
         self.first_comment(item, media_id)
         return EXIT_OK
+
+
+    # ---------------------------------------------------------------- after posting: stats, trends, order
+    def maintain(self) -> None:
+        """Stats + trends + trend order. Runs after the posting decision, so it can never delay or block a post;
+        any problem is reported and swallowed (the exit code is the posting outcome only)."""
+        jobs = []
+        if self.env.stats:
+            jobs.append(("Stats", self.collect_stats))
+        if self.env.trends:
+            jobs.append(("Trends", self.update_trends_and_order))
+        for name, job in jobs:
+            try:
+                job()
+            except Exception as e:                # noqa: BLE001 - never let stats/trends break a run
+                self.say(f"{name} skipped this run ({type(e).__name__}: {scrub(e)[:200]}); posting is not affected.")
+
+    def _insights(self, mid: str, metrics: list[str]) -> dict[str, float]:
+        body = self.graph.call("GET", f"{mid}/insights", params={"metric": ",".join(metrics)}, retries=1)
+        return insight_values(body)
+
+    def collect_stats(self) -> None:
+        """At most every 3 hours: followers + media count, and per Reel likes/comments + insights."""
+        st = normalise_stats(read_json(self.stats_path))
+        last = parse_ig_time(st.get("updated_at"))
+        if last is not None and self.now - last < STATS_EVERY:
+            return
+        if self.graph is None:
+            self.say("Stats skipped: IG_TOKEN or IG_USER_ID is not set.")
+            return
+        now_iso = iso(self.now)
+        today = self.today().isoformat()
+        errors: list[str] = []
+        try:
+            acc = self.graph.call("GET", self.env.ig_id, params={"fields": "followers_count,media_count"}, retries=1)
+            if not isinstance(acc.get("followers_count"), int):
+                raise GraphError("Instagram gave no followers_count.")
+            snap = {"at": now_iso, "followers_count": acc["followers_count"], "media_count": acc.get("media_count")}
+            hist = list(st["account"].get("history") or [])
+            st["account"] = {"latest": snap, "history": hist + [snap]}
+        except GraphError as e:
+            errors.append(f"account: {e}"[:200])
+        media: list[dict] = []
+        try:
+            after = None
+            for _ in range(2):
+                params = {"fields": "id,caption,timestamp,permalink,media_product_type,like_count,comments_count",
+                          "limit": 50}
+                if after:
+                    params["after"] = after
+                body = self.graph.call("GET", f"{self.env.ig_id}/media", params=params, retries=1)
+                media.extend(d for d in (body.get("data") or []) if isinstance(d, dict) and d.get("id"))
+                paging = body.get("paging") or {}
+                after = (paging.get("cursors") or {}).get("after")
+                if not after or not paging.get("next"):
+                    break
+        except GraphError as e:
+            errors.append(f"media list: {e}"[:200])
+        by_media = {str(r.get("media_id")): str(r.get("id")) for r in self.state.get("posted", []) if r.get("media_id")}
+        items = {it.id: it for it in self.sched.items}
+        unsupported = {m for m in (st.get("unsupported_metrics") or []) if m in INSIGHT_METRICS}
+        permission = None                         # None = not learned this run, True ok, False missing
+        probed = False
+        asked = 0
+        streak = 0                                # consecutive insights errors
+        t0 = self.clock()
+        for m in media:
+            if str(m.get("media_product_type") or "REELS") != "REELS":
+                continue
+            ts = parse_ig_time(m.get("timestamp"))
+            if ts is not None and self.now - ts > STATS_KEEP:
+                continue
+            mid = str(m["id"])
+            vid = by_media.get(mid)
+            prev = st["media"].get(mid) or {}
+            it = items.get(vid or "")
+            row = {**prev, "media_id": mid, "video_id": vid or prev.get("video_id"),
+                   "permalink": m.get("permalink"), "timestamp": m.get("timestamp"),
+                   "caption": first_line(m.get("caption")), "like_count": m.get("like_count"),
+                   "comments_count": m.get("comments_count"), "updated_at": now_iso,
+                   "keyword": (it.keyword if it else None) or prev.get("keyword"),
+                   "category": (it.category if it else None) or prev.get("category")}
+            out_of_time = self.clock() - t0 > STATS_BUDGET or streak >= STATS_MAX_ERRORS
+            if permission is False:
+                row["error"] = NEEDS_PERMISSION
+            elif asked < MAX_INSIGHT_MEDIA and not out_of_time:
+                asked += 1
+                metrics = [x for x in INSIGHT_METRICS if x not in unsupported]
+                try:
+                    vals = self._insights(mid, metrics)
+                    permission = True
+                    streak = 0
+                    row.pop("error", None)
+                except GraphError as e:
+                    vals = {}
+                    if is_permission_error(e):
+                        permission = False
+                        row["error"] = NEEDS_PERMISSION
+                    elif e.code == 100 and not probed:
+                        probed = True                     # learn which metrics this account/API refuses, once
+                        ok, bad = {}, []
+                        for x in metrics:
+                            try:
+                                ok.update(self._insights(mid, [x]))
+                            except GraphError as e2:
+                                if is_permission_error(e2):
+                                    permission = False
+                                    break
+                                if e2.code == 100:
+                                    bad.append(x)
+                        if ok:                            # some work: the others are really unsupported
+                            unsupported |= set(bad)
+                            vals, permission = ok, True
+                            row.pop("error", None)
+                        else:
+                            row["error"] = NEEDS_PERMISSION if permission is False else f"insights: {e}"[:160]
+                    else:
+                        row["error"] = f"insights: {e}"[:160]
+                    if row.get("error") and row["error"] != NEEDS_PERMISSION:
+                        streak += 1
+                for k in INSIGHT_METRICS:
+                    if k in vals:
+                        row[k] = vals[k]
+            st["media"][mid] = row
+            day_row = {"d": today, **{k: row.get(k2) for k, k2 in (
+                ("views", "views"), ("reach", "reach"), ("likes", "like_count"), ("comments", "comments_count"),
+                ("shares", "shares"), ("saved", "saved")) if row.get(k2) is not None}}
+            rows = [r for r in (st["daily"].get(mid) or []) if isinstance(r, dict) and r.get("d") != today]
+            st["daily"][mid] = rows + [day_row]
+        if permission is False:
+            st["permission"], st["note"] = NEEDS_PERMISSION, PERMISSION_NOTE
+        elif permission is True:
+            st["permission"], st["note"] = "ok", "views, reach, saves and shares are on"
+        elif not media and not errors:
+            st["note"] = "no Reels yet"
+        if streak >= STATS_MAX_ERRORS or self.clock() - t0 > STATS_BUDGET:
+            errors.append("insights stopped early this run (errors or time limit); the next stats run continues")
+        st["unsupported_metrics"] = sorted(unsupported)
+        st["errors"] = [scrub(e) for e in errors]
+        st["updated_at"] = now_iso
+        prune_stats(st, self.now, self.sched.tz)
+        write_json_if_changed(self.stats_path, st, ignore=())
+        latest = (st.get("account") or {}).get("latest") or {}
+        self.say(f"Stats: followers {latest.get('followers_count', '?')}, {len(st['media'])} Reels tracked"
+                 + (f"; {PERMISSION_NOTE}" if st["permission"] == NEEDS_PERMISSION else "")
+                 + (f"; problems: {'; '.join(st['errors'])}" if st["errors"] else "") + ".")
+
+    def fetch_trends(self) -> dict:
+        """Free public RSS, no keys: Google Trends daily (US) + Google News searches for the niche terms."""
+        headers = {"User-Agent": "Mozilla/5.0 (compatible; tapsmarter-robot/1.0)",
+                   "Accept": "application/rss+xml, application/xml;q=0.9, */*;q=0.5"}
+        feeds = [("trends", None, TRENDS_RSS, 40)] + [
+            ("news", q, NEWS_RSS.format(q=quote(q + " when:1d")), 20) for q in NEWS_TERMS]
+        titles: list[dict] = []
+        sources = []
+        t0 = self.clock()
+        bounded = {"max_bytes": RSS_MAX_BYTES} if self.transport is urllib_transport else {}
+        for src, q, url, limit in feeds:
+            name = "Google Trends US" if src == "trends" else f"Google News: {q}"
+            if self.clock() - t0 > TRENDS_BUDGET:
+                sources.append({"name": name, "ok": False, "error": f"skipped: trends took over {TRENDS_BUDGET} s"})
+                continue
+            try:
+                r = self.transport("GET", url, headers, None, RSS_TIMEOUT, True, **bounded)
+                if not r.ok:
+                    raise PosterError(f"HTTP {r.status}")
+                got = parse_rss_titles(r.body, limit)
+                titles += [{"t": t, "src": src, **({"q": q} if q else {})} for t in got]
+                sources.append({"name": name, "ok": True, "count": len(got)})
+            except Exception as e:                # noqa: BLE001 - one bad feed never stops the others
+                sources.append({"name": name, "ok": False, "error": scrub(e)[:120]})
+        ok = any(x["ok"] and x.get("count") for x in sources)
+        return {"ok": ok, "titles": titles, "sources": sources,
+                "error": None if ok else "every trend feed failed: " + "; ".join(
+                    f"{x['name']}: {x.get('error') or 'empty'}" for x in sources)[:300]}
+
+    def update_trends_and_order(self) -> None:
+        tr = read_json(self.trends_path) or {}
+        fetched = parse_ig_time(tr.get("updated_at"))
+        tried = parse_ig_time(tr.get("attempted_at"))
+        stale = fetched is None or fetched.astimezone(self.sched.tz).date() != self.today()
+        if stale and (tried is None or self.now - tried >= TRENDS_RETRY or tr.get("ok")):
+            got = self.fetch_trends()
+            tr["attempted_at"] = iso(self.now)
+            tr["sources"] = got["sources"]
+            if got["ok"]:
+                tr.update({"ok": True, "updated_at": iso(self.now), "titles": got["titles"], "error": None})
+            else:
+                tr.update({"ok": False, "error": got["error"]})
+            self.say("Trends: " + (f"{len(got['titles'])} titles fetched." if got["ok"] else
+                                   f"fetch failed, plan order is used ({got['error'][:120]})."))
+        stats = read_json(self.stats_path)
+        order, scores = compute_order(self.sched, self.state, self.env.live, tr, stats, self.now)
+        perf, top = performance_topics(stats)
+        tr.update({"version": 1, "order_status": order["status"], "note": order["note"],
+                   "performance_topics": sorted(perf), "top_reels": top, "scores": scores})
+        tr.setdefault("titles", [])
+        write_json_if_changed(self.trends_path, tr, ignore=())
+        if write_json_if_changed(self.order_path, order):
+            nxt = order["upcoming"][0] if order["upcoming"] else None
+            self.say(f"Order: {order['note']}" + (f" Next: {nxt['id']} ({nxt['reason']})." if nxt else ""))
+        self.order = order
+
+
+# ====================================================================== small JSON files (state/*.json)
+def read_json(path: Path) -> dict | None:
+    """A state file as a dict, or None when missing or broken (stats/trends/order never stop the robot)."""
+    try:
+        data = json.loads(path.read_text(encoding="utf-8"))
+    except (OSError, ValueError):
+        return None
+    return data if isinstance(data, dict) else None
+
+
+def write_json_if_changed(path: Path, data: dict, ignore: tuple[str, ...] = ("generated_at",)) -> bool:
+    """Write only when something besides the `ignore` keys changed (no commit every 20 minutes)."""
+    old = read_json(path)
+    strip = lambda d: json.dumps({k: v for k, v in (d or {}).items() if k not in ignore}, sort_keys=True)
+    if old is not None and strip(old) == strip(data):
+        return False
+    path.parent.mkdir(parents=True, exist_ok=True)
+    tmp = path.with_suffix(".tmp")
+    tmp.write_text(json.dumps(data, indent=1, ensure_ascii=False, sort_keys=True) + "\n", encoding="utf-8")
+    tmp.replace(path)
+    return True
+
+
+def iso(dt: datetime) -> str:
+    return dt.astimezone(UTC).isoformat(timespec="seconds")
+
+
+def first_line(text: Any, n: int = 120) -> str:
+    return norm_caption(str(text or "")).split("\n", 1)[0][:n]
+
+
+# ====================================================================== stats (pure helpers)
+def is_permission_error(e: GraphError) -> bool:
+    return e.code == 10 or (isinstance(e.code, int) and 200 <= e.code <= 299)
+
+
+def insight_values(body: dict) -> dict[str, float]:
+    """{"data": [{"name", "values": [{"value"}]} | {"name", "total_value": {"value"}}]} -> {name: value}."""
+    out: dict[str, float] = {}
+    for d in body.get("data") or []:
+        if not isinstance(d, dict) or not d.get("name"):
+            continue
+        v = None
+        if isinstance(d.get("total_value"), dict):
+            v = d["total_value"].get("value")
+        elif isinstance(d.get("values"), list) and d["values"] and isinstance(d["values"][-1], dict):
+            v = d["values"][-1].get("value")
+        if isinstance(v, (int, float)) and not isinstance(v, bool):
+            out[str(d["name"])] = v
+    return out
+
+
+def empty_stats() -> dict:
+    return {"version": 1, "updated_at": None, "permission": "unknown", "note": "", "errors": [],
+            "account": {"latest": None, "history": []}, "media": {}, "daily": {}, "unsupported_metrics": []}
+
+
+def normalise_stats(old: dict | None) -> dict:
+    """An old stats.json with odd shapes (hand edits, older versions) never breaks the stats run."""
+    st = empty_stats()
+    if not isinstance(old, dict):
+        return st
+    for k in ("updated_at", "permission", "note"):
+        if isinstance(old.get(k), str):
+            st[k] = old[k]
+    acc = old.get("account")
+    if isinstance(acc, dict) and isinstance(acc.get("history"), list):
+        st["account"]["history"] = [h for h in acc["history"] if isinstance(h, dict)]
+    for k in ("media", "daily"):
+        if isinstance(old.get(k), dict):
+            st[k] = {str(mid): v for mid, v in old[k].items() if isinstance(v, (dict, list))}
+    st["media"] = {k: v for k, v in st["media"].items() if isinstance(v, dict)}
+    st["daily"] = {k: v for k, v in st["daily"].items() if isinstance(v, list)}
+    if isinstance(old.get("unsupported_metrics"), list):
+        st["unsupported_metrics"] = [m for m in old["unsupported_metrics"] if m in INSIGHT_METRICS]
+    return st
+
+
+def prune_stats(st: dict, now: datetime, tz: ZoneInfo) -> dict:
+    """Keep 60 days of account snapshots and daily per-Reel rows; the latest row of every Reel seen in 60 days."""
+    cut = now.astimezone(UTC) - STATS_KEEP
+    cut_day = (now.astimezone(tz) - STATS_KEEP).date().isoformat()
+    acc = st.get("account") if isinstance(st.get("account"), dict) else {}
+    hist = [h for h in (acc.get("history") or []) if isinstance(h, dict)
+            and (parse_ig_time(h.get("at")) or cut) > cut]
+    st["account"] = {"latest": hist[-1] if hist else None, "history": hist}
+    media = {k: v for k, v in (st.get("media") or {}).items() if isinstance(v, dict)
+             and (parse_ig_time(v.get("updated_at")) or cut) > cut}
+    st["media"] = media
+    daily = {}
+    for mid, rows in (st.get("daily") or {}).items():
+        if mid not in media or not isinstance(rows, list):
+            continue
+        keep = [r for r in rows if isinstance(r, dict) and str(r.get("d") or "") > cut_day]
+        if keep:
+            daily[mid] = keep[-62:]
+    st["daily"] = daily
+    return st
+
+
+# ====================================================================== trends (pure helpers)
+STOPWORDS = frozenset("""a an and are as at be been but by can could did do does for from get gets got had has have
+how if in into is it its just like make makes more most my new no not now of off on one only or our out over own
+so than that the their them then there these they this to too up us use using very was we what when where which
+who why will with without you your yours free easy tip tips trick tricks app apps phone phones settings setting
+step steps way ways day days today here best really need needs want help helps let lets every never always still
+about after before vs year years week time times first last next people thing things says said report reports
+video watch see look comment guide link bio follow made voice visuals google two three four five ten check
+number avoid top big real full back right side open live sure says set turn off know again""".split())
+
+SYNONYMS = {
+    "ios": "iphone", "apple": "iphone", "ipad": "iphone", "siri": "iphone", "airpods": "iphone", "iphones": "iphone",
+    "pixel": "android", "samsung": "android", "galaxy": "android", "androids": "android",
+    "chatgpt": "ai", "openai": "ai", "gpt": "ai", "gemini": "ai", "copilot": "ai", "chatbot": "ai",
+    "chatbots": "ai", "claude": "ai", "llm": "ai",
+    "scams": "scam", "scammer": "scam", "scammers": "scam", "fraud": "scam", "phishing": "scam", "spam": "scam",
+    "robocall": "scam", "robocalls": "scam", "hacker": "scam", "hackers": "scam", "hacked": "scam",
+    "charging": "battery", "charger": "battery", "charge": "battery", "batteries": "battery",
+    "updates": "update", "upgrade": "update", "updated": "update",
+    "photos": "photo", "camera": "photo", "picture": "photo", "pictures": "photo", "selfie": "photo",
+    "passwords": "password", "passkey": "password", "passkeys": "password",
+    "budget": "money", "budgeting": "money", "savings": "money", "taxes": "money", "tax": "money",
+    "calls": "call", "calling": "call", "caller": "call", "callers": "call",
+    "texts": "text", "texting": "text", "messages": "text", "message": "text", "imessage": "text", "sms": "text",
+    "wifi": "wifi", "hotspot": "wifi",
+}
+CONCEPTS = frozenset(SYNONYMS.values())
+QUERY_NEWS_CAP = 2                         # the search terms' own topics show up all over tech news: news adds <= 2
+_WORD_RE = re.compile(r"[a-z0-9]+")
+
+
+def canon_tokens(text: Any) -> list[str]:
+    """Lowercase words without stopwords/numbers, synonyms folded ("ChatGPT" -> "ai"), simple plurals cut."""
+    out: list[str] = []
+    s = unicodedata.normalize("NFKD", str(text or "")).encode("ascii", "ignore").decode().lower()
+    for w in _WORD_RE.findall(s):
+        if w.isdigit() or (len(w) < 3 and w != "ai") or w in STOPWORDS:
+            continue
+        if w in SYNONYMS:
+            w = SYNONYMS[w]
+        elif len(w) > 4 and w.endswith("s") and not w.endswith(("ss", "us", "is", "as", "os")):
+            w = w[:-1]
+            w = SYNONYMS.get(w, w)
+        if w not in STOPWORDS and w not in out:
+            out.append(w)
+    return out
+
+
+QUERY_WORDS = frozenset(canon_tokens(" ".join(NEWS_TERMS)))
+
+
+def item_words(it: Item) -> list[str]:
+    return canon_tokens(" ".join(x for x in (it.id, it.title or "", it.keyword or "", it.category or "",
+                                            first_line(it.caption)) if x))
+
+
+def topics_of(keyword: Any, text: Any, category: Any = None) -> set[str]:
+    out = {t for t in canon_tokens(text) if t in CONCEPTS}
+    for extra in (keyword, category):
+        out |= set(canon_tokens(extra))
+    return out
+
+
+def parse_rss_titles(body: bytes, limit: int) -> list[str]:
+    """Item titles (and Google Trends' news_item_title) of an RSS feed. Refuses DTDs/entities and huge bodies."""
+    if len(body) > RSS_MAX_BYTES:
+        raise ValueError("feed too large")
+    low = body.lower()
+    if b"<!doctype" in low or b"<!entity" in low:
+        raise ValueError("feed has a DTD")
+    import html
+    import xml.etree.ElementTree as ET
+    from xml.parsers import expat
+
+    def refuse(*_a):
+        raise ValueError("feed has a DTD")
+    # expat decodes the body itself (UTF-16 etc.), so this catches a DTD the byte scan above cannot see; the
+    # doctype handler fires before any entity is declared or expanded
+    pre = expat.ParserCreate()
+    pre.StartDoctypeDeclHandler = refuse
+    pre.EntityDeclHandler = refuse
+    pre.SetParamEntityParsing(expat.XML_PARAM_ENTITY_PARSING_NEVER)
+    try:
+        pre.Parse(body, True)
+    except expat.ExpatError as e:
+        raise ValueError(f"feed is not valid XML: {e}") from None
+    root = ET.fromstring(body)
+    out: list[str] = []
+    for item in root.iter():
+        if not isinstance(item.tag, str) or item.tag.rsplit("}", 1)[-1] != "item":
+            continue
+        for child in item.iter():
+            tag = child.tag.rsplit("}", 1)[-1] if isinstance(child.tag, str) else ""
+            if tag in ("title", "news_item_title") and child.text:
+                t = re.sub(r"\s+", " ", html.unescape(child.text)).strip()[:160]
+                if t and t not in out:
+                    out.append(t)
+        if len(out) >= limit:
+            break
+    return out[:limit]
+
+
+def strip_publisher(title: str) -> str:
+    """Google News titles end in " - Publisher"."""
+    return title.rsplit(" - ", 1)[0] if " - " in title else title
+
+
+def trend_index(titles: list[dict]) -> dict[str, dict]:
+    """word -> {"trends": n, "news": n}. Words of a news SEARCH TERM are not counted in that search's own results
+    (every "battery" search result says battery, which tells nothing)."""
+    idx: dict[str, dict] = {}
+    for row in titles:
+        src = "trends" if row.get("src") == "trends" else "news"
+        excl = set(canon_tokens(row.get("q") or "")) if src == "news" else set()
+        for w in canon_tokens(strip_publisher(str(row.get("t") or ""))):
+            if w in excl:
+                continue
+            e = idx.setdefault(w, {"trends": 0, "news": 0})
+            e[src] += 1
+    return idx
+
+
+def performance_topics(stats: dict | None) -> tuple[set[str], list[str]]:
+    """Topics of the best Reels so far (views + 25 x shares), once at least 4 Reels have views."""
+    media = (stats or {}).get("media") if isinstance((stats or {}).get("media"), dict) else {}
+    rows = [(mid, m) for mid, m in media.items() if isinstance(m, dict)
+            and isinstance(m.get("views"), (int, float)) and not isinstance(m.get("views"), bool)]
+    if len(rows) < 4:
+        return set(), []
+    perf = lambda m: float(m.get("views") or 0) + 25.0 * float(m.get("shares") or 0)
+    rows.sort(key=lambda r: (-perf(r[1]), str(r[1].get("timestamp") or ""), r[0]))
+    top = rows[:max(1, min(5, len(rows) // 3))]
+    topics: set[str] = set()
+    names = []
+    for _, m in top:
+        topics |= topics_of(m.get("keyword"), m.get("caption"), m.get("category"))
+        names.append(str(m.get("video_id") or m.get("media_id") or "?"))
+    return topics, names
+
+
+def score_item(it: Item, idx: dict[str, dict], perf: set[str]) -> dict:
+    trend, matched = 0, []
+    for w in sorted(item_words(it)):
+        e = idx.get(w)
+        if not e:
+            continue
+        news = min(e["news"], QUERY_NEWS_CAP) if w in QUERY_WORDS else e["news"]
+        pts = min(3 * e["trends"] + news, TOKEN_CAP)
+        trend += pts
+        bits = [f"{e['trends']} trend" + ("s" if e["trends"] != 1 else "")] if e["trends"] else []
+        bits += [f"{e['news']} news"] if e["news"] else []
+        matched.append(f"{w} (+{pts}: {', '.join(bits)})")
+    shared = sorted(topics_of(it.keyword, first_line(it.caption), it.category) & perf)
+    boost = min(2 * len(shared), 4)
+    if boost:
+        matched.append(f"like top Reels: {', '.join(shared)} (+{boost})")
+    score = trend + boost
+    reason = (f"trend score {score}: " + "; ".join(matched)) if score else "no trend match (plan order)"
+    return {"score": score, "trend": trend, "performance": boost, "matched": matched, "reason": reason[:300]}
+
+
+def compute_order(sched: Schedule, state: dict, live: bool, trends: dict | None, stats: dict | None,
+                  now: datetime) -> tuple[dict, dict]:
+    """(order.json, scores) from cached trend titles + stats. Deterministic: same inputs, same order. Only the next
+    TREND_WINDOW videos of the plan can move; ties keep plan order; a failed/stale fetch means plan order."""
+    remaining = remaining_items(sched, state, live)
+    idx_of = {it.id: n for n, it in enumerate(sched.items)}
+    fetched = parse_ig_time((trends or {}).get("updated_at"))
+    titles = (trends or {}).get("titles") if isinstance((trends or {}).get("titles"), list) else []
+    fresh = bool((trends or {}).get("ok")) and fetched is not None and now - fetched <= TRENDS_MAX_AGE and titles
+    perf, top_names = performance_topics(stats)
+    scores: dict[str, dict] = {}
+    if fresh:
+        idx = trend_index([t for t in titles if isinstance(t, dict)])
+        scores = {it.id: score_item(it, idx, perf) for it in remaining}
+        # fairness: a video already passed over by MAX_OVERTAKES posts planned after it goes first (plan order)
+        posted_idx = [idx_of[v] for v in done_ids(state, live) if v in idx_of]
+        pinned = [it for it in remaining if sum(1 for n in posted_idx if n > idx_of[it.id]) >= MAX_OVERTAKES]
+        pinned_ids = {it.id for it in pinned}
+        for it in pinned:
+            scores[it.id]["reason"] = (f"waited long enough (passed over by {MAX_OVERTAKES}+ later videos); "
+                                       + scores[it.id]["reason"])[:300]
+        rest = [it for it in remaining if it.id not in pinned_ids]
+        window = pinned + sorted(rest[:max(0, TREND_WINDOW - len(pinned))],
+                                 key=lambda it: (-scores[it.id]["score"], idx_of[it.id]))
+        queue = window + rest[max(0, TREND_WINDOW - len(pinned)):]
+        status = "trends"
+        note = (f"Next {len(window)} videos ordered by trend score (ties keep plan order)"
+                + (f"; top Reels so far: {', '.join(top_names)}" if top_names else "") + ".")
+    else:
+        queue = remaining
+        status = "plan_order"
+        why = (trends or {}).get("error") or ("trend titles are older than 36 hours" if fetched else
+                                              "no trend data yet")
+        note = f"Plan order: {why}."
+    reasons = {it.id: scores[it.id]["reason"] for it in queue[:TREND_WINDOW] if it.id in scores}
+    order = {"version": 1, "generated_at": iso(now), "status": status, "note": note,
+             "schedule_sha256": schedule_sha(sched),
+             "based_on": {"trends_updated_at": (trends or {}).get("updated_at"),
+                          "stats_updated_at": (stats or {}).get("updated_at")},
+             "order": [it.id for it in queue], "reasons": reasons}
+    order["upcoming"] = project_upcoming(sched, state, live, order, now)
+    return order, scores
+
+
+def project_upcoming(sched: Schedule, state: dict, live: bool, order: dict, now: datetime, n: int = 6) -> list[dict]:
+    """The next n slots and the video each would take (a projection: the robot decides again at every slot)."""
+    now_u = now.astimezone(UTC)
+    remaining = remaining_items(sched, state, live)
+    ranked = ranked_items(sched, remaining, order)
+    pool = list(ranked[0]) if ranked else list(remaining)
+    reasons = ranked[1] if ranked else {}
+    posts = post_times(state, live, sched.tz)
+    fallback = [remaining[0].slot_time] if remaining else []
+    out: list[dict] = []
+    per_day: dict[date, int] = {}
+    for p in posts:
+        per_day[p.astimezone(sched.tz).date()] = per_day.get(p.astimezone(sched.tz).date(), 0) + 1
+    last = posts[-1] if posts else None
+    for sl in slots_between(sched, now_u - SLOT_GRACE, now_u + timedelta(days=40), fallback):
+        if not pool or len(out) >= n:
+            break
+        day = sl.astimezone(sched.tz).date()
+        if sl + SLOT_GRACE <= now_u or (last is not None and (last >= sl or sl - last < MIN_GAP)) \
+                or per_day.get(day, 0) >= MAX_PER_DAY:
+            continue
+        due = [it for it in pool if planned_at(sched, it) <= sl]
+        if not due:
+            continue
+        it = pool[0] if ranked else due[0]
+        pool.remove(it)
+        out.append({"slot": iso(sl), "slot_rome": f"{sl.astimezone(sched.tz):%a %d %b %H:%M}", "id": it.id,
+                    "reason": str(reasons.get(it.id) or "plan order")})
+        last = sl
+        per_day[day] = per_day.get(day, 0) + 1
+    return out
 
 
 # ====================================================================== entry point
@@ -1093,7 +1902,7 @@ TITLES = {EXIT_OK: "Reel robot: OK", EXIT_SETUP: "Reel robot: needs a fix", EXIT
 def main(argv: list[str] | None = None, environ: dict | None = None, *, transport: Transport = urllib_transport,
          sleep: Callable[[float], None] = time.sleep, clock: Callable[[], float] = time.monotonic,
          out: Callable[[str], None] = print) -> int:
-    ap = argparse.ArgumentParser(description="Post today's Reel from schedule.json (one per day).")
+    ap = argparse.ArgumentParser(description="Post the current slot's Reel from schedule.json (one per slot).")
     ap.add_argument("--dry-run", action="store_true", help="never create or publish, whatever LIVE says")
     ap.add_argument("--now", help="pretend it is this ISO time (dry runs only), e.g. 2026-11-12T12:05+01:00")
     ap.add_argument("--video-dir", type=Path, help="use local mp4s (<dir>/<asset> or <dir>/<id>/<id>_instagram.mp4)")
@@ -1127,6 +1936,7 @@ def main(argv: list[str] | None = None, environ: dict | None = None, *, transpor
         try:
             code = poster.run()
         finally:
+            poster.maintain()                     # stats / trends / order: never changes the exit code
             lines = poster.lines
     except PosterError as e:
         code = e.exit_code

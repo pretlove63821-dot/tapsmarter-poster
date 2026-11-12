@@ -1,14 +1,19 @@
-# Posts at most one Instagram Reel per run (and per day) from schedule.json. See SETUP.md.
+# Posts at most one Instagram Reel per run (one per slot, 2 slots a day) from schedule.json. See SETUP.md.
 #
-# Times: at :05, :25 and :45 past every hour from 14:05 to 21:45 UTC (15:05-22:45 Rome in winter, 16:05-23:45 in
-# summer). The posting slots are 12:00 weekday / 10:00 weekend New York time (= 18:00 / 16:00 Rome), so every slot
-# gets 15+ tries after it, all year, DST included. post.py posts only after the slot written in schedule.json.
+# Times: at :05, :25 and :45 past every hour from 13:05 to 02:45 UTC (14:05-03:45 Rome in winter). The posting
+# slots are US Eastern: weekday 12:00 + 19:00, weekend 10:00 + 18:00 (= 17:00/00:00 or 15:00/23:00 UTC in winter,
+# one hour earlier in summer), so every slot gets 6+ tries inside its 4-hour window, all year, DST included.
+# post.py posts only inside a slot's window, at most once per slot and 2 per Rome day, 3 hours apart.
 # GitHub often starts scheduled runs late or drops some (worst at the top of the hour, so no :00 runs): with many
-# tries after the slot, a dropped run only delays the Reel by ~20 minutes, never a whole day.
-# Cost: 24 short runs a day (free: Actions minutes are unlimited for public repos).
+# tries after the slot, a dropped run only delays the Reel by ~20 minutes. A slot missed completely (outage) is
+# skipped: the queue shifts, nothing is posted twice to catch up.
+# After the posting step the same run refreshes state/stats.json (every 3 h), state/trends.json (daily) and
+# state/order.json (trend order of the next videos). Those never block or delay a post.
+# Cost: 42 short runs a day (free: Actions minutes are unlimited for public repos).
 #
 # Switches (Settings > Secrets and variables > Actions > Variables): LIVE=true to really post (anything else =
-# dry run), PAUSED=true to stop everything. Secret IG_TOKEN. Variable IG_USER_ID.
+# dry run), PAUSED=true to stop everything, STATS=off / TRENDS=off to turn those parts off (TRENDS=off = plan
+# order). Secret IG_TOKEN. Variable IG_USER_ID.
 #
 # No third-party actions at all (not even actions/checkout): the repo is fetched and pushed with plain git and
 # the built-in, short-lived GITHUB_TOKEN.
@@ -16,11 +21,12 @@ name: Post daily Reel
 
 on:
   schedule:
-    - cron: "5,25,45 14-21 * * *"
+    - cron: "5,25,45 13-23 * * *"
+    - cron: "5,25,45 0-2 * * *"
   workflow_dispatch:
 
 permissions:
-  contents: write          # only to commit state/posted.json back (and read the release videos)
+  contents: write          # only to commit state/*.json back (and read the release videos)
 
 concurrency:
   group: post-reel
@@ -53,30 +59,41 @@ jobs:
           LIVE: ${{ vars.LIVE }}
           PAUSED: ${{ vars.PAUSED }}
           VIDEO_SOURCE: ${{ vars.VIDEO_SOURCE }}
+          STATS: ${{ vars.STATS }}
+          TRENDS: ${{ vars.TRENDS }}
           GITHUB_TOKEN: ${{ github.token }}
         run: python3 -I post.py
 
-      - name: Save state/posted.json
+      - name: Save state files
         if: always()
         working-directory: repo
         run: |
           set -euo pipefail
-          [ -f state/posted.json ] || exit 0
-          # The robot is the only writer of this file: put our copy on top of the newest branch tip and push.
-          cp state/posted.json "$RUNNER_TEMP/posted.json"
+          FILES="posted.json stats.json trends.json order.json"
+          mkdir -p "$RUNNER_TEMP/state"
+          have=0
+          for f in $FILES; do
+            if [ -f "state/$f" ]; then cp "state/$f" "$RUNNER_TEMP/state/$f"; have=1; fi
+          done
+          [ "$have" = 1 ] || exit 0
+          # The robot is the only writer of these files: put our copies on top of the newest branch tip and push.
           for i in 1 2 3 4 5; do
             git fetch -q --depth 1 origin "${GITHUB_REF_NAME}"
             git reset -q --hard FETCH_HEAD
             mkdir -p state
-            cp "$RUNNER_TEMP/posted.json" state/posted.json
-            git add state/posted.json
+            for f in $FILES; do
+              if [ -f "$RUNNER_TEMP/state/$f" ]; then
+                cp "$RUNNER_TEMP/state/$f" "state/$f"
+                git add "state/$f"
+              fi
+            done
             if git diff --cached --quiet; then
               echo "State unchanged."
               exit 0
             fi
             git -c user.name="github-actions[bot]" \
                 -c user.email="41898282+github-actions[bot]@users.noreply.github.com" \
-                commit -q -m "Reel robot: update state/posted.json"
+                commit -q -m "Reel robot: update state"
             if git push -q origin "HEAD:${GITHUB_REF_NAME}"; then
               echo "State saved."
               exit 0
@@ -84,5 +101,5 @@ jobs:
             echo "Push refused (someone pushed meanwhile); retrying."
             sleep $((i * 3))
           done
-          echo "::error::Could not save state/posted.json. The next run re-checks Instagram before posting, so nothing is posted twice."
+          echo "::error::Could not save the state files. The next run re-checks Instagram before posting, so nothing is posted twice."
           exit 1

@@ -142,7 +142,8 @@ class Base(unittest.TestCase):
 
     def env(self, live=False, **kw):
         e = {"IG_TOKEN": TOKEN, "IG_USER_ID": IG, "GITHUB_TOKEN": GH_TOKEN, "GITHUB_REPOSITORY": "preet/reels",
-             "GITHUB_STEP_SUMMARY": str(self.summary), "VIDEO_SOURCE": "upload"}
+             "GITHUB_STEP_SUMMARY": str(self.summary), "VIDEO_SOURCE": "upload",
+             "STATS": "off", "TRENDS": "off"}          # tests/test_growth.py covers stats + trends
         if live:
             e["LIVE"] = "true"
         e.update(kw)
@@ -536,20 +537,35 @@ class LiveTests(Base):
         self.assertEqual(self.run_post(rome(2026, 11, 12, 12, 5), fake, live=True, IG_TOKEN=""), post.EXIT_SETUP)
         self.assertEqual(fake.calls, [])
 
-    def test_gives_up_for_the_day_after_three_failures(self):
+    def test_video_out_of_tries_lets_the_next_one_go(self):
         fake = FakeMeta()
         state = dict(post.empty_state(), failures={"wd-102": {"date": "2026-11-12", "count": 3, "last_error": "x"}})
-        # the failing run already alerted; the rest of the day stays green and quiet
+        # wd-102 used up today's tries: the slot goes to the next video instead of being lost
+        self.assertEqual(self.run_post(rome(2026, 11, 12, 12, 5), fake, live=True, state=state), post.EXIT_OK,
+                         self.out.getvalue())
+        self.assertIn("not trying it again until tomorrow", self.out.getvalue())
+        self.assertEqual([r["id"] for r in self.state()["posted"]], ["wd-103"])
+        self.assertEqual(len(fake.posts_to("/media_publish")), 1)
+        # same slot later: still one per slot, wd-102 is not posted on top
+        fake2 = FakeMeta()
+        fake2.media = fake.media
+        self.assertEqual(self.run_post(rome(2026, 11, 12, 12, 25), fake2, live=True), post.EXIT_OK)
+        self.assertEqual(fake2.writes(), [])
+
+    def test_gives_up_for_the_day_when_every_video_is_out_of_tries(self):
+        fake = FakeMeta()
+        fails = {v: {"date": "2026-11-12", "count": 3, "last_error": "x"} for v in ("wd-102", "wd-103", "wd-137", "wd-120")}
+        state = dict(post.empty_state(), failures=fails)
         self.assertEqual(self.run_post(rome(2026, 11, 12, 12, 5), fake, live=True, state=state), post.EXIT_OK)
         self.assertEqual(fake.writes(), [])
-        self.assertIn("not trying again until tomorrow", self.out.getvalue())
+        self.assertIn("trying again tomorrow", self.out.getvalue())
 
     def test_permanent_problem_on_two_days_sets_the_video_aside(self):
         raw = make_schedule()
         raw["items"][0]["asset_size"] = len(VIDEO) + 1         # wrong video uploaded for wd-102 only
         self.write_schedule(raw)
         fake = FakeMeta()
-        self.assertEqual(self.run_post(rome(2026, 11, 12, 18, 5), fake, live=True), post.EXIT_SETUP)
+        self.assertEqual(self.run_post(rome(2026, 11, 12, 12, 5), fake, live=True), post.EXIT_SETUP)
         self.assertEqual(self.state()["blocked"], {})
         self.assertEqual(self.run_post(rome(2026, 11, 13, 12, 5), fake, live=True), post.EXIT_SETUP)
         st = self.state()
@@ -656,7 +672,9 @@ class WorkflowTests(unittest.TestCase):
         self.text = (HERE / ".github" / "workflows" / "post.yml").read_text(encoding="utf-8")
 
     def test_schedule_concurrency_and_permissions(self):
-        self.assertIn('cron: "5,25,45 14-21 * * *"', self.text)
+        for spec in post.CRON_SPECS:
+            self.assertIn(f'cron: "{spec}"', self.text)
+        self.assertEqual(self.text.count("- cron:"), len(post.CRON_SPECS))
         self.assertIn("workflow_dispatch:", self.text)
         self.assertIn("group: post-reel", self.text)
         self.assertIn("cancel-in-progress: false", self.text)
@@ -669,21 +687,28 @@ class WorkflowTests(unittest.TestCase):
         self.assertNotIn("inputs:", self.text)
         self.assertNotIn("upload-artifact", self.text)
 
-    def test_cron_window_gives_many_tries_after_every_slot_all_year(self):
-        runs = [h * 60 + m for h in range(14, 22) for m in (5, 25, 45)]
-        self.assertEqual((runs[0], runs[-1]), (post.CRON_WINDOW_UTC[0].hour * 60 + post.CRON_WINDOW_UTC[0].minute,
-                                               post.CRON_WINDOW_UTC[1].hour * 60 + post.CRON_WINDOW_UTC[1].minute))
+    def test_cron_gives_many_tries_after_every_slot_all_year(self):
+        """Both daily US-Eastern slots (weekday 12:00 + 19:00, weekend 10:00 + 18:00) get a first try within
+        25 minutes and several more inside the slot's grace window, in both DST states and the gap weeks."""
+        runs = post.cron_minutes()
+        grace = int(post.SLOT_GRACE.total_seconds() // 60)
         et = post.ZoneInfo("America/New_York")
         for y, mo, d in ((2026, 1, 15), (2026, 7, 15), (2026, 3, 20), (2026, 3, 29), (2026, 10, 25),
-                         (2026, 10, 30), (2026, 11, 7), (2026, 11, 12), (2026, 12, 31)):
-            for hh in (10, 12):           # the Mac's US-Eastern slots (= 16:00 / 18:00 Rome)
-                for when in (datetime(y, mo, d, hh, tzinfo=et),):
-                    utc = when.astimezone(timezone.utc)
-                    slot = utc.hour * 60 + utc.minute
-                    after = [r for r in runs if r >= slot]
-                    self.assertTrue(after and after[0] - slot <= 25, when)       # first try soon after the slot
-                    self.assertGreaterEqual(len(after), 15, when)              # and plenty of retries
+                         (2026, 10, 30), (2026, 11, 7), (2026, 11, 12), (2026, 12, 31), (2027, 3, 10)):
+            for wd, we in (("12:00", "10:00"), ("19:00", "18:00")):
+                day = datetime(y, mo, d)
+                hh, mm = map(int, (we if day.weekday() >= 5 else wd).split(":"))
+                utc = datetime(y, mo, d, hh, mm, tzinfo=et).astimezone(timezone.utc)
+                slot = utc.hour * 60 + utc.minute
+                after = sorted((r - slot) % 1440 for r in runs if (r - slot) % 1440 < grace)
+                self.assertTrue(after and after[0] <= 25, (y, mo, d, hh))
+                self.assertGreaterEqual(len(after), 6, (y, mo, d, hh))
 
+    def test_workflow_commits_every_state_file(self):
+        for f in ("posted.json", "stats.json", "trends.json", "order.json"):
+            self.assertIn(f, self.text)
+        self.assertIn("STATS: ${{ vars.STATS }}", self.text)
+        self.assertIn("TRENDS: ${{ vars.TRENDS }}", self.text)
 
 if __name__ == "__main__":
     unittest.main()
