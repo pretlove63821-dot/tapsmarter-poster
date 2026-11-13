@@ -10,12 +10,25 @@
       "container_id": "17983805156915954",
       "caption_sha256": "5a71e47a32f05dc9f5971641227b46a7a4b7ca9ee264229cee8515821b6afcf3",
       "source": "robot"
+    },
+    {
+      "id": "wd-106",
+      "date": "2026-11-13",
+      "posted_at": "2026-11-13T18:40:43+00:00",
+      "media_id": "17912506704568815",
+      "permalink": "https://www.instagram.com/reel/DfsTCrTh3Ui/",
+      "container_id": "17984128787915954",
+      "caption_sha256": "89ccab251ffccea6785c7cf1cdcb942cc4fbee56d1fce2f56967ce614e96f0ce",
+      "source": "robot",
+      "slot": "2026-11-13T17:00:00+00:00",
+      "pick": "plan order"
     }
   ],
   "dry_runs": [],
   "pending": null,
   "first_comments": [
-    "17900739435397375"
+    "17900739435397375",
+    "17912506704568815"
   ],
   "failures": {
     "wd-102": {
@@ -27,7 +40,7 @@
   },
   "blocked": {},
   "last_run": {
-    "at": "2026-11-12T15:22:48+00:00",
+    "at": "2026-11-13T18:40:43+00:00",
     "outcome": "posted",
     "mode": "live"
   }

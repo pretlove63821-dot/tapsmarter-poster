@@ -43,19 +43,6 @@
    "score": 3,
    "trend": 3
   },
-  "wd-106": {
-   "matched": [
-    "bank (+1: 1 news)",
-    "delivery (+2: 2 news)",
-    "fake (+1: 1 news)",
-    "spot (+1: 1 news)",
-    "tap (+1: 1 news)"
-   ],
-   "performance": 0,
-   "reason": "trend score 6: bank (+1: 1 news); delivery (+2: 2 news); fake (+1: 1 news); spot (+1: 1 news); tap (+1: 1 news)",
-   "score": 6,
-   "trend": 6
-  },
   "wd-107": {
    "matched": [
     "flight (+1: 1 news)",
@@ -532,20 +519,6 @@
    "reason": "trend score 3: advanced (+1: 1 news); december (+1: 1 news); standard (+1: 1 news)",
    "score": 3,
    "trend": 3
-  },
-  "wd-166": {
-   "matched": [
-    "ceo (+6: 1 trend, 3 news)",
-    "learn (+3: 1 trend)",
-    "nvidia (+6: 3 trends, 3 news)",
-    "safety (+1: 1 news)",
-    "target (+4: 4 news)",
-    "trap (+3: 1 trend)"
-   ],
-   "performance": 0,
-   "reason": "trend score 23: ceo (+6: 1 trend, 3 news); learn (+3: 1 trend); nvidia (+6: 3 trends, 3 news); safety (+1: 1 news); target (+4: 4 news); trap (+3: 1 trend)",
-   "score": 23,
-   "trend": 23
   }
  },
  "sources": [

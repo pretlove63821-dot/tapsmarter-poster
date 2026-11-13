@@ -1,14 +1,12 @@
 {
  "based_on": {
-  "stats_updated_at": "2026-11-13T14:15:31+00:00",
+  "stats_updated_at": "2026-11-13T18:40:43+00:00",
   "trends_updated_at": "2026-11-13T02:54:06+00:00"
  },
- "generated_at": "2026-11-13T14:15:31+00:00",
+ "generated_at": "2026-11-13T18:40:43+00:00",
  "note": "Next 14 videos: trend score 6+ or a top-Reel topic goes first, the rest keep plan order.",
  "order": [
-  "wd-166",
   "wd-151",
-  "wd-106",
   "wd-101",
   "wd-145",
   "wd-152",
@@ -64,28 +62,22 @@
  "reasons": {
   "wd-101": "trend score 6: against (+1: 1 news); safe (+1: 1 news); safety (+1: 1 news); word (+3: 1 trend)",
   "wd-103": "trend score 2: plan (+2: 2 news)",
-  "wd-106": "trend score 6: bank (+1: 1 news); delivery (+2: 2 news); fake (+1: 1 news); spot (+1: 1 news); tap (+1: 1 news)",
   "wd-111": "trend score 1: safety (+1: 1 news)",
   "wd-112": "trend score 2: safety (+1: 1 news); spot (+1: 1 news)",
   "wd-117": "trend score 4: share (+3: 1 trend); verification (+1: 1 news)",
   "wd-119": "trend score 1: money (+1: 1 news)",
   "wd-126": "trend score 4: christmas (+2: 2 news); plan (+2: 2 news)",
+  "wd-127": "trend score 5: black (+1: 1 news); buy (+1: 1 news); friday (+1: 1 news); product (+2: 2 news)",
   "wd-143": "trend score 3: find (+2: 2 news); money (+1: 1 news)",
   "wd-145": "trend score 6: black (+1: 1 news); friday (+1: 1 news); history (+1: 1 news); money (+1: 1 news); price (+2: 2 news)",
   "wd-151": "trend score 7: black (+1: 1 news); friday (+1: 1 news); hold (+2: 2 news); order (+1: 1 news); safety (+1: 1 news); tap (+1: 1 news)",
   "wd-152": "trend score 6: black (+1: 1 news); buy (+1: 1 news); deal (+2: 2 news); friday (+1: 1 news); money (+1: 1 news)",
   "wd-153": "trend score 4: fake (+1: 1 news); online (+1: 1 news); safety (+1: 1 news); store (+1: 1 news)",
-  "wd-166": "trend score 23: ceo (+6: 1 trend, 3 news); learn (+3: 1 trend); nvidia (+6: 3 trends, 3 news); safety (+1: 1 news); target (+4: 4 news); trap (+3: 1 trend)"
+  "wd-155": "trend score 4: agent (+2: 2 news); buy (+1: 1 news); safety (+1: 1 news)"
  },
- "schedule_sha256": "01503c2cb47c4f44abb077f333b0adbb971a5e86f9ef1a6bc34a0ee9badd31cc",
+ "schedule_sha256": "5a908033e9b0d37d8dd55b10a3d20b2b59eabdb900f74c17a713300270c9a47b",
  "status": "trends",
  "upcoming": [
-  {
-   "id": "wd-166",
-   "reason": "trend score 23: ceo (+6: 1 trend, 3 news); learn (+3: 1 trend); nvidia (+6: 3 trends, 3 news); safety (+1: 1 news); target (+4: 4 news); trap (+3: 1 trend)",
-   "slot": "2026-11-13T17:00:00+00:00",
-   "slot_rome": "Fri 13 Nov 18:00"
-  },
   {
    "id": "wd-151",
    "reason": "trend score 7: black (+1: 1 news); friday (+1: 1 news); hold (+2: 2 news); order (+1: 1 news); safety (+1: 1 news); tap (+1: 1 news)",
@@ -93,28 +85,34 @@
    "slot_rome": "Sat 14 Nov 01:00"
   },
   {
-   "id": "wd-106",
-   "reason": "trend score 6: bank (+1: 1 news); delivery (+2: 2 news); fake (+1: 1 news); spot (+1: 1 news); tap (+1: 1 news)",
+   "id": "wd-101",
+   "reason": "trend score 6: against (+1: 1 news); safe (+1: 1 news); safety (+1: 1 news); word (+3: 1 trend)",
    "slot": "2026-11-14T15:00:00+00:00",
    "slot_rome": "Sat 14 Nov 16:00"
   },
   {
-   "id": "wd-101",
-   "reason": "trend score 6: against (+1: 1 news); safe (+1: 1 news); safety (+1: 1 news); word (+3: 1 trend)",
+   "id": "wd-145",
+   "reason": "trend score 6: black (+1: 1 news); friday (+1: 1 news); history (+1: 1 news); money (+1: 1 news); price (+2: 2 news)",
    "slot": "2026-11-14T23:00:00+00:00",
    "slot_rome": "Sun 15 Nov 00:00"
   },
   {
-   "id": "wd-145",
-   "reason": "trend score 6: black (+1: 1 news); friday (+1: 1 news); history (+1: 1 news); money (+1: 1 news); price (+2: 2 news)",
+   "id": "wd-152",
+   "reason": "trend score 6: black (+1: 1 news); buy (+1: 1 news); deal (+2: 2 news); friday (+1: 1 news); money (+1: 1 news)",
    "slot": "2026-11-15T15:00:00+00:00",
    "slot_rome": "Sun 15 Nov 16:00"
   },
   {
-   "id": "wd-152",
-   "reason": "trend score 6: black (+1: 1 news); buy (+1: 1 news); deal (+2: 2 news); friday (+1: 1 news); money (+1: 1 news)",
+   "id": "wd-103",
+   "reason": "trend score 2: plan (+2: 2 news)",
    "slot": "2026-11-15T23:00:00+00:00",
    "slot_rome": "Mon 16 Nov 00:00"
+  },
+  {
+   "id": "wd-143",
+   "reason": "trend score 3: find (+2: 2 news); money (+1: 1 news)",
+   "slot": "2026-11-16T17:00:00+00:00",
+   "slot_rome": "Mon 16 Nov 18:00"
   }
  ],
  "version": 1

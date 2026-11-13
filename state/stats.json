@@ -20,12 +20,17 @@
     "at": "2026-11-13T14:15:31+00:00",
     "followers_count": 0,
     "media_count": 1
+   },
+   {
+    "at": "2026-11-13T18:40:43+00:00",
+    "followers_count": 0,
+    "media_count": 2
    }
   ],
   "latest": {
-   "at": "2026-11-13T14:15:31+00:00",
+   "at": "2026-11-13T18:40:43+00:00",
    "followers_count": 0,
-   "media_count": 1
+   "media_count": 2
   }
  },
  "daily": {
@@ -48,6 +53,17 @@
     "shares": 1,
     "views": 110
    }
+  ],
+  "17912506704568815": [
+   {
+    "comments": 1,
+    "d": "2026-11-13",
+    "likes": 0,
+    "reach": 0,
+    "saved": 0,
+    "shares": 0,
+    "views": 0
+   }
   ]
  },
  "errors": [],
@@ -67,14 +83,33 @@
    "shares": 1,
    "timestamp": "2026-11-12T15:23:54+0000",
    "total_interactions": 3,
-   "updated_at": "2026-11-13T14:15:31+00:00",
+   "updated_at": "2026-11-13T18:40:43+00:00",
    "video_id": "wd-102",
    "views": 110
+  },
+  "17912506704568815": {
+   "caption": "If you get this text, don't tap it: fake delivery text red flags",
+   "category": "PHONE TRICK",
+   "comments_count": 1,
+   "ig_reels_avg_watch_time": 0,
+   "ig_reels_video_view_total_time": 0,
+   "keyword": "SCAM",
+   "like_count": 0,
+   "media_id": "17912506704568815",
+   "permalink": "https://www.instagram.com/reel/DfsTCrTh3Ui/",
+   "reach": 0,
+   "saved": 0,
+   "shares": 0,
+   "timestamp": "2026-11-13T18:41:44+0000",
+   "total_interactions": 1,
+   "updated_at": "2026-11-13T18:40:43+00:00",
+   "video_id": "wd-106",
+   "views": 0
   }
  },
  "note": "views, reach, saves and shares are on",
  "permission": "ok",
  "unsupported_metrics": [],
- "updated_at": "2026-11-13T14:15:31+00:00",
+ "updated_at": "2026-11-13T18:40:43+00:00",
  "version": 1
 }
