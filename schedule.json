@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "generated_at": "2026-11-14T18:19:09+00:00",
+  "generated_at": "2026-11-14T21:44:15+00:00",
   "timezone": "Europe/Rome",
   "start_date": "2026-11-15",
   "slots": {
@@ -73,6 +73,27 @@
       "first_comment": "Try it with your class notes: upload the PDF, then make a Hard quiz with Fill in the Blank questions the night before the test.",
       "keyword": "NOTES",
       "title": "Gemini Notebook (formerly NotebookLM) real walkthrough: one Wikipedia page -> 60 flashcards, a 12-question hard quiz, a mind map; Studio has 9 tools",
+      "category": "AI TOOLS",
+      "phone_os": null
+    },
+    {
+      "id": "ai-016",
+      "date": "2026-11-16",
+      "slot_time": "00:00",
+      "slot_at": "2026-11-15T23:00:00+00:00",
+      "slot_et": "2026-11-15T18:00-05:00",
+      "slot_index": 1,
+      "plan_index": 4,
+      "caption": "Google AI Mode trip planner: free day-by-day itinerary with map and budget\nGoogle planned my 3 days in Rome in seconds. Free, no sign-in ✈️\n\n1. Go to google.com and tap AI Mode (it worked for me without even signing in)\n2. Type: days + city + budget, like \"plan a 3 day trip to Rome on a budget\"\n3. It groups sights by neighborhood, gives a daily budget (Rome: ~€70-120 a day, hotel not included) and maps every day\n4. It even adds money tips: the ~€8 FL1 train from Fiumicino airport instead of a ~€55 taxi\n5. Keep asking: \"where should I eat near the Colosseum?\"\n\nPro tip: add your style (food lover, with kids, nightlife).\n\nAI can make mistakes: double-check opening hours and prices before you go.\n\nComment TRAVEL and I'll DM you my 5 best trip prompts.\nSend this to a friend with an exam coming up.\n\nThe screens in the video are our own animated recreation of Google AI Mode.\n\nMade with an AI voice and AI visuals.\n\n#aitools #travelhacks #googletips #tripplanning",
+      "caption_sha256": "67b9377a0c7b6813c52ebca884649035bfc7af4d0faf96c298cbd974618724e4",
+      "asset": "ai-016.mp4",
+      "asset_size": 13030528,
+      "asset_sha256": "60c5923f5fec8d5dd20c982d5053d9fcc16a1a272aec6163e94b45365948ae99",
+      "thumb_offset_ms": 0,
+      "cover_url": null,
+      "first_comment": "Try: \"plan 2 days in [city] for under $100 a day, I love food markets, no museums\". The more specific, the better the plan.",
+      "keyword": "TRAVEL",
+      "title": "Google AI Mode plans a whole trip free: day-by-day plan grouped by neighborhood, daily budget, map; works without signing in",
       "category": "AI TOOLS",
       "phone_os": null
     }
