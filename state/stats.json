@@ -30,10 +30,15 @@
     "at": "2026-11-14T00:55:12+00:00",
     "followers_count": 0,
     "media_count": 2
+   },
+   {
+    "at": "2026-11-14T05:28:00+00:00",
+    "followers_count": 0,
+    "media_count": 2
    }
   ],
   "latest": {
-   "at": "2026-11-14T00:55:12+00:00",
+   "at": "2026-11-14T05:28:00+00:00",
    "followers_count": 0,
    "media_count": 2
   }
@@ -106,7 +111,7 @@
    "shares": 1,
    "timestamp": "2026-11-12T15:23:54+0000",
    "total_interactions": 3,
-   "updated_at": "2026-11-14T00:55:12+00:00",
+   "updated_at": "2026-11-14T05:28:00+00:00",
    "video_id": "wd-102",
    "views": 110
   },
@@ -125,7 +130,7 @@
    "shares": 0,
    "timestamp": "2026-11-13T18:41:44+0000",
    "total_interactions": 1,
-   "updated_at": "2026-11-14T00:55:12+00:00",
+   "updated_at": "2026-11-14T05:28:00+00:00",
    "video_id": "wd-106",
    "views": 3
   }
@@ -133,6 +138,6 @@
  "note": "views, reach, saves and shares are on",
  "permission": "ok",
  "unsupported_metrics": [],
- "updated_at": "2026-11-14T00:55:12+00:00",
+ "updated_at": "2026-11-14T05:28:00+00:00",
  "version": 1
 }
