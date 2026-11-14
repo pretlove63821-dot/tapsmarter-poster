@@ -1,17 +1,19 @@
 {
  "based_on": {
-  "stats_updated_at": "2026-11-14T18:39:24+00:00",
+  "stats_updated_at": "2026-11-14T22:44:00+00:00",
   "trends_updated_at": "2026-11-14T18:39:24+00:00"
  },
- "generated_at": "2026-11-14T18:39:24+00:00",
- "note": "Next 1 videos: trend score 6+ or a top-Reel topic goes first, the rest keep plan order.",
+ "generated_at": "2026-11-14T22:44:00+00:00",
+ "note": "Next 2 videos: trend score 6+ or a top-Reel topic goes first, the rest keep plan order.",
  "order": [
-  "ai-015"
+  "ai-015",
+  "ai-016"
  ],
  "reasons": {
-  "ai-015": "no trend match (plan order)"
+  "ai-015": "no trend match (plan order)",
+  "ai-016": "trend score 4: mode (+2: 2 news); money (+1: 1 news); work (+1: 1 news)"
  },
- "schedule_sha256": "a8987a777718163f26135e5087d3b8f0c2ee2b7dbf5a5a5b55e815e98879322b",
+ "schedule_sha256": "c4bbd0b01922fab7f6af683417a6640f4b654052dd0ce72990e6aa7d2c64ee77",
  "status": "trends",
  "upcoming": [
   {
@@ -19,6 +21,12 @@
    "reason": "no trend match (plan order)",
    "slot": "2026-11-15T15:00:00+00:00",
    "slot_rome": "Sun 15 Nov 16:00"
+  },
+  {
+   "id": "ai-016",
+   "reason": "trend score 4: mode (+2: 2 news); money (+1: 1 news); work (+1: 1 news)",
+   "slot": "2026-11-15T23:00:00+00:00",
+   "slot_rome": "Mon 16 Nov 00:00"
   }
  ],
  "version": 1

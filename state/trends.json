@@ -1,7 +1,7 @@
 {
  "attempted_at": "2026-11-14T18:39:24+00:00",
  "error": null,
- "note": "Next 1 videos: trend score 6+ or a top-Reel topic goes first, the rest keep plan order.",
+ "note": "Next 2 videos: trend score 6+ or a top-Reel topic goes first, the rest keep plan order.",
  "ok": true,
  "order_status": "trends",
  "performance_topics": [],
@@ -12,6 +12,17 @@
    "reason": "no trend match (plan order)",
    "score": 0,
    "trend": 0
+  },
+  "ai-016": {
+   "matched": [
+    "mode (+2: 2 news)",
+    "money (+1: 1 news)",
+    "work (+1: 1 news)"
+   ],
+   "performance": 0,
+   "reason": "trend score 4: mode (+2: 2 news); money (+1: 1 news); work (+1: 1 news)",
+   "score": 4,
+   "trend": 4
   }
  },
  "sources": [
