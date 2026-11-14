@@ -1,8 +1,8 @@
 {
   "version": 1,
-  "generated_at": "2026-11-14T15:24:13+00:00",
+  "generated_at": "2026-11-14T18:19:09+00:00",
   "timezone": "Europe/Rome",
-  "start_date": "2026-11-14",
+  "start_date": "2026-11-15",
   "slots": {
     "weekend": "16:00",
     "weekday": "15:00"
@@ -22,8 +22,6 @@
   "max_posts_per_day": 2,
   "min_gap_hours": 3.0,
   "slot_calendar": [
-    "2026-11-14T15:00:00+00:00",
-    "2026-11-14T23:00:00+00:00",
     "2026-11-15T15:00:00+00:00",
     "2026-11-15T23:00:00+00:00",
     "2026-11-16T14:00:00+00:00",
@@ -53,12 +51,30 @@
     "2026-11-28T15:00:00+00:00",
     "2026-11-28T23:00:00+00:00",
     "2026-11-29T15:00:00+00:00",
-    "2026-11-29T23:00:00+00:00",
-    "2026-11-30T14:00:00+00:00",
-    "2026-12-01T00:00:00+00:00",
-    "2026-12-01T14:00:00+00:00",
-    "2026-12-02T00:00:00+00:00"
+    "2026-11-29T23:00:00+00:00"
   ],
   "release_tag": "videos",
-  "items": []
+  "items": [
+    {
+      "id": "ai-015",
+      "date": "2026-11-15",
+      "slot_time": "16:00",
+      "slot_at": "2026-11-15T15:00:00+00:00",
+      "slot_et": "2026-11-15T10:00-05:00",
+      "slot_index": 0,
+      "plan_index": 3,
+      "caption": "Gemini Notebook (NotebookLM) flashcards, quiz and mind map from one article: real walkthrough\nStop making flashcards by hand. Google made me 60 from one article 📚\n\nIt's Gemini Notebook (the new name of NotebookLM), free at notebook.google.com:\n1. New notebook, then Add sources: paste a link, upload a PDF or a YouTube video\n2. In the Studio panel, tap Flashcards (there are 9 tools: Flashcards, Quiz, Mind Map, Audio Overview, Video Overview, Slide Deck, Infographic, Reports, Data Table)\n3. Pro tip: type your focus in \"What should the topic be?\" (like \"help me study for my biology exam\")\n4. Quiz: pick Hard and mix question types like Fill in the Blank\n\nFrom ONE Wikipedia page I got 60 flashcards, a 12-question hard quiz and a mind map.\n\nFree with a Google account (there's a usage limit). AI can make mistakes, so double-check facts.\n\nComment NOTES and I'll DM you my 5 best study prompts.\nSend this to a friend with an exam coming up.\n\nThe screens in the video are our own animated recreation of the app.\n\nMade with an AI voice and AI visuals.\n\n#aitools #studytips #productivity #googletips",
+      "caption_sha256": "a892c1f7298bde6f8fd72fcc246450b8742401db41a7f4c961a1d7f3ebaa1971",
+      "asset": "ai-015.mp4",
+      "asset_size": 14412109,
+      "asset_sha256": "3beb1f0ac4564fab3b487b3096eaebe9a9e984787003c485c7bd541e8b1303f9",
+      "thumb_offset_ms": 0,
+      "cover_url": null,
+      "first_comment": "Try it with your class notes: upload the PDF, then make a Hard quiz with Fill in the Blank questions the night before the test.",
+      "keyword": "NOTES",
+      "title": "Gemini Notebook (formerly NotebookLM) real walkthrough: one Wikipedia page -> 60 flashcards, a 12-question hard quiz, a mind map; Studio has 9 tools",
+      "category": "AI TOOLS",
+      "phone_os": null
+    }
+  ]
 }
