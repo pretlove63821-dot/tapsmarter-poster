@@ -35,12 +35,17 @@
     "at": "2026-11-14T05:28:00+00:00",
     "followers_count": 0,
     "media_count": 2
+   },
+   {
+    "at": "2026-11-14T15:12:19+00:00",
+    "followers_count": 0,
+    "media_count": 3
    }
   ],
   "latest": {
-   "at": "2026-11-14T05:28:00+00:00",
+   "at": "2026-11-14T15:12:19+00:00",
    "followers_count": 0,
-   "media_count": 2
+   "media_count": 3
   }
  },
  "daily": {
@@ -87,10 +92,21 @@
     "comments": 1,
     "d": "2026-11-14",
     "likes": 0,
-    "reach": 3,
+    "reach": 4,
     "saved": 0,
     "shares": 0,
-    "views": 3
+    "views": 4
+   }
+  ],
+  "18128449036676317": [
+   {
+    "comments": 1,
+    "d": "2026-11-14",
+    "likes": 0,
+    "reach": 0,
+    "saved": 0,
+    "shares": 0,
+    "views": 0
    }
   ]
  },
@@ -100,8 +116,8 @@
    "caption": "iPhone call screening for unknown callers",
    "category": null,
    "comments_count": 1,
-   "ig_reels_avg_watch_time": 6824,
-   "ig_reels_video_view_total_time": 702913,
+   "ig_reels_avg_watch_time": 6768,
+   "ig_reels_video_view_total_time": 703925,
    "keyword": null,
    "like_count": 1,
    "media_id": "17900739435397375",
@@ -111,7 +127,7 @@
    "shares": 1,
    "timestamp": "2026-11-12T15:23:54+0000",
    "total_interactions": 3,
-   "updated_at": "2026-11-14T05:28:00+00:00",
+   "updated_at": "2026-11-14T15:12:19+00:00",
    "video_id": "wd-102",
    "views": 110
   },
@@ -119,25 +135,44 @@
    "caption": "If you get this text, don't tap it: fake delivery text red flags",
    "category": "PHONE TRICK",
    "comments_count": 1,
-   "ig_reels_avg_watch_time": 12601,
-   "ig_reels_video_view_total_time": 50405,
+   "ig_reels_avg_watch_time": 9270,
+   "ig_reels_video_view_total_time": 55623,
    "keyword": "SCAM",
    "like_count": 0,
    "media_id": "17912506704568815",
    "permalink": "https://www.instagram.com/reel/DfsTCrTh3Ui/",
-   "reach": 3,
+   "reach": 4,
    "saved": 0,
    "shares": 0,
    "timestamp": "2026-11-13T18:41:44+0000",
    "total_interactions": 1,
-   "updated_at": "2026-11-14T05:28:00+00:00",
+   "updated_at": "2026-11-14T15:12:19+00:00",
    "video_id": "wd-106",
-   "views": 3
+   "views": 4
+  },
+  "18128449036676317": {
+   "caption": "Nvidia's CEO just quit. Here's the scam lesson for you.",
+   "category": "SAFETY",
+   "comments_count": 1,
+   "ig_reels_avg_watch_time": 0,
+   "ig_reels_video_view_total_time": 0,
+   "keyword": "TRAP",
+   "like_count": 0,
+   "media_id": "18128449036676317",
+   "permalink": "https://www.instagram.com/reel/Dfuf_HMtKRJ/",
+   "reach": 0,
+   "saved": 0,
+   "shares": 0,
+   "timestamp": "2026-11-14T15:13:17+0000",
+   "total_interactions": 1,
+   "updated_at": "2026-11-14T15:12:19+00:00",
+   "video_id": "wd-166",
+   "views": 0
   }
  },
  "note": "views, reach, saves and shares are on",
  "permission": "ok",
  "unsupported_metrics": [],
- "updated_at": "2026-11-14T05:28:00+00:00",
+ "updated_at": "2026-11-14T15:12:19+00:00",
  "version": 1
 }

@@ -22,13 +22,26 @@
       "source": "robot",
       "slot": "2026-11-13T17:00:00+00:00",
       "pick": "plan order"
+    },
+    {
+      "id": "wd-166",
+      "date": "2026-11-14",
+      "posted_at": "2026-11-14T15:12:19+00:00",
+      "media_id": "18128449036676317",
+      "permalink": "https://www.instagram.com/reel/Dfuf_HMtKRJ/",
+      "container_id": "17984424638915954",
+      "caption_sha256": "b48426a70935a6c85c941a77292ffc03d489f6b7997bc7f7d5a57a779d8c4b3d",
+      "source": "robot",
+      "slot": "2026-11-14T15:00:00+00:00",
+      "pick": "plan order"
     }
   ],
   "dry_runs": [],
   "pending": null,
   "first_comments": [
     "17900739435397375",
-    "17912506704568815"
+    "17912506704568815",
+    "18128449036676317"
   ],
   "failures": {
     "wd-102": {
@@ -40,7 +53,7 @@
   },
   "blocked": {},
   "last_run": {
-    "at": "2026-11-13T18:40:43+00:00",
+    "at": "2026-11-14T15:12:19+00:00",
     "outcome": "posted",
     "mode": "live"
   }
