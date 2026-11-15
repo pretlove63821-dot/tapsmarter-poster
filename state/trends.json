@@ -1,5 +1,5 @@
 {
- "attempted_at": "2026-11-15T02:08:24+00:00",
+ "attempted_at": "2026-11-15T23:24:59+00:00",
  "error": null,
  "note": "Next 14 videos: trend score 6+ or a top-Reel topic goes first, the rest keep plan order; top Reels so far: wd-102.",
  "ok": true,
@@ -10,1151 +10,629 @@
  ],
  "scores": {
   "ai-016": {
-   "matched": [
-    "mode (+4: 4 news)",
-    "money (+6: 2 trends, 2 news)",
-    "tool (+1: 1 news)",
-    "work (+1: 1 news)"
-   ],
+   "matched": [],
    "performance": 0,
-   "reason": "trend score 12: mode (+4: 4 news); money (+6: 2 trends, 2 news); tool (+1: 1 news); work (+1: 1 news)",
-   "score": 12,
-   "trend": 12
+   "reason": "no trend match (plan order)",
+   "score": 0,
+   "trend": 0
   },
   "ai-017": {
+   "matched": [],
+   "performance": 0,
+   "reason": "no trend match (plan order)",
+   "score": 0,
+   "trend": 0
+  },
+  "ai-018": {
+   "matched": [],
+   "performance": 0,
+   "reason": "no trend match (plan order)",
+   "score": 0,
+   "trend": 0
+  },
+  "ai-019": {
+   "matched": [],
+   "performance": 0,
+   "reason": "no trend match (plan order)",
+   "score": 0,
+   "trend": 0
+  },
+  "ai-020": {
+   "matched": [],
+   "performance": 0,
+   "reason": "no trend match (plan order)",
+   "score": 0,
+   "trend": 0
+  },
+  "ai-021": {
+   "matched": [],
+   "performance": 0,
+   "reason": "no trend match (plan order)",
+   "score": 0,
+   "trend": 0
+  },
+  "ai-022": {
+   "matched": [],
+   "performance": 0,
+   "reason": "no trend match (plan order)",
+   "score": 0,
+   "trend": 0
+  },
+  "ai-023": {
+   "matched": [],
+   "performance": 0,
+   "reason": "no trend match (plan order)",
+   "score": 0,
+   "trend": 0
+  },
+  "ai-024": {
+   "matched": [],
+   "performance": 0,
+   "reason": "no trend match (plan order)",
+   "score": 0,
+   "trend": 0
+  },
+  "ai-025": {
+   "matched": [],
+   "performance": 0,
+   "reason": "no trend match (plan order)",
+   "score": 0,
+   "trend": 0
+  },
+  "ai-026": {
+   "matched": [],
+   "performance": 0,
+   "reason": "no trend match (plan order)",
+   "score": 0,
+   "trend": 0
+  },
+  "ai-027": {
+   "matched": [],
+   "performance": 0,
+   "reason": "no trend match (plan order)",
+   "score": 0,
+   "trend": 0
+  },
+  "ai-028": {
+   "matched": [],
+   "performance": 0,
+   "reason": "no trend match (plan order)",
+   "score": 0,
+   "trend": 0
+  },
+  "ai-029": {
+   "matched": [],
+   "performance": 0,
+   "reason": "no trend match (plan order)",
+   "score": 0,
+   "trend": 0
+  },
+  "ai-030": {
+   "matched": [],
+   "performance": 0,
+   "reason": "no trend match (plan order)",
+   "score": 0,
+   "trend": 0
+  },
+  "ai-031": {
+   "matched": [],
+   "performance": 0,
+   "reason": "no trend match (plan order)",
+   "score": 0,
+   "trend": 0
+  },
+  "ai-032": {
+   "matched": [],
+   "performance": 0,
+   "reason": "no trend match (plan order)",
+   "score": 0,
+   "trend": 0
+  },
+  "ai-033": {
+   "matched": [],
+   "performance": 0,
+   "reason": "no trend match (plan order)",
+   "score": 0,
+   "trend": 0
+  },
+  "ai-034": {
+   "matched": [],
+   "performance": 0,
+   "reason": "no trend match (plan order)",
+   "score": 0,
+   "trend": 0
+  },
+  "ai-037": {
    "matched": [
-    "internet (+1: 1 news)",
-    "long (+1: 1 news)",
-    "say (+2: 2 news)",
-    "stop (+3: 3 news)",
-    "tool (+1: 1 news)",
-    "work (+1: 1 news)"
+    "like top Reels: call (+2)"
+   ],
+   "performance": 2,
+   "reason": "trend score 2: like top Reels: call (+2)",
+   "score": 2,
+   "trend": 0
+  },
+  "ai-039": {
+   "matched": [
+    "program (+3: 1 trend)"
    ],
    "performance": 0,
-   "reason": "trend score 9: internet (+1: 1 news); long (+1: 1 news); say (+2: 2 news); stop (+3: 3 news); tool (+1: 1 news); work (+1: 1 news)",
+   "reason": "trend score 3: program (+3: 1 trend)",
+   "score": 3,
+   "trend": 3
+  },
+  "ai-040": {
+   "matched": [],
+   "performance": 0,
+   "reason": "no trend match (plan order)",
+   "score": 0,
+   "trend": 0
+  },
+  "ai-041": {
+   "matched": [
+    "black (+6: 4 trends)"
+   ],
+   "performance": 0,
+   "reason": "trend score 6: black (+6: 4 trends)",
+   "score": 6,
+   "trend": 6
+  },
+  "ai-042": {
+   "matched": [],
+   "performance": 0,
+   "reason": "no trend match (plan order)",
+   "score": 0,
+   "trend": 0
+  },
+  "ai-045": {
+   "matched": [],
+   "performance": 0,
+   "reason": "no trend match (plan order)",
+   "score": 0,
+   "trend": 0
+  },
+  "ai-046": {
+   "matched": [],
+   "performance": 0,
+   "reason": "no trend match (plan order)",
+   "score": 0,
+   "trend": 0
+  },
+  "ai-048": {
+   "matched": [],
+   "performance": 0,
+   "reason": "no trend match (plan order)",
+   "score": 0,
+   "trend": 0
+  },
+  "ai-051": {
+   "matched": [
+    "short (+6: 2 trends)"
+   ],
+   "performance": 0,
+   "reason": "trend score 6: short (+6: 2 trends)",
+   "score": 6,
+   "trend": 6
+  },
+  "ai-052": {
+   "matched": [
+    "friend (+3: 1 trend)"
+   ],
+   "performance": 0,
+   "reason": "trend score 3: friend (+3: 1 trend)",
+   "score": 3,
+   "trend": 3
+  },
+  "ai-053": {
+   "matched": [],
+   "performance": 0,
+   "reason": "no trend match (plan order)",
+   "score": 0,
+   "trend": 0
+  },
+  "ai-056": {
+   "matched": [
+    "friend (+3: 1 trend)",
+    "short (+6: 2 trends)"
+   ],
+   "performance": 0,
+   "reason": "trend score 9: friend (+3: 1 trend); short (+6: 2 trends)",
    "score": 9,
    "trend": 9
   },
-  "ai-018": {
+  "ai-059": {
    "matched": [
-    "all (+3: 3 news)",
-    "business (+2: 2 news)",
-    "mode (+4: 4 news)",
-    "online (+2: 2 news)",
-    "score (+3: 1 trend)",
-    "stop (+3: 3 news)",
-    "tool (+1: 1 news)",
-    "work (+1: 1 news)"
+    "move (+3: 1 trend)",
+    "short (+6: 2 trends)"
    ],
    "performance": 0,
-   "reason": "trend score 19: all (+3: 3 news); business (+2: 2 news); mode (+4: 4 news); online (+2: 2 news); score (+3: 1 trend); stop (+3: 3 news); tool (+1: 1 news); work (+1: 1 news)",
-   "score": 19,
-   "trend": 19
+   "reason": "trend score 9: move (+3: 1 trend); short (+6: 2 trends)",
+   "score": 9,
+   "trend": 9
   },
-  "ai-019": {
-   "matched": [
-    "list (+4: 1 trend, 1 news)",
-    "money (+6: 2 trends, 2 news)",
-    "shopping (+1: 1 news)",
-    "stop (+3: 3 news)",
-    "tool (+1: 1 news)",
-    "work (+1: 1 news)"
-   ],
+  "ai-060": {
+   "matched": [],
    "performance": 0,
-   "reason": "trend score 16: list (+4: 1 trend, 1 news); money (+6: 2 trends, 2 news); shopping (+1: 1 news); stop (+3: 3 news); tool (+1: 1 news); work (+1: 1 news)",
-   "score": 16,
-   "trend": 16
+   "reason": "no trend match (plan order)",
+   "score": 0,
+   "trend": 0
   },
-  "ai-020": {
-   "matched": [
-    "business (+2: 2 news)",
-    "cash (+1: 1 news)",
-    "may (+1: 1 news)",
-    "mode (+4: 4 news)",
-    "say (+2: 2 news)",
-    "take (+1: 1 news)",
-    "ticket (+1: 1 news)",
-    "tool (+1: 1 news)",
-    "work (+1: 1 news)"
-   ],
+  "ai-061": {
+   "matched": [],
    "performance": 0,
-   "reason": "trend score 14: business (+2: 2 news); cash (+1: 1 news); may (+1: 1 news); mode (+4: 4 news); say (+2: 2 news); take (+1: 1 news); ticket (+1: 1 news); tool (+1: 1 news); work (+1: 1 news)",
-   "score": 14,
-   "trend": 14
+   "reason": "no trend match (plan order)",
+   "score": 0,
+   "trend": 0
   },
-  "ai-021": {
+  "ai-062": {
    "matched": [
-    "market (+5: 1 trend, 2 news)",
-    "money (+6: 2 trends, 2 news)",
-    "raise (+1: 1 news)",
-    "rate (+3: 1 trend)",
-    "say (+2: 2 news)",
-    "stop (+3: 3 news)",
-    "tool (+1: 1 news)",
-    "work (+1: 1 news)"
+    "short (+6: 2 trends)"
    ],
    "performance": 0,
-   "reason": "trend score 22: market (+5: 1 trend, 2 news); money (+6: 2 trends, 2 news); raise (+1: 1 news); rate (+3: 1 trend); say (+2: 2 news); stop (+3: 3 news); tool (+1: 1 news); work (+1: 1 news)",
-   "score": 22,
-   "trend": 22
+   "reason": "trend score 6: short (+6: 2 trends)",
+   "score": 6,
+   "trend": 6
   },
-  "ai-022": {
+  "ai-063": {
    "matched": [
-    "com (+1: 1 news)",
-    "find (+1: 1 news)",
-    "lost (+1: 1 news)",
-    "mode (+4: 4 news)",
-    "money (+6: 2 trends, 2 news)",
-    "official (+1: 1 news)",
-    "show (+2: 2 news)",
-    "state (+6: 3 trends, 4 news)",
-    "stop (+3: 3 news)",
-    "tool (+1: 1 news)",
-    "work (+1: 1 news)"
+    "like top Reels: iphone (+2)"
    ],
-   "performance": 0,
-   "reason": "trend score 27: com (+1: 1 news); find (+1: 1 news); lost (+1: 1 news); mode (+4: 4 news); money (+6: 2 trends, 2 news); official (+1: 1 news); show (+2: 2 news); state (+6: 3 trends, 4 news); stop (+3: 3 news); tool (+1: 1 news); work (+1: 1 news)",
-   "score": 27,
-   "trend": 27
+   "performance": 2,
+   "reason": "trend score 2: like top Reels: iphone (+2)",
+   "score": 2,
+   "trend": 0
   },
-  "ai-023": {
-   "matched": [
-    "cost (+1: 1 news)",
-    "find (+1: 1 news)",
-    "hidden (+5: 5 news)",
-    "month (+3: 1 trend)",
-    "plus (+1: 1 news)",
-    "tool (+1: 1 news)"
-   ],
+  "ai-064": {
+   "matched": [],
    "performance": 0,
-   "reason": "trend score 12: cost (+1: 1 news); find (+1: 1 news); hidden (+5: 5 news); month (+3: 1 trend); plus (+1: 1 news); tool (+1: 1 news)",
-   "score": 12,
-   "trend": 12
+   "reason": "no trend match (plan order)",
+   "score": 0,
+   "trend": 0
   },
-  "ai-024": {
+  "ai-065": {
    "matched": [
-    "car (+2: 2 news)",
-    "give (+1: 1 news)",
-    "high (+3: 1 trend)",
-    "job (+1: 1 news)",
-    "mode (+4: 4 news)",
-    "shop (+2: 2 news)",
-    "tool (+1: 1 news)"
+    "like top Reels: iphone (+2)"
    ],
-   "performance": 0,
-   "reason": "trend score 14: car (+2: 2 news); give (+1: 1 news); high (+3: 1 trend); job (+1: 1 news); mode (+4: 4 news); shop (+2: 2 news); tool (+1: 1 news)",
-   "score": 14,
-   "trend": 14
+   "performance": 2,
+   "reason": "trend score 2: like top Reels: iphone (+2)",
+   "score": 2,
+   "trend": 0
   },
-  "ai-025": {
+  "ai-066": {
    "matched": [
-    "month (+3: 1 trend)",
-    "send (+4: 1 trend, 1 news)",
-    "tool (+1: 1 news)"
+    "like top Reels: iphone (+2)"
+   ],
+   "performance": 2,
+   "reason": "trend score 2: like top Reels: iphone (+2)",
+   "score": 2,
+   "trend": 0
+  },
+  "ai-067": {
+   "matched": [],
+   "performance": 0,
+   "reason": "no trend match (plan order)",
+   "score": 0,
+   "trend": 0
+  },
+  "ai-068": {
+   "matched": [
+    "move (+3: 1 trend)"
    ],
    "performance": 0,
-   "reason": "trend score 8: month (+3: 1 trend); send (+4: 1 trend, 1 news); tool (+1: 1 news)",
+   "reason": "trend score 3: move (+3: 1 trend)",
+   "score": 3,
+   "trend": 3
+  },
+  "ai-069": {
+   "matched": [],
+   "performance": 0,
+   "reason": "no trend match (plan order)",
+   "score": 0,
+   "trend": 0
+  },
+  "ai-070": {
+   "matched": [],
+   "performance": 0,
+   "reason": "no trend match (plan order)",
+   "score": 0,
+   "trend": 0
+  },
+  "ai-071": {
+   "matched": [
+    "wire (+3: 1 trend)"
+   ],
+   "performance": 0,
+   "reason": "trend score 3: wire (+3: 1 trend)",
+   "score": 3,
+   "trend": 3
+  },
+  "ai-072": {
+   "matched": [],
+   "performance": 0,
+   "reason": "no trend match (plan order)",
+   "score": 0,
+   "trend": 0
+  },
+  "ai-073": {
+   "matched": [
+    "like top Reels: call (+2)"
+   ],
+   "performance": 2,
+   "reason": "trend score 2: like top Reels: call (+2)",
+   "score": 2,
+   "trend": 0
+  },
+  "ai-074": {
+   "matched": [],
+   "performance": 0,
+   "reason": "no trend match (plan order)",
+   "score": 0,
+   "trend": 0
+  },
+  "ai-075": {
+   "matched": [
+    "keep (+6: 2 trends)",
+    "peel (+3: 1 trend)"
+   ],
+   "performance": 0,
+   "reason": "trend score 9: keep (+6: 2 trends); peel (+3: 1 trend)",
+   "score": 9,
+   "trend": 9
+  },
+  "ai-077": {
+   "matched": [
+    "like top Reels: iphone (+2)"
+   ],
+   "performance": 2,
+   "reason": "trend score 2: like top Reels: iphone (+2)",
+   "score": 2,
+   "trend": 0
+  },
+  "ai-078": {
+   "matched": [],
+   "performance": 0,
+   "reason": "no trend match (plan order)",
+   "score": 0,
+   "trend": 0
+  },
+  "ai-079": {
+   "matched": [],
+   "performance": 0,
+   "reason": "no trend match (plan order)",
+   "score": 0,
+   "trend": 0
+  },
+  "ai-080": {
+   "matched": [],
+   "performance": 0,
+   "reason": "no trend match (plan order)",
+   "score": 0,
+   "trend": 0
+  },
+  "ai-081": {
+   "matched": [
+    "keep (+6: 2 trends)",
+    "like top Reels: iphone (+2)"
+   ],
+   "performance": 2,
+   "reason": "trend score 8: keep (+6: 2 trends); like top Reels: iphone (+2)",
    "score": 8,
-   "trend": 8
+   "trend": 6
   },
-  "ai-026": {
-   "matched": [
-    "list (+4: 1 trend, 1 news)",
-    "mobile (+1: 1 news)",
-    "mode (+4: 4 news)",
-    "plus (+1: 1 news)",
-    "stop (+3: 3 news)",
-    "tool (+1: 1 news)"
-   ],
+  "ai-082": {
+   "matched": [],
    "performance": 0,
-   "reason": "trend score 14: list (+4: 1 trend, 1 news); mobile (+1: 1 news); mode (+4: 4 news); plus (+1: 1 news); stop (+3: 3 news); tool (+1: 1 news)",
-   "score": 14,
-   "trend": 14
-  },
-  "ai-027": {
-   "matched": [
-    "customer (+1: 1 news)",
-    "list (+4: 1 trend, 1 news)",
-    "result (+3: 1 trend)",
-    "stop (+3: 3 news)",
-    "tool (+1: 1 news)",
-    "version (+3: 3 news)"
-   ],
-   "performance": 0,
-   "reason": "trend score 15: customer (+1: 1 news); list (+4: 1 trend, 1 news); result (+3: 1 trend); stop (+3: 3 news); tool (+1: 1 news); version (+3: 3 news)",
-   "score": 15,
-   "trend": 15
-  },
-  "ai-028": {
-   "matched": [
-    "cash (+1: 1 news)",
-    "interest (+3: 1 trend)",
-    "list (+4: 1 trend, 1 news)",
-    "mode (+4: 4 news)",
-    "tool (+1: 1 news)",
-    "work (+1: 1 news)"
-   ],
-   "performance": 0,
-   "reason": "trend score 14: cash (+1: 1 news); interest (+3: 1 trend); list (+4: 1 trend, 1 news); mode (+4: 4 news); tool (+1: 1 news); work (+1: 1 news)",
-   "score": 14,
-   "trend": 14
-  },
-  "ai-029": {
-   "matched": [
-    "home (+1: 1 news)",
-    "money (+6: 2 trends, 2 news)",
-    "stop (+3: 3 news)",
-    "take (+1: 1 news)",
-    "tool (+1: 1 news)",
-    "work (+1: 1 news)"
-   ],
-   "performance": 0,
-   "reason": "trend score 13: home (+1: 1 news); money (+6: 2 trends, 2 news); stop (+3: 3 news); take (+1: 1 news); tool (+1: 1 news); work (+1: 1 news)",
-   "score": 13,
-   "trend": 13
-  },
-  "ai-030": {
-   "matched": [
-    "learning (+1: 1 news)",
-    "list (+4: 1 trend, 1 news)",
-    "mode (+4: 4 news)",
-    "public (+1: 1 news)",
-    "stop (+3: 3 news)",
-    "tool (+1: 1 news)",
-    "work (+1: 1 news)"
-   ],
-   "performance": 0,
-   "reason": "trend score 15: learning (+1: 1 news); list (+4: 1 trend, 1 news); mode (+4: 4 news); public (+1: 1 news); stop (+3: 3 news); tool (+1: 1 news); work (+1: 1 news)",
-   "score": 15,
-   "trend": 15
-  },
-  "ai-031": {
-   "matched": [
-    "job (+1: 1 news)",
-    "manager (+3: 1 trend)",
-    "show (+2: 2 news)",
-    "stop (+3: 3 news)",
-    "strong (+3: 1 trend)",
-    "tool (+1: 1 news)"
-   ],
-   "performance": 0,
-   "reason": "trend score 13: job (+1: 1 news); manager (+3: 1 trend); show (+2: 2 news); stop (+3: 3 news); strong (+3: 1 trend); tool (+1: 1 news)",
-   "score": 13,
-   "trend": 13
-  },
-  "ai-032": {
-   "matched": [
-    "may (+1: 1 news)",
-    "say (+2: 2 news)",
-    "stop (+3: 3 news)",
-    "tool (+1: 1 news)",
-    "work (+1: 1 news)"
-   ],
-   "performance": 0,
-   "reason": "trend score 8: may (+1: 1 news); say (+2: 2 news); stop (+3: 3 news); tool (+1: 1 news); work (+1: 1 news)",
-   "score": 8,
-   "trend": 8
+   "reason": "no trend match (plan order)",
+   "score": 0,
+   "trend": 0
   }
  },
  "sources": [
   {
-   "count": 38,
+   "count": 40,
    "name": "Google Trends US",
    "ok": true
   },
   {
-   "count": 20,
+   "error": "HTTP 503",
    "name": "Google News: iPhone",
-   "ok": true
+   "ok": false
   },
   {
-   "count": 20,
+   "error": "HTTP 503",
    "name": "Google News: ChatGPT",
-   "ok": true
+   "ok": false
   },
   {
-   "count": 20,
+   "error": "HTTP 503",
    "name": "Google News: Android",
-   "ok": true
+   "ok": false
   },
   {
-   "count": 20,
+   "error": "HTTP 503",
    "name": "Google News: AI",
-   "ok": true
+   "ok": false
   },
   {
-   "count": 20,
+   "error": "HTTP 503",
    "name": "Google News: scam",
-   "ok": true
+   "ok": false
   },
   {
-   "count": 20,
+   "error": "HTTP 503",
    "name": "Google News: battery",
-   "ok": true
+   "ok": false
   },
   {
-   "count": 20,
+   "error": "HTTP 503",
    "name": "Google News: iOS update",
-   "ok": true
+   "ok": false
   }
  ],
  "titles": [
   {
    "src": "trends",
-   "t": "victoria justice"
+   "t": "myles garrett"
   },
   {
    "src": "trends",
-   "t": "Victoria Justice Drops Stunning New Photos & Sends Fans Into a Frenzy"
+   "t": "Steve Avila and Joe Cardona among Rams' inactives for Week 10 at Cardinals"
   },
   {
    "src": "trends",
-   "t": "CBS LA is live from the Kids' Choice Awards Orange Carpet - CBS Los Angeles"
+   "t": "Trent McDuffie active for Rams-Cardinals"
   },
   {
    "src": "trends",
-   "t": "Nickelodeon Kids' Choice Awards"
+   "t": "Injury Report: Week 10 vs Rams"
   },
   {
    "src": "trends",
-   "t": "kirk ferentz"
+   "t": "kaelon black"
   },
   {
    "src": "trends",
-   "t": "A rooting-interest guide for Iowa football's CFP hopes | Leistikow"
+   "t": "The 49ers finally got Christian McCaffrey a sidekick. Why rookie Kaelon Black is thriving - The Athletic"
   },
   {
    "src": "trends",
-   "t": "Iowa football CFP rooting guide: What Hawkeyes hope for in Week 11"
+   "t": "Kaelon Black - Fantasy Football Waiver Wire Pickups for Week 10 (2026) - NFL News"
   },
   {
    "src": "trends",
-   "t": "Iowa climbs in the latest CFP rankings"
+   "t": "Kaelon Black runs for 70 yards Sunday"
   },
   {
    "src": "trends",
-   "t": "will ferrell"
+   "t": "kyren williams"
   },
   {
    "src": "trends",
-   "t": "The Diplomat's Bradley Whitford Compares His Big Season 4 Moment To A Classic Will Ferrell Movie"
+   "t": "How to Watch Rams vs. Cardinals: TV Channel, Live Stream, Time"
   },
   {
    "src": "trends",
-   "t": "погода завтра"
+   "t": "HIGHLIGHTS: Rams RB Blake Corum rushes for a 1-yard touchdown to open the second half vs. the Cardinals"
   },
   {
    "src": "trends",
-   "t": "Завтра в Баку и регионах ожидается дождь, в горных местностях - снег"
+   "t": "3x3: Week 10 Cardinals vs Rams"
   },
   {
    "src": "trends",
-   "t": "В Баку и регионах объявлен оранжевый уровень опасности из-за сильного ветра"
+   "t": "rockets vs wizards"
   },
   {
    "src": "trends",
-   "t": "Дорожная полиция обратилась к водителям"
+   "t": "Rockets vs Wizards Odds and Why Washington Keeps It Close"
   },
   {
    "src": "trends",
-   "t": "ramit sethi"
+   "t": "Injury Report: Washington Wizards vs. Houston Rockets"
   },
   {
    "src": "trends",
-   "t": "Ramit Sethi tackles dilemma facing homeowners with low rates"
+   "t": "Houston Rockets vs. Washington Wizards game preview"
   },
   {
    "src": "trends",
-   "t": "Couple Has No Savings And Owes Over $428K, Yet Spends $1,029 A Month On Pets. Ramit Sethi Says, ‘Your Dog Doesn’t Deserve It’"
+   "t": "jaxon smith-njigba"
   },
   {
    "src": "trends",
-   "t": "‘Alcohol is mind-blowing’: Ex-house manager for the ultra-rich reveals where their money really goes"
+   "t": "Raiders Week 10: Seahawks’ Jaxon Smith-Njigba a supreme challenge"
   },
   {
    "src": "trends",
-   "t": "power grid emergency"
+   "t": "PrizePicks NFL Player Props For Week 10: Jaxon Smith-Njigba Keeps Catching On"
   },
   {
    "src": "trends",
-   "t": "Texas Grid Boss Wants Data Centers to Cut Power Before Blackouts"
+   "t": "Klint Kubiak previews matchup with Mike Macdonald and the Seahawks | 2026 NFL Season | Podcast"
   },
   {
    "src": "trends",
-   "t": "Prediction Market Lists Texas Data Center Moratorium Odds at 33% for 2029"
+   "t": "davis allen"
   },
   {
    "src": "trends",
-   "t": "Texas grid seeks power controls for data centers"
+   "t": "Rams' Davis Allen: Active for Week 10"
   },
   {
    "src": "trends",
-   "t": "nz vs ind"
+   "t": "Matthew Stafford off the Week 10 injury report"
   },
   {
    "src": "trends",
-   "t": "Streak broken, New Zealand hope to prevent rare overseas ODI series win for India"
+   "t": "Davis Allen (oblique) officially active for Week 10"
   },
   {
    "src": "trends",
-   "t": "NZ vs IND 5th ODI: India's misfiring batting seeks strong finish in Mount Maunganui"
+   "t": "kevin burkhardt"
   },
   {
    "src": "trends",
-   "t": "IND vs NZ 5th ODI 2026 live scorecard, toss winner, winning probability, result and highlights from Bay Oval, Mount Maunganui"
+   "t": "Kevin Burkhardt reveals what Tom Brady is really like before FOX NFL games"
   },
   {
    "src": "trends",
-   "t": "cade cunningham"
+   "t": "Kevin Burkhardt on 49ers-Cowboys, Tom Brady & the John Lynch-Kyle Shanahan Origin Story | The 49ers Guy"
   },
   {
    "src": "trends",
-   "t": "Cade Cunningham's historic night puts Pistons past Wizards in 2OT thriller"
+   "t": "‘You Don’t Have To Be Best Friends,’ ‘We Are Super Close’ — Kevin Burkhardt Peels Back The Curtain on Working With Tom Brady in FOX’s Broadcast Booth"
   },
   {
    "src": "trends",
-   "t": "Cade Cunningham makes NBA history with career night in Pistons’ 2OT win over Wizards - The Athletic"
+   "t": "harrison short auburn"
   },
   {
    "src": "trends",
-   "t": "Cade Cunningham scores career-high 52 points in Pistons' 144-140 win in 2OT over Wizards"
+   "t": "2 killed, 4 injured in multi-vehicle Autauga County crash"
   },
   {
    "src": "trends",
-   "t": "zion williamson"
+   "t": "Two people killed in Autauga County wreck"
   },
   {
    "src": "trends",
-   "t": "Zion Williamson tears into Pelicans after 'unacceptable' loss to Nets: 'Go look yourself in the mirror'"
+   "t": "2 killed, 4 injured in central Alabama crash"
   },
   {
    "src": "trends",
-   "t": "Pelicans Notes: Zion, Mosley, Queen, Murray"
+   "t": "cfl"
   },
   {
    "src": "trends",
-   "t": "Charles Barkley says Pelicans should be moved to a new city after another embarrassing loss"
+   "t": "Canadian linebackers Dublanko, Cantin-Arku look to shine at the 113th Grey Cup"
   },
   {
    "src": "trends",
-   "t": "utah state vs san diego st"
+   "t": "Elks linebacker Joel Dublanko visits his Alberta roots ahead of the Grey Cup"
   },
   {
    "src": "trends",
-   "t": "5 Things to Watch: Aztecs QB Stone Saunders, running backs face solid Utah State defense"
+   "t": "The former Seahawks competing in Sunday’s CFL 2026 Grey Cup"
   },
   {
    "src": "trends",
-   "t": "Utah State at San Diego State: How to watch, listen to or stream the game"
+   "t": "ami nakai"
   },
   {
    "src": "trends",
-   "t": "SDSU football team still holding onto Pac-12 title hopes"
+   "t": "Ami Nakai leads at Saatva Skate America, eyes Grand Prix sweep"
   },
   {
-   "q": "iPhone",
-   "src": "news",
-   "t": "Apple announces first-ever foldable iPhone, starting at $1,999 - ABC News - Breaking News, Latest News and Videos"
+   "src": "trends",
+   "t": "Ami Nakai wins Saatva Skate America and moves atop women's figure skating ... for now"
   },
   {
-   "q": "iPhone",
-   "src": "news",
-   "t": "Meet the Custom-Built Machine That Has Folded the iPhone Duo Nearly 500,000 Times - CNET"
-  },
-  {
-   "q": "iPhone",
-   "src": "news",
-   "t": "iPhone 20 Pro hardware sample shown off in leaked video - PhoneArena"
-  },
-  {
-   "q": "iPhone",
-   "src": "news",
-   "t": "T-Mobile is giving away the iPhone 18 Pro for free — how to claim this weekend - Mashable"
-  },
-  {
-   "q": "iPhone",
-   "src": "news",
-   "t": "Got an iPhone Duo? These 9 settings make it easier to use - TechCrunch"
-  },
-  {
-   "q": "iPhone",
-   "src": "news",
-   "t": "Hands-on: ESR’s MagSafe kickstand charger solves two key iPhone Duo shortcomings - 9to5Mac"
-  },
-  {
-   "q": "iPhone",
-   "src": "news",
-   "t": "The iPhone Air 2 might be real after all - Pocket-lint"
-  },
-  {
-   "q": "iPhone",
-   "src": "news",
-   "t": "7 apps that really show what the new Apple iPhone Duo can do - Popular Science"
-  },
-  {
-   "q": "iPhone",
-   "src": "news",
-   "t": "How To Check Which iOS Version Your iPhone Is Running - Engadget"
-  },
-  {
-   "q": "iPhone",
-   "src": "news",
-   "t": "Top Stories: Apple's New Software Approach, iPhone Duo-Optimized Apps, and More - MacRumors"
-  },
-  {
-   "q": "iPhone",
-   "src": "news",
-   "t": "Astropad Workbench is my favorite iPhone Duo app so far — here’s how it’s transformed my coding workflow - TechRadar"
-  },
-  {
-   "q": "iPhone",
-   "src": "news",
-   "t": "Windows 11 on iPhone Duo: Gemini 4 Carbon Role - shattered.io"
-  },
-  {
-   "q": "iPhone",
-   "src": "news",
-   "t": "iPhone hacked: Binance warns of iOS flaw exposing crypto wallet keys - Beinsure"
-  },
-  {
-   "q": "iPhone",
-   "src": "news",
-   "t": "Apple Raises Trade-In Values for 11 iPhone Models, With the Seven-Year-Old iPhone 11 Leading the Gains - BigGo Finance"
-  },
-  {
-   "q": "iPhone",
-   "src": "news",
-   "t": "12 hidden tricks to help you master your iPhone X - Mashable"
-  },
-  {
-   "q": "iPhone",
-   "src": "news",
-   "t": "Galaxy S27 Ultra might take inspiration from the iPhone 18 Pro, and this time I’d be glad - PhoneArena"
-  },
-  {
-   "q": "iPhone",
-   "src": "news",
-   "t": "Your iPhone Has A Built-In Barometer — Here's How To Use It - Engadget"
-  },
-  {
-   "q": "iPhone",
-   "src": "news",
-   "t": "Do we really need a foldable iPhone? Heck yes we do. - Mashable"
-  },
-  {
-   "q": "iPhone",
-   "src": "news",
-   "t": "After the iPhone Duo, I no longer trust Apple’s iPhone 20 Pro coming next year - PhoneArena"
-  },
-  {
-   "q": "iPhone",
-   "src": "news",
-   "t": "Everything we know about the iPhone 17 Air so far - Mashable"
-  },
-  {
-   "q": "ChatGPT",
-   "src": "news",
-   "t": "OpenAI | ChatGPT, Sam Altman, & Microsoft - Britannica"
-  },
-  {
-   "q": "ChatGPT",
-   "src": "news",
-   "t": "Trust ChatGPT With Your Payments? OpenAI Rolls Out ChatGPT Wallet - PCMag"
-  },
-  {
-   "q": "ChatGPT",
-   "src": "news",
-   "t": "I tested Meta Muse and ChatGPT Dots, and here's the one I'm sticking with - Android Authority"
-  },
-  {
-   "q": "ChatGPT",
-   "src": "news",
-   "t": "ChatGPT wedding vows: Efficient or grotesque? - Mashable"
-  },
-  {
-   "q": "ChatGPT",
-   "src": "news",
-   "t": "ChatGPT Wallet Rolls Out in the US. Here’s How Checkout Works - Kingy AI"
-  },
-  {
-   "q": "ChatGPT",
-   "src": "news",
-   "t": "Copilot vs ChatGPT: $20 Plus vs $500 Pro Tier [2026] - shattered.io"
-  },
-  {
-   "q": "ChatGPT",
-   "src": "news",
-   "t": "OpenAI Launches ChatGPT Wallet to Let AI Agents Shop—Without Crypto - Decrypt"
-  },
-  {
-   "q": "ChatGPT",
-   "src": "news",
-   "t": "Core Update, ChatGPT Business Hub & AI Mode’s New Model – SEO Pulse - Search Engine Journal"
-  },
-  {
-   "q": "ChatGPT",
-   "src": "news",
-   "t": "Canva Craft vs ChatGPT: I tested both free AI image generators with 5 prompts to see which is better - TechRadar"
-  },
-  {
-   "q": "ChatGPT",
-   "src": "news",
-   "t": "How to rank in ChatGPT in 6 steps - Hostinger"
-  },
-  {
-   "q": "ChatGPT",
-   "src": "news",
-   "t": "Google Gemini vs. ChatGPT Wallet: Who Controls the Future of AI Shopping? - Coinpaper"
-  },
-  {
-   "q": "ChatGPT",
-   "src": "news",
-   "t": "AI Chatbots Won’t Stop Recommending Scam Websites to People Trying to Shop - Futurism"
-  },
-  {
-   "q": "ChatGPT",
-   "src": "news",
-   "t": "OpenAI Launches ChatGPT Wallet, Excludes Crypto Payments - bloomingbit"
-  },
-  {
-   "q": "ChatGPT",
-   "src": "news",
-   "t": "I Asked ChatGPT If Working Part-Time Actually Helps Your Retirement — Here's the Math - AOL.com"
-  },
-  {
-   "q": "ChatGPT",
-   "src": "news",
-   "t": "OpenAI launches ChatGPT Wallet to let AI agents make purchases - jawlah.co"
-  },
-  {
-   "q": "ChatGPT",
-   "src": "news",
-   "t": "ChatGPT Wallet launches with purchase approvals - CASRAI"
-  },
-  {
-   "q": "ChatGPT",
-   "src": "news",
-   "t": "OpenAI Launches ChatGPT Wallet to Let AI Agents Shop—Without Crypto - Yahoo Tech"
-  },
-  {
-   "q": "ChatGPT",
-   "src": "news",
-   "t": "Claude vs ChatGPT Story Variety: 12 Steps, 85 Min [2026] - shattered.io"
-  },
-  {
-   "q": "ChatGPT",
-   "src": "news",
-   "t": "The AI graveyard: a running list of projects and startups that didn’t make it - TechCrunch"
-  },
-  {
-   "q": "ChatGPT",
-   "src": "news",
-   "t": "Canva Craft and ChatGPT compared in AI image tests - Mezha.net"
-  },
-  {
-   "q": "Android",
-   "src": "news",
-   "t": "How I use the free Essentials app to get 30+ hidden Android tweaks - from App Lock to flashlight pulses - ZDNET"
-  },
-  {
-   "q": "Android",
-   "src": "news",
-   "t": "Meta fined $887 million in Italy over Android gallery photos and videos on Facebook - ABC News - Breaking News, Latest News and Videos"
-  },
-  {
-   "q": "Android",
-   "src": "news",
-   "t": "The 5 Biggest Differences Between Cheap And Expensive Android Tablets - BGR"
-  },
-  {
-   "q": "Android",
-   "src": "news",
-   "t": "There's A Hidden Way You Can Check Which Services Are Running On Your Android Phone - Engadget"
-  },
-  {
-   "q": "Android",
-   "src": "news",
-   "t": "Italy slaps Meta with €805mn fine over access to Android photos - DW.com"
-  },
-  {
-   "q": "Android",
-   "src": "news",
-   "t": "Italy fines Meta $887m for accessing Android users’ photos and videos - The Guardian"
-  },
-  {
-   "q": "Android",
-   "src": "news",
-   "t": "Meta fined $887 million in Italy over Android gallery photos and videos on Facebook - Los Angeles Times"
-  },
-  {
-   "q": "Android",
-   "src": "news",
-   "t": "Android Auto with Gemini needs a 5-minute privacy check before anyone rides shotgun - Android Police"
-  },
-  {
-   "q": "Android",
-   "src": "news",
-   "t": "Italy fines Meta $887 million over Android users' data access - CNBC"
-  },
-  {
-   "q": "Android",
-   "src": "news",
-   "t": "Ticker: Italy fines Facebook parent Meta over Android users’ photo gallery use - Boston Herald"
-  },
-  {
-   "q": "Android",
-   "src": "news",
-   "t": "Italy fines Meta €805m over Facebook's access to Android photo galleries - PPC Land"
-  },
-  {
-   "q": "Android",
-   "src": "news",
-   "t": "Italy fines Meta €805 million over Android app's photo access - Yahoo Finance"
-  },
-  {
-   "q": "Android",
-   "src": "news",
-   "t": "5 easy ways I reuse old Android phones - Pocket-lint"
-  },
-  {
-   "q": "Android",
-   "src": "news",
-   "t": "Italy’s Privacy Authority Fines Meta €805 Million Over Android Photo Access: 27 outlets compared - NewsCord"
-  },
-  {
-   "q": "Android",
-   "src": "news",
-   "t": "This Android Tablet Is A Powerful iPad Mini Replacement — If You Can Find One - BGR"
-  },
-  {
-   "q": "Android",
-   "src": "news",
-   "t": "Which Android Phones Are Most Similar To The OnePlus 16? - Engadget"
-  },
-  {
-   "q": "Android",
-   "src": "news",
-   "t": "I replaced learning apps with Gemini Guided Learning; it remembers my progress and adapts to my pace - Android Police"
-  },
-  {
-   "q": "Android",
-   "src": "news",
-   "t": "5 Android Tablets That Still Have A Headphone Jack In 2026 - BGR"
-  },
-  {
-   "q": "Android",
-   "src": "news",
-   "t": "Italy Fines Meta €805M for Accessing Android Photos - Briefs Finance"
-  },
-  {
-   "q": "Android",
-   "src": "news",
-   "t": "Italy fines Meta €805 million over Facebook's access to Android users' photos - Startup Fortune"
-  },
-  {
-   "q": "AI",
-   "src": "news",
-   "t": "New AI Millionaires Want Wealth Advisers Who Can Help Give Their Money Away - WSJ"
-  },
-  {
-   "q": "AI",
-   "src": "news",
-   "t": "Inside the First AI Music Awards, a Chaotic Evening Attempting to Normalize Tech-Assisted Tunes - Variety"
-  },
-  {
-   "q": "AI",
-   "src": "news",
-   "t": "How Nvidia turmoil and a Democratic Congress could reshape the AI trade, according to ETF experts - CNBC"
-  },
-  {
-   "q": "AI",
-   "src": "news",
-   "t": "The downfall of AI’s $5.7 trillion man - Fortune"
-  },
-  {
-   "q": "AI",
-   "src": "news",
-   "t": "China’s Intelligence Coup in the AI War - The Atlantic"
-  },
-  {
-   "q": "AI",
-   "src": "news",
-   "t": "Can AI have empathy? My patient thanked me for its words. - KevinMD.com"
-  },
-  {
-   "q": "AI",
-   "src": "news",
-   "t": "California schools should responsibly incorporate AI in classrooms, state education department says - The Mendocino Voice"
-  },
-  {
-   "q": "AI",
-   "src": "news",
-   "t": "AI Retreat Fuels India Stock Comeback in Great Rotation Trade - Bloomberg.com"
-  },
-  {
-   "q": "AI",
-   "src": "news",
-   "t": "The FAA’s IT troubles are far bigger then AI - Fast Company"
-  },
-  {
-   "q": "AI",
-   "src": "news",
-   "t": "Governor Hochul announces AI research institute at Binghamton University - WWNY"
-  },
-  {
-   "q": "AI",
-   "src": "news",
-   "t": "Moore, Bonterra Unveil AI-Driven Fundraising Tools - The NonProfit Times"
-  },
-  {
-   "q": "AI",
-   "src": "news",
-   "t": "AT&T uses agentic AI to reinvent business processes from the ground up - SiliconANGLE"
-  },
-  {
-   "q": "AI",
-   "src": "news",
-   "t": "AI discovers a hidden heart signal that could predict sudden death - Science Daily"
-  },
-  {
-   "q": "AI",
-   "src": "news",
-   "t": "Open-source AI without Jensen - by Nathan Lambert - Interconnects AI"
-  },
-  {
-   "q": "AI",
-   "src": "news",
-   "t": "Beware the New AI-Fueled Ransomware Boom - WIRED"
-  },
-  {
-   "q": "AI",
-   "src": "news",
-   "t": "Developers Felt 20% Faster With AI. They Were 19% Slower. - Towards Data Science"
-  },
-  {
-   "q": "AI",
-   "src": "news",
-   "t": "What Areas of Law Will Be Most AI-Resilient After Your LL.M.? - LLM Guide"
-  },
-  {
-   "q": "AI",
-   "src": "news",
-   "t": "Nonprofit advocacy groups cite dangers, sue to stop development of artificial intelligence - Jurist.org"
-  },
-  {
-   "q": "AI",
-   "src": "news",
-   "t": "How I Used AI to Make My Grandson a Children’s Book for Less Than $200 - WSJ"
-  },
-  {
-   "q": "AI",
-   "src": "news",
-   "t": "The hottest job in AI right now may be counterintelligence as companies hire to protect secrets - Fortune"
-  },
-  {
-   "q": "scam",
-   "src": "news",
-   "t": "State police investigate $60,000 online scam reported in Carbon County - fox56.com"
-  },
-  {
-   "q": "scam",
-   "src": "news",
-   "t": "Loves Park Police to offer free scam-prevention seminar for seniors at The Courtyard - MyStateline"
-  },
-  {
-   "q": "scam",
-   "src": "news",
-   "t": "Scam selling tickets to a fake Noah Kahan event now disabled - WMTW"
-  },
-  {
-   "q": "scam",
-   "src": "news",
-   "t": "Crestwood police warn of cash-collecting scam after $13K stolen - FOX 2"
-  },
-  {
-   "q": "scam",
-   "src": "news",
-   "t": "She Loses $180,000 to an Investment Scam at 74, as Older Adults Report $3 Billion in Fraud Losses. The Same Scammers Often Come Back for Her Social Security Dep"
-  },
-  {
-   "q": "scam",
-   "src": "news",
-   "t": "New scam targets family members of inmates - Cleveland 19 News"
-  },
-  {
-   "q": "scam",
-   "src": "news",
-   "t": "Fake TikTok accounts impersonating Worcester tattoo artist scam customers out of thousands - WCVB"
-  },
-  {
-   "q": "scam",
-   "src": "news",
-   "t": "Larry Carlton on the “grueling” sessions for Steely Dan’s Royal Scam - Guitar World"
-  },
-  {
-   "q": "scam",
-   "src": "news",
-   "t": "AI Chatbots Won’t Stop Recommending Scam Websites to People Trying to Shop - Futurism"
-  },
-  {
-   "q": "scam",
-   "src": "news",
-   "t": "YouTube pranksters lure California scammer to fake funeral — exposing role in $27M fraud ring - New York Post"
-  },
-  {
-   "q": "scam",
-   "src": "news",
-   "t": "Winchester Police Department posts general reminder of scam alerts - Winchester Sun"
-  },
-  {
-   "q": "scam",
-   "src": "news",
-   "t": "Egg Harbor Township police issue warning about growing bank fraud - NJ.com"
-  },
-  {
-   "q": "scam",
-   "src": "news",
-   "t": "Online marketplace scam costs local victim $700 - News4JAX"
-  },
-  {
-   "q": "scam",
-   "src": "news",
-   "t": "\"Backroads to Better Money\": Scam alert for the holidays - LEX 18 News"
-  },
-  {
-   "q": "scam",
-   "src": "news",
-   "t": "From Assault Rifles To Phishing: Brazilian Criminal Groups Go Digital – Analysis - Eurasia Review"
-  },
-  {
-   "q": "scam",
-   "src": "news",
-   "t": "Hong Kong man loses nearly HK$18M in crypto scam that started with a YouTube ad - Crypto Briefing"
-  },
-  {
-   "q": "scam",
-   "src": "news",
-   "t": "This Man Stole $9 Million in Gold Bars on the Upper West Side, Police Say - The New York Times"
-  },
-  {
-   "q": "scam",
-   "src": "news",
-   "t": "Robocall defenses lag as big carriers miss deadline; scam victims average $4,000 lost - KOMO"
-  },
-  {
-   "q": "scam",
-   "src": "news",
-   "t": "Forum: A brilliant scam - Traverse City Record-Eagle"
-  },
-  {
-   "q": "scam",
-   "src": "news",
-   "t": "How St. Joseph allegedly scammed the 1900 U.S. census - Albuquerque Journal"
-  },
-  {
-   "q": "battery",
-   "src": "news",
-   "t": "‘Enough is enough’: rising number of deadly ebike battery fires spark fear in New York City - The Guardian"
-  },
-  {
-   "q": "battery",
-   "src": "news",
-   "t": "I Love EVs, But Kia and Hyundai Are Making That Harder - InsideEVs"
-  },
-  {
-   "q": "battery",
-   "src": "news",
-   "t": "BMW Manufacturing opens $700M battery assembly plant in Woodruff - Upstate Business Journal"
-  },
-  {
-   "q": "battery",
-   "src": "news",
-   "t": "No heroic comeback for Charleston Battery as Louisville City FC wins conference final - Post and Courier"
-  },
-  {
-   "q": "battery",
-   "src": "news",
-   "t": "2026 Atlanta Braves Player Review: Rowdy Tellez - Battery Power"
-  },
-  {
-   "q": "battery",
-   "src": "news",
-   "t": "Sexual battery conviction sends man to prison - WSB-TV"
-  },
-  {
-   "q": "battery",
-   "src": "news",
-   "t": "Washoe County deputies arrest man on domestic battery warrant | Local News | 2news.com - KTVN"
-  },
-  {
-   "q": "battery",
-   "src": "news",
-   "t": "Manganese Flakes Market To 2035: Battery Cathode Demand Drives Growth - News and Statistics - IndexBox"
-  },
-  {
-   "q": "battery",
-   "src": "news",
-   "t": "WCSO deputies arrest man on domestic battery warrant - KRXI2"
-  },
-  {
-   "q": "battery",
-   "src": "news",
-   "t": "Car battery stored in trunk sparked vehicle fire in New Port Richey, fire officials say - WFLA"
-  },
-  {
-   "q": "battery",
-   "src": "news",
-   "t": "Huawei set to challenge Tesla Powerwall with new, 20 kW home battery - Electrek"
-  },
-  {
-   "q": "battery",
-   "src": "news",
-   "t": "Washoe County deputies arrest man on domestic battery warrant - KTVN"
-  },
-  {
-   "q": "battery",
-   "src": "news",
-   "t": "Board member questioned about Belmont teacher accused of sexual battery, records show - Dayton Daily News"
-  },
-  {
-   "q": "battery",
-   "src": "news",
-   "t": "How To Make Your Nintendo Switch 2 Battery Last Longer - Engadget"
-  },
-  {
-   "q": "battery",
-   "src": "news",
-   "t": "This American Battery Could Break China’s Grip On The EV Supply Chain - InsideEVs"
-  },
-  {
-   "q": "battery",
-   "src": "news",
-   "t": "Open Circuit Voltage Graders Market To 2035: Battery Gigafactory Boom Supports Growth - News and Statistics - IndexBox"
-  },
-  {
-   "q": "battery",
-   "src": "news",
-   "t": "Atlanta Braves News: Latest MLB offering, Evan Phillips, and more - Battery Power"
-  },
-  {
-   "q": "battery",
-   "src": "news",
-   "t": "'Most Companies Are Struggling': Executive Shares An Uncomfortable Truth About Solid-State EV Batteries - InsideEVs"
-  },
-  {
-   "q": "battery",
-   "src": "news",
-   "t": "500,000 EV Battery Health Checks Put 20 Models To The Test. One Car Stood Out - InsideEVs"
-  },
-  {
-   "q": "battery",
-   "src": "news",
-   "t": "China Wants Mass-Produced Solid-State Batteries By 2030. CATL Knows That's Hard - InsideEVs"
-  },
-  {
-   "q": "iOS update",
-   "src": "news",
-   "t": "How To Check Which iOS Version Your iPhone Is Running - Engadget"
-  },
-  {
-   "q": "iOS update",
-   "src": "news",
-   "t": "Apple Just Updated An Old iPad Feature That Makes It Feel Like A iPhone Duo - BGR"
-  },
-  {
-   "q": "iOS update",
-   "src": "news",
-   "t": "Update: Microsoft offers explanation for day-long Internet outage - Macworld"
-  },
-  {
-   "q": "iOS update",
-   "src": "news",
-   "t": "How to wipe AI from your life - The Spinoff"
-  },
-  {
-   "q": "iOS update",
-   "src": "news",
-   "t": "Hackers Jailbreak iPhone In Lockdown Mode - Here's Why This Matters - BGR"
-  },
-  {
-   "q": "iOS update",
-   "src": "news",
-   "t": "Where to buy the iPhone Duo for best chance of UK delivery before Christmas 2026 - Radio Times"
-  },
-  {
-   "q": "iOS update",
-   "src": "news",
-   "t": "iOS 27.3 beta adds Siri AI app actions, revamped Health app and Siri Recap - news.lavx.hu"
-  },
-  {
-   "q": "iOS update",
-   "src": "news",
-   "t": "1xBet App Nigeria: The Ultimate Download Guide for Bettors - ToffeeWeb"
-  },
-  {
-   "q": "iOS update",
-   "src": "news",
-   "t": "4 Major New Features Coming to the Notes App in the iOS 27 Update - آي-فون إسلام"
-  },
-  {
-   "q": "iOS update",
-   "src": "news",
-   "t": "iOS 27.3 update brings new StandBy mode faces from iPhone Duo to all iPhones - آي-فون إسلام"
-  },
-  {
-   "q": "iOS update",
-   "src": "news",
-   "t": "Apple releases iOS 27.0.1 update to fix iPhone 18 Pro bugs and system issues - آي-فون إسلام"
-  },
-  {
-   "q": "iOS update",
-   "src": "news",
-   "t": "The \"Suggested Actions\" feature in the iOS 27.2 Messages app: How to customize it to suit your usage? - آي-فون إسلام"
-  },
-  {
-   "q": "iOS update",
-   "src": "news",
-   "t": "iOS 27.2 update allows age verification with a quick selfie while fully protecting your privacy - آي-فون إسلام"
-  },
-  {
-   "q": "iOS update",
-   "src": "news",
-   "t": "Five Hidden Features in the iOS 27 Update You Might Have Missed - آي-فون إسلام"
-  },
-  {
-   "q": "iOS update",
-   "src": "news",
-   "t": "All the new AirPods features coming in the iOS 27 update - آي-فون إسلام"
-  },
-  {
-   "q": "iOS update",
-   "src": "news",
-   "t": "Apple prepares to upgrade base iPhone 18 memory to 9GB - آي-فون إسلام"
-  },
-  {
-   "q": "iOS update",
-   "src": "news",
-   "t": "Latest Updates in iOS 27 Apps in the Public Beta Version - آي-فون إسلام"
-  },
-  {
-   "q": "iOS update",
-   "src": "news",
-   "t": "iOS 27 Update: The Top 7 Features You Must Try Immediately After Installing the System on Your iPhone - آي-فون إسلام"
-  },
-  {
-   "q": "iOS update",
-   "src": "news",
-   "t": "The iPhone camera gets smarter: Your guide to using Visual Intelligence and \"Siri mode\" in the iOS 27 update - آي-فون إسلام"
-  },
-  {
-   "q": "iOS update",
-   "src": "news",
-   "t": "How did Apple improve the Phone and FaceTime apps in iOS 27? - آي-فون إسلام"
+   "src": "trends",
+   "t": "Olympic bronze medalist Ami Nakai of Japan leads after short program at Skate America"
   }
  ],
  "top_reels": [
   "wd-102"
  ],
- "updated_at": "2026-11-15T02:08:24+00:00",
+ "updated_at": "2026-11-15T23:24:59+00:00",
  "version": 1
 }
