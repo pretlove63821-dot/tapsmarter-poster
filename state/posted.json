@@ -34,6 +34,18 @@
       "source": "robot",
       "slot": "2026-11-14T15:00:00+00:00",
       "pick": "plan order"
+    },
+    {
+      "id": "ai-015",
+      "date": "2026-11-15",
+      "posted_at": "2026-11-15T15:34:39+00:00",
+      "media_id": "18135179164748449",
+      "permalink": "https://www.instagram.com/reel/DfxHVg0MZz7/",
+      "container_id": "17984738525915954",
+      "caption_sha256": "0fed40d7ffda43fb285389ee62a79c63da1c0225574a44ae2e1c2bbd6e62729c",
+      "source": "robot",
+      "slot": "2026-11-15T15:00:00+00:00",
+      "pick": "plan order"
     }
   ],
   "dry_runs": [],
@@ -41,7 +53,8 @@
   "first_comments": [
     "17900739435397375",
     "17912506704568815",
-    "18128449036676317"
+    "18128449036676317",
+    "18135179164748449"
   ],
   "failures": {
     "wd-102": {
@@ -53,7 +66,7 @@
   },
   "blocked": {},
   "last_run": {
-    "at": "2026-11-14T15:12:19+00:00",
+    "at": "2026-11-15T15:34:39+00:00",
     "outcome": "posted",
     "mode": "live"
   }
