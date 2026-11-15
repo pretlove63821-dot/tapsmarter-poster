@@ -1,0 +1,107 @@
+{
+ "ai-015": {
+  "t": "Stop making flashcards, Google made me 60 from one link! 📚",
+  "kw": "NOTES",
+  "dur": 19.87
+ },
+ "ai-016": {
+  "t": "Google planned my 3 days in Rome for free, no sign-in ✈️",
+  "kw": "TRAVEL",
+  "dur": 18.77
+ },
+ "ai-017": {
+  "t": "Stop paying $80 for internet. Say this one sentence ChatGPT wrote 📞",
+  "kw": "BILLS",
+  "dur": 19.2
+ },
+ "ai-018": {
+  "t": "Stop scammers opening loans in your name. Three free steps 🧊",
+  "kw": "FREEZE",
+  "dur": 17.87
+ },
+ "ai-019": {
+  "t": "Stop wasting money on takeout. Five dinners for two, under $50 🛒",
+  "kw": "MEALS",
+  "dur": 21.87
+ },
+ "ai-020": {
+  "t": "Cancelled flight? Don't take the voucher. You may be owed cash ✈️",
+  "kw": "FLIGHT",
+  "dur": 18.7
+ },
+ "ai-021": {
+  "t": "Stop asking for a little more. Ask for $7,000 more instead 💼",
+  "kw": "RAISE",
+  "dur": 18.33
+ },
+ "ai-022": {
+  "t": "Stop paying to search for lost money. The official site is free 💸",
+  "kw": "UNCLAIMED",
+  "dur": 18.37
+ },
+ "ai-023": {
+  "t": "Don't sign a $10 gym contract until you see this 🏋️",
+  "kw": "GYM",
+  "dur": 20.1
+ },
+ "ai-024": {
+  "t": "Don't pay a $900 brake quote until you ask this 🔧",
+  "kw": "MECHANIC",
+  "dur": 19.73
+ },
+ "ai-025": {
+  "t": "Don't accept a rent increase until you send this one email 🏠",
+  "kw": "RENT",
+  "dur": 17.83
+ },
+ "ai-026": {
+  "t": "Stop paying $80 for your phone. Google found cheaper unlimited plans 📱",
+  "kw": "PLANS",
+  "dur": 20.2
+ },
+ "ai-027": {
+  "t": "Stop writing \"responsible for\" on your resume. Write this instead 📄",
+  "kw": "RESUME",
+  "dur": 20.2
+ },
+ "ai-028": {
+  "t": "Big hospital bill? Don't pay until you ask these 3 questions 🏥",
+  "kw": "HOSPITAL",
+  "dur": 20.67
+ },
+ "ai-029": {
+  "t": "Stop guessing your budget. ChatGPT splits your paycheck into 3 buckets 💸",
+  "kw": "BUDGET",
+  "dur": 18.5
+ },
+ "ai-030": {
+  "t": "Stop paying for audiobooks. Your library card can get them free 📚",
+  "kw": "LIBRARY",
+  "dur": 21.9
+ },
+ "ai-031": {
+  "t": "Stop rambling in interviews. Answer every question with these 4 letters 🎤",
+  "kw": "INTERVIEW",
+  "dur": 21.33
+ },
+ "ai-032": {
+  "t": "Stop paying late fees. This script may get $40 back 💳",
+  "kw": "FEE",
+  "dur": 18.7
+ },
+ "wd-102": {
+  "t": "iPhone call screening for unknown callers",
+  "kw": "SCREEN",
+  "dur": 41.57
+ },
+ "wd-106": {
+  "t": "If you get this text, don't tap it: fake delivery text red flags",
+  "kw": "SCAM",
+  "dur": 42.63
+ },
+ "wd-166": {
+  "t": "Nvidia's CEO just quit. Here's the scam lesson for you.",
+  "kw": "TRAP",
+  "dur": 40.87
+ }
+}
