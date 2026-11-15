@@ -506,7 +506,7 @@
  "ai-063": {
   "t": "Thief knows your iPhone passcode? Turn on this one setting 🔒",
   "kw": "THIEF",
-  "dur": 21.07,
+  "dur": 21.03,
   "vo": [
    "Thief knows your iPhone passcode? Turn on this one setting.",
    "Open Settings, Face ID and Passcode, Stolen Device Protection.",
@@ -670,6 +670,104 @@
   ],
   "cap": "Stop guessing. One number tells you when your money doubles ⏳\nRule of 72: how long it takes your money to double\n\n1. Take 72\n2. Divide it by the yearly rate of return (just the number: 9, not 0.09)\n3. The answer is about how many years it takes to double\n4. At 9%: 72 ÷ 9 = about 8 years (Investor.gov's own example)\n5. At 4%: 72 ÷ 4 = about 18 years\n\nIt's a quick estimate, not a promise. Real returns change from year to year, and Investor.gov says all investments involve some degree of risk. The rates here are examples. This is general info, not financial advice.\n\nComment RULE72 and I'll DM you the chart of doubling times from 1% to 12%.\nSend this to a friend who just opened their first savings or retirement account.\n\nSource: Investor.gov (U.S. Securities and Exchange Commission). Exact math: our own calculation.\n\nMade with an AI voice and AI visuals.",
   "url": "https://github.com/pretlove63821-dot/tapsmarter-poster/releases/download/videos/ai-074.mp4"
+ },
+ "ai-075": {
+  "t": "Don't buy that gift card yet. Flip it over first 🎁",
+  "kw": "GIFTCARD",
+  "dur": 18.7,
+  "vo": [
+   "Don't buy that gift card yet. Flip it over first.",
+   "Which would you buy? B. The others may have stolen PINs.",
+   "Scammers steal the PIN first, then drain your money.",
+   "Looks off? Tell a cashier. Pay by credit card. Keep receipts.",
+   "Send this to someone who gives gift cards. Comment giftcard for the checklist!"
+  ],
+  "cap": "Don't buy that gift card yet. Flip it over first 🎁\nHow to check a gift card for tampering before you buy it (FTC tips)\n\n1. Before you pay, flip the card over. The FTC says make sure the protective stickers are on and the PIN on the back isn't showing\n2. Peeled sticker or scratched-off back? Pick a different card and show the bad one to a cashier or manager. Scammers can tamper with cards in batches, so the FTC says to consider a different store\n3. Pay by credit card if you can. If something goes wrong, a chargeback may help you get your money back\n4. Keep the store receipt and a photo of the card. The numbers help you report a problem to the card company\n5. Card turns up empty? Call the card company right away, then report it at ReportFraud.ftc.gov\n\nWhy it matters: in a December 2024 alert, the FTC warned that scammers can get a card's number and PIN before you buy it, then drain it once",
+  "url": "https://github.com/pretlove63821-dot/tapsmarter-poster/releases/download/videos/ai-075.mp4"
+ },
+ "ai-077": {
+  "t": "Stop emailing yourself photos. Send them from iPhone to Windows, free 📲",
+  "kw": "LOCALSEND",
+  "dur": 21.73,
+  "vo": [
+   "Stop emailing yourself photos. Send them from iPhone to Windows, free.",
+   "iPhone or Mac: App Store. Android: Google Play. Windows: GitHub.",
+   "Open it on both, pick your photos, then tap the other device.",
+   "Same Wi-Fi only. No account, no internet needed.",
+   "Send this to someone who emails themselves photos. Comment localsend for the links!"
+  ],
+  "cap": "Stop emailing yourself photos. Send them from iPhone to Windows, free 📲\nHow to send photos from iPhone to Windows PC free without a cable: LocalSend\n\n1. iPhone or Mac: get LocalSend from the App Store. Android: Google Play. Windows: the .exe from github.com/localsend/localsend (Releases) or localsend.org\n2. Put both devices on the same Wi-Fi and open the app on both\n3. Go to Send, pick your photos or files, then tap the other device under Nearby devices\n4. Tap Accept on the other device. Files land in Downloads by default\n\nIt's free and open source (Apache-2.0), works like AirDrop across brands, needs no account, and works on your local network without internet. Current versions need iOS 13+, macOS 11+, Android 7+ or Windows 10+, so check your device's version. The Windows download doesn't update itself, so grab new versions from the same page. Can't see the other device? Guest Wi-Fi and",
+  "url": "https://github.com/pretlove63821-dot/tapsmarter-poster/releases/download/videos/ai-077.mp4"
+ },
+ "ai-078": {
+  "t": "Who's signed in to your Google account? Check this 🔐",
+  "kw": "CHECKUP",
+  "dur": 19.27,
+  "vo": [
+   "Who's signed in to your Google account? Check this.",
+   "Google Account, Security and sign-in, then Manage all devices.",
+   "Don't know it? Tap Sign out, then change your password.",
+   "Then run the two-minute security check: devices, apps, recovery info.",
+   "Send this to someone who lives in their Gmail. Comment checkup for the steps!"
+  ],
+  "cap": "Who's signed in to your Google account? Check this 🔐\nHow to see which devices are signed in to your Google account and sign them out\n\n1. Open your Google Account (myaccount.google.com, or google.com/devices to jump straight to the list)\n2. Tap Security & sign-in, then under Your devices tap Manage all devices\n3. Tap any device you don't know, then tap Sign out. If several share the same name, sign out of all of them\n4. If you think someone else got in, change your Google password right away\n5. Then run Security Checkup (myaccount.google.com/security-checkup): review signed-in devices, remove old third-party app access, confirm your recovery info\n\nNot every strange-looking device is a hacker. A new phone, a library computer or a factory reset can show up too, and locations can be approximate. Menus can change. If a name looks different, look for Your devices. This helps a lot, but no chec",
+  "url": "https://github.com/pretlove63821-dot/tapsmarter-poster/releases/download/videos/ai-078.mp4"
+ },
+ "ai-079": {
+  "t": "Don't swipe your card at the pump. The FBI says tap instead ⛽",
+  "kw": "SKIMMER",
+  "dur": 18.87,
+  "vo": [
+   "Don't swipe your card at the pump. The FBI says tap instead.",
+   "Pump skimmers usually hide inside, where you can't see them.",
+   "Wiggles, says void, or looks off? Use another pump.",
+   "Can't tap? Pay inside, or use a pump near the store.",
+   "Send this to someone who's driving for the holidays. Comment skimmer for the checklist!"
+  ],
+  "cap": "Don't swipe your card at the pump. The FBI says tap instead ⛽\nGas pump skimmer check: tap to pay, wiggle the card reader, look for a VOID seal (FBI and FTC tips)\n\n1. Tap your card instead of swiping or inserting it, if your card and the pump allow it. The FBI says tap-to-pay is more secure and less likely to be compromised\n2. Wiggle the card reader before you put your card in. If it moves, tell the attendant and use a different pump (FTC)\n3. Look at the seal on the pump panel. If it reads \"void,\" the panel has been opened. Does the reader look different from the others? Skip it\n4. Can't tap? Pay inside with the attendant, or pick a pump closer to the store and in view of the attendant (FBI)\n5. Paying with debit? Run it as credit so you don't type your PIN (FBI and FTC)\n\nThe FBI says pump skimmers are usually wired inside the machine where you can't see them, so a pump can pass every chec",
+  "url": "https://github.com/pretlove63821-dot/tapsmarter-poster/releases/download/videos/ai-079.mp4"
+ },
+ "ai-080": {
+  "t": "Your Airbnb host can't have indoor cameras. Not even switched off 🏠",
+  "kw": "CAMERAS",
+  "dur": 21.67,
+  "vo": [
+   "Your Airbnb host can't have indoor cameras. Not even switched off.",
+   "Bedrooms, bathrooms, hallways, living rooms. Hidden cameras? Never allowed.",
+   "Inside: banned. Outside: allowed, but the listing must say where.",
+   "Spot one inside? Take photos, then contact Airbnb right away.",
+   "Send this to someone who's booking a holiday rental. Comment cameras for the rules!"
+  ],
+  "cap": "Your Airbnb host can't have indoor cameras. Not even switched off 🏠\nAirbnb hidden camera rules: indoor cameras banned even if off, outdoor cameras must be listed\n\n1. Airbnb bans security cameras and recording devices that monitor any part of the inside: bedrooms, bathrooms, hallways, living rooms, guest houses. Even if they're turned off or disconnected\n2. Hidden cameras are strictly prohibited\n3. Outdoor cameras are allowed, but the host must say where they are in the listing's description. Read it before you book\n4. No cameras over private outdoor spots, like an enclosed outdoor shower or a sauna\n5. Spot one inside? Take photos, then contact Airbnb right away. Feel unsafe? Airbnb has a 24-hour safety line\n\nNoise monitors that measure sound but don't record audio are allowed inside if the host discloses them, never in bedrooms, bathrooms or sleeping areas. These are Airbnb's own rules (",
+  "url": "https://github.com/pretlove63821-dot/tapsmarter-poster/releases/download/videos/ai-080.mp4"
+ },
+ "ai-081": {
+  "t": "iPhone full? Don't delete your photos. Flip these two settings 📱",
+  "kw": "STORAGE",
+  "dur": 21.57,
+  "vo": [
+   "iPhone full? Don't delete your photos. Flip these two settings.",
+   "Settings, Apps, App Store. Turn on Offload Unused Apps.",
+   "Low on space? Unused apps go, but your data stays.",
+   "Using iCloud Photos? Turn on Optimize iPhone Storage. Originals stay in iCloud.",
+   "Send this to someone who's always out of space. Comment storage for the steps!"
+  ],
+  "cap": "iPhone full? Don't delete your photos. Flip these two settings 📱\nHow to free up iPhone storage without deleting photos (Offload Unused Apps, Optimize iPhone Storage)\n\n1. Open Settings, tap Apps, then App Store, and turn on Offload Unused Apps (iOS 26 and later. On iOS 18: Settings > General > iPhone Storage, then tap Enable next to Offload Unused Apps)\n2. When space runs low, your iPhone removes apps you don't use but keeps their documents and data. The icon stays with a cloud symbol: tap it to reinstall, as long as the app is still in the App Store\n3. Use iCloud Photos? Go to Settings > [your name] > iCloud > Photos. On iOS 27, tap iPhone Storage and make sure Optimize iPhone Storage is on. On iOS 26 or earlier, choose it right on the Photos screen\n4. Your full-resolution originals stay in iCloud, and your iPhone keeps space-saving copies when it needs room\n\nOptimize needs iCloud Photos",
+  "url": "https://github.com/pretlove63821-dot/tapsmarter-poster/releases/download/videos/ai-081.mp4"
+ },
+ "ai-082": {
+  "t": "Don't tap that weird text. Circle it first to check for scams 🔍",
+  "kw": "CIRCLE",
+  "dur": 19.63,
+  "vo": [
+   "Don't tap that weird text. Circle it first to check for scams.",
+   "Hold the home button or bottom bar, circle it, read the AI Overview.",
+   "Red flags? Delete it and block the number.",
+   "Nothing happens? On a Pixel: Settings, System, Circle to Search.",
+   "Send this to someone who gets weird texts. Comment circle for the steps!"
+  ],
+  "cap": "Don't tap that weird text. Circle it first to check for scams 🔍\nHow to check if a text is a scam with Circle to Search on Android\n\n1. Open the text. Touch and hold the home button (3-button navigation) or the navigation bar at the bottom of the screen (gesture navigation)\n2. Draw a circle around the message\n3. Read the AI Overview. Google says it gives guidance and suggested next steps\n4. Red flags? Google says to consider deleting the message and blocking the number\n5. Nothing happens? On a Pixel, check Settings > System > Circle to Search. On other phones, search your Settings for Circle to Search\n\nWorks on select Android phones, including Pixel 6 and later. Google says results, availability and compatibility may vary, so treat it as a second opinion. Never tap a link in a text you weren't expecting. If it might be real, contact the company using a number or website you know is real (F",
+  "url": "https://github.com/pretlove63821-dot/tapsmarter-poster/releases/download/videos/ai-082.mp4"
  },
  "wd-102": {
   "t": "iPhone call screening for unknown callers",
