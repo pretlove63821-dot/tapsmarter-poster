@@ -50,10 +50,15 @@
     "at": "2026-11-14T22:44:00+00:00",
     "followers_count": 0,
     "media_count": 3
+   },
+   {
+    "at": "2026-11-15T02:08:24+00:00",
+    "followers_count": 0,
+    "media_count": 3
    }
   ],
   "latest": {
-   "at": "2026-11-14T22:44:00+00:00",
+   "at": "2026-11-15T02:08:24+00:00",
    "followers_count": 0,
    "media_count": 3
   }
@@ -86,6 +91,15 @@
     "saved": 0,
     "shares": 1,
     "views": 110
+   },
+   {
+    "comments": 1,
+    "d": "2026-11-15",
+    "likes": 1,
+    "reach": 99,
+    "saved": 0,
+    "shares": 1,
+    "views": 110
    }
   ],
   "17912506704568815": [
@@ -106,6 +120,15 @@
     "saved": 0,
     "shares": 0,
     "views": 4
+   },
+   {
+    "comments": 1,
+    "d": "2026-11-15",
+    "likes": 0,
+    "reach": 4,
+    "saved": 0,
+    "shares": 0,
+    "views": 4
    }
   ],
   "18128449036676317": [
@@ -117,6 +140,15 @@
     "saved": 0,
     "shares": 0,
     "views": 86
+   },
+   {
+    "comments": 1,
+    "d": "2026-11-15",
+    "likes": 0,
+    "reach": 82,
+    "saved": 0,
+    "shares": 0,
+    "views": 88
    }
   ]
  },
@@ -137,7 +169,7 @@
    "shares": 1,
    "timestamp": "2026-11-12T15:23:54+0000",
    "total_interactions": 3,
-   "updated_at": "2026-11-14T22:44:00+00:00",
+   "updated_at": "2026-11-15T02:08:24+00:00",
    "video_id": "wd-102",
    "views": 110
   },
@@ -156,7 +188,7 @@
    "shares": 0,
    "timestamp": "2026-11-13T18:41:44+0000",
    "total_interactions": 1,
-   "updated_at": "2026-11-14T22:44:00+00:00",
+   "updated_at": "2026-11-15T02:08:24+00:00",
    "video_id": "wd-106",
    "views": 4
   },
@@ -164,25 +196,25 @@
    "caption": "Nvidia's CEO just quit. Here's the scam lesson for you.",
    "category": "SAFETY",
    "comments_count": 1,
-   "ig_reels_avg_watch_time": 5730,
-   "ig_reels_video_view_total_time": 492863,
+   "ig_reels_avg_watch_time": 5648,
+   "ig_reels_video_view_total_time": 497043,
    "keyword": "TRAP",
    "like_count": 0,
    "media_id": "18128449036676317",
    "permalink": "https://www.instagram.com/reel/Dfuf_HMtKRJ/",
-   "reach": 80,
+   "reach": 82,
    "saved": 0,
    "shares": 0,
    "timestamp": "2026-11-14T15:13:17+0000",
    "total_interactions": 1,
-   "updated_at": "2026-11-14T22:44:00+00:00",
+   "updated_at": "2026-11-15T02:08:24+00:00",
    "video_id": "wd-166",
-   "views": 86
+   "views": 88
   }
  },
  "note": "views, reach, saves and shares are on",
  "permission": "ok",
  "unsupported_metrics": [],
- "updated_at": "2026-11-14T22:44:00+00:00",
+ "updated_at": "2026-11-15T02:08:24+00:00",
  "version": 1
 }

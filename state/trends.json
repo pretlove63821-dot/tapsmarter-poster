@@ -1,5 +1,5 @@
 {
- "attempted_at": "2026-11-14T18:39:24+00:00",
+ "attempted_at": "2026-11-15T02:08:24+00:00",
  "error": null,
  "note": "Next 2 videos: trend score 6+ or a top-Reel topic goes first, the rest keep plan order.",
  "ok": true,
@@ -7,27 +7,33 @@
  "performance_topics": [],
  "scores": {
   "ai-015": {
-   "matched": [],
+   "matched": [
+    "hard (+1: 1 news)",
+    "mind (+3: 1 trend)",
+    "note (+4: 1 trend, 1 news)",
+    "tool (+1: 1 news)"
+   ],
    "performance": 0,
-   "reason": "no trend match (plan order)",
-   "score": 0,
-   "trend": 0
+   "reason": "trend score 9: hard (+1: 1 news); mind (+3: 1 trend); note (+4: 1 trend, 1 news); tool (+1: 1 news)",
+   "score": 9,
+   "trend": 9
   },
   "ai-016": {
    "matched": [
-    "mode (+2: 2 news)",
-    "money (+1: 1 news)",
+    "mode (+4: 4 news)",
+    "money (+6: 2 trends, 2 news)",
+    "tool (+1: 1 news)",
     "work (+1: 1 news)"
    ],
    "performance": 0,
-   "reason": "trend score 4: mode (+2: 2 news); money (+1: 1 news); work (+1: 1 news)",
-   "score": 4,
-   "trend": 4
+   "reason": "trend score 12: mode (+4: 4 news); money (+6: 2 trends, 2 news); tool (+1: 1 news); work (+1: 1 news)",
+   "score": 12,
+   "trend": 12
   }
  },
  "sources": [
   {
-   "count": 40,
+   "count": 38,
    "name": "Google Trends US",
    "ok": true
   },
@@ -70,168 +76,160 @@
  "titles": [
   {
    "src": "trends",
-   "t": "bo jackson"
+   "t": "victoria justice"
   },
   {
    "src": "trends",
-   "t": "Bo Jackson explains broken bats at Louisville Slugger Museum & Factory"
+   "t": "Victoria Justice Drops Stunning New Photos & Sends Fans Into a Frenzy"
   },
   {
    "src": "trends",
-   "t": "Bo Jackson crowned Louisville Slugger Museum & Factory's 2026 Living Legend"
+   "t": "CBS LA is live from the Kids' Choice Awards Orange Carpet - CBS Los Angeles"
   },
   {
    "src": "trends",
-   "t": "Louisville Slugger honors Bo Jackson with Living Legend Award"
+   "t": "Nickelodeon Kids' Choice Awards"
   },
   {
    "src": "trends",
-   "t": "kennesaw st vs sam houston"
+   "t": "kirk ferentz"
   },
   {
    "src": "trends",
-   "t": "Kennesaw State vs Sam Houston Prediction, Picks & Odds | 14 Nov 2026"
+   "t": "A rooting-interest guide for Iowa football's CFP hopes | Leistikow"
   },
   {
    "src": "trends",
-   "t": "[#LIVESTREAm]+! Sam Houston v Kennesaw State LIVE Score Updates in College Football Match - Nov. 14, 2026"
+   "t": "Iowa football CFP rooting guide: What Hawkeyes hope for in Week 11"
   },
   {
    "src": "trends",
-   "t": "Kennesaw State Rides Two-Game Win Streak Into Sam Houston"
+   "t": "Iowa climbs in the latest CFP rankings"
   },
   {
    "src": "trends",
-   "t": "david montgomery"
+   "t": "will ferrell"
   },
   {
    "src": "trends",
-   "t": "David Montgomery (groin) working out at practice"
+   "t": "The Diplomat's Bradley Whitford Compares His Big Season 4 Moment To A Classic Will Ferrell Movie"
   },
   {
    "src": "trends",
-   "t": "The Houston Texans could be without their top running backs against Browns"
+   "t": "погода завтра"
   },
   {
    "src": "trends",
-   "t": "Woody Marks Back at practice Friday"
+   "t": "Завтра в Баку и регионах ожидается дождь, в горных местностях - снег"
   },
   {
    "src": "trends",
-   "t": "northern iowa vs south dakota"
+   "t": "В Баку и регионах объявлен оранжевый уровень опасности из-за сильного ветра"
   },
   {
    "src": "trends",
-   "t": "Coyote men battle, fall short to Drake and former SDSU coach Henderson"
+   "t": "Дорожная полиция обратилась к водителям"
   },
   {
    "src": "trends",
-   "t": "Carroll scores 26 in Drake’s 81-72 win over South Dakota"
+   "t": "ramit sethi"
   },
   {
    "src": "trends",
-   "t": "Bulldogs Grind Out Win Over Coyotes, 81-72"
+   "t": "Ramit Sethi tackles dilemma facing homeowners with low rates"
   },
   {
    "src": "trends",
-   "t": "rob ezell"
+   "t": "Couple Has No Savings And Owes Over $428K, Yet Spends $1,029 A Month On Pets. Ramit Sethi Says, ‘Your Dog Doesn’t Deserve It’"
   },
   {
    "src": "trends",
-   "t": "NC State officially hires Philip Rivers as football coach"
+   "t": "‘Alcohol is mind-blowing’: Ex-house manager for the ultra-rich reveals where their money really goes"
   },
   {
    "src": "trends",
-   "t": "Philip Rivers to NC State: Contact details, salary and more for new Wolfpack football coach"
+   "t": "power grid emergency"
   },
   {
    "src": "trends",
-   "t": "How much is NC State paying Philip Rivers? Details from his coaching contract"
+   "t": "Texas Grid Boss Wants Data Centers to Cut Power Before Blackouts"
   },
   {
    "src": "trends",
-   "t": "depaul vs notre dame"
+   "t": "Prediction Market Lists Texas Data Center Moratorium Odds at 33% for 2029"
   },
   {
    "src": "trends",
-   "t": "No. 13 Notre Dame Set For SoFi Shamrock Classic Against DePaul"
+   "t": "Texas grid seeks power controls for data centers"
   },
   {
    "src": "trends",
-   "t": "How to watch DePaul vs. Notre Dame women’s basketball: TV channel and streaming options for November 14"
+   "t": "nz vs ind"
   },
   {
    "src": "trends",
-   "t": "Unbeaten DePaul Women Face No. 13 Notre Dame in Shamrock Classic"
+   "t": "Streak broken, New Zealand hope to prevent rare overseas ODI series win for India"
   },
   {
    "src": "trends",
-   "t": "sd state vs southern il"
+   "t": "NZ vs IND 5th ODI: India's misfiring batting seeks strong finish in Mount Maunganui"
   },
   {
    "src": "trends",
-   "t": "Week 12: SDSU at Southern Illinois - What I'm watching"
+   "t": "IND vs NZ 5th ODI 2026 live scorecard, toss winner, winning probability, result and highlights from Bay Oval, Mount Maunganui"
   },
   {
    "src": "trends",
-   "t": "Jackrabbits hunting another FCS crown"
+   "t": "cade cunningham"
   },
   {
    "src": "trends",
-   "t": "South Dakota State football aiming to stop SIU’s late surge in regular season road finale"
+   "t": "Cade Cunningham's historic night puts Pistons past Wizards in 2OT thriller"
   },
   {
    "src": "trends",
-   "t": "lol worlds"
+   "t": "Cade Cunningham makes NBA history with career night in Pistons’ 2OT win over Wizards - The Athletic"
   },
   {
    "src": "trends",
-   "t": "Worlds 2026: BLG Knight vs Gen.G Chovy"
+   "t": "Cade Cunningham scores career-high 52 points in Pistons' 144-140 win in 2OT over Wizards"
   },
   {
    "src": "trends",
-   "t": "Worlds 2026 Final: Two Princes, One To Wear The Crown"
+   "t": "zion williamson"
   },
   {
    "src": "trends",
-   "t": "Inside Barclays Center's Two-Year Pursuit of the League of Legends World Championship Final"
+   "t": "Zion Williamson tears into Pelicans after 'unacceptable' loss to Nets: 'Go look yourself in the mirror'"
   },
   {
    "src": "trends",
-   "t": "antonio nusa"
+   "t": "Pelicans Notes: Zion, Mosley, Queen, Murray"
   },
   {
    "src": "trends",
-   "t": "Journalist: Arsenal in talks to sign €80m-rated forward"
+   "t": "Charles Barkley says Pelicans should be moved to a new city after another embarrassing loss"
   },
   {
    "src": "trends",
-   "t": "RB Leipzig sensation Antonio Nusa breaks silence on sensational Arsenal & Tottenham Hotspur transfer rumours"
+   "t": "utah state vs san diego st"
   },
   {
    "src": "trends",
-   "t": "Antonio Nusa speaks on possible Arsenal transfer as Norway boss advises against move"
+   "t": "5 Things to Watch: Aztecs QB Stone Saunders, running backs face solid Utah State defense"
   },
   {
    "src": "trends",
-   "t": "east tn st vs wofford"
+   "t": "Utah State at San Diego State: How to watch, listen to or stream the game"
   },
   {
    "src": "trends",
-   "t": "ETSU Hits the Road to Take on Wofford on Saturday"
-  },
-  {
-   "src": "trends",
-   "t": "ETSU looks to reverse trend at Wofford"
-  },
-  {
-   "src": "trends",
-   "t": "East Tennessee State @ Wofford Odds"
+   "t": "SDSU football team still holding onto Pac-12 title hopes"
   },
   {
    "q": "iPhone",
    "src": "news",
-   "t": "Apple iPhone Duo vs. iPhone 18 Pro: First-hand impressions, how to decide - Mashable"
+   "t": "Apple announces first-ever foldable iPhone, starting at $1,999 - ABC News - Breaking News, Latest News and Videos"
   },
   {
    "q": "iPhone",
@@ -241,77 +239,7 @@
   {
    "q": "iPhone",
    "src": "news",
-   "t": "Got an iPhone Duo? These 9 settings make it easier to use - TechCrunch"
-  },
-  {
-   "q": "iPhone",
-   "src": "news",
-   "t": "7 apps that really show what the new Apple iPhone Duo can do - Popular Science"
-  },
-  {
-   "q": "iPhone",
-   "src": "news",
-   "t": "Top Stories: Apple's New Software Approach, iPhone Duo-Optimized Apps, and More - MacRumors"
-  },
-  {
-   "q": "iPhone",
-   "src": "news",
-   "t": "After the iPhone Duo, I no longer trust Apple’s iPhone 20 Pro coming next year - PhoneArena"
-  },
-  {
-   "q": "iPhone",
-   "src": "news",
-   "t": "Your iPhone Has A Built-In Barometer — Here's How To Use It - Engadget"
-  },
-  {
-   "q": "iPhone",
-   "src": "news",
-   "t": "Everything we expect at Apple's September iPhone launch event - Mashable"
-  },
-  {
-   "q": "iPhone",
-   "src": "news",
    "t": "iPhone 20 Pro hardware sample shown off in leaked video - PhoneArena"
-  },
-  {
-   "q": "iPhone",
-   "src": "news",
-   "t": "iPhone 20 rumors: Why iPhone 19 might be skipped entirely - Mashable"
-  },
-  {
-   "q": "iPhone",
-   "src": "news",
-   "t": "Do we really need a foldable iPhone? Heck yes we do. - Mashable"
-  },
-  {
-   "q": "iPhone",
-   "src": "news",
-   "t": "AT&T iPhone 18 Pro, Pro Max, and iPhone Duo deals: Save up to $1,200 on trade-ins - Mashable"
-  },
-  {
-   "q": "iPhone",
-   "src": "news",
-   "t": "I found the best iPhone 18 Pro cases and grips to protect your new phone - Mashable"
-  },
-  {
-   "q": "iPhone",
-   "src": "news",
-   "t": "How to hide photos on iPhone - Mashable"
-  },
-  {
-   "q": "iPhone",
-   "src": "news",
-   "t": "What is the newest iPhone? - Mashable"
-  },
-  {
-   "q": "iPhone",
-   "src": "news",
-   "t": "Hands-on with Apple's new iPhone 14 Pro: Hello, Dynamic Island! - Mashable"
-  },
-  {
-   "q": "iPhone",
-   "src": "news",
-   "t": "How to connect your iPhone to a satellite to send messages - Mashable"
   },
   {
    "q": "iPhone",
@@ -321,17 +249,87 @@
   {
    "q": "iPhone",
    "src": "news",
-   "t": "I tried Samsung's new foldables. They have a cool factor the iPhone can't match. - Mashable"
+   "t": "Got an iPhone Duo? These 9 settings make it easier to use - TechCrunch"
   },
   {
    "q": "iPhone",
    "src": "news",
-   "t": "How to record the screen on your iPod, iPhone, or iPad - Mashable"
+   "t": "Hands-on: ESR’s MagSafe kickstand charger solves two key iPhone Duo shortcomings - 9to5Mac"
+  },
+  {
+   "q": "iPhone",
+   "src": "news",
+   "t": "The iPhone Air 2 might be real after all - Pocket-lint"
+  },
+  {
+   "q": "iPhone",
+   "src": "news",
+   "t": "7 apps that really show what the new Apple iPhone Duo can do - Popular Science"
+  },
+  {
+   "q": "iPhone",
+   "src": "news",
+   "t": "How To Check Which iOS Version Your iPhone Is Running - Engadget"
+  },
+  {
+   "q": "iPhone",
+   "src": "news",
+   "t": "Top Stories: Apple's New Software Approach, iPhone Duo-Optimized Apps, and More - MacRumors"
+  },
+  {
+   "q": "iPhone",
+   "src": "news",
+   "t": "Astropad Workbench is my favorite iPhone Duo app so far — here’s how it’s transformed my coding workflow - TechRadar"
+  },
+  {
+   "q": "iPhone",
+   "src": "news",
+   "t": "Windows 11 on iPhone Duo: Gemini 4 Carbon Role - shattered.io"
+  },
+  {
+   "q": "iPhone",
+   "src": "news",
+   "t": "iPhone hacked: Binance warns of iOS flaw exposing crypto wallet keys - Beinsure"
+  },
+  {
+   "q": "iPhone",
+   "src": "news",
+   "t": "Apple Raises Trade-In Values for 11 iPhone Models, With the Seven-Year-Old iPhone 11 Leading the Gains - BigGo Finance"
+  },
+  {
+   "q": "iPhone",
+   "src": "news",
+   "t": "12 hidden tricks to help you master your iPhone X - Mashable"
+  },
+  {
+   "q": "iPhone",
+   "src": "news",
+   "t": "Galaxy S27 Ultra might take inspiration from the iPhone 18 Pro, and this time I’d be glad - PhoneArena"
+  },
+  {
+   "q": "iPhone",
+   "src": "news",
+   "t": "Your iPhone Has A Built-In Barometer — Here's How To Use It - Engadget"
+  },
+  {
+   "q": "iPhone",
+   "src": "news",
+   "t": "Do we really need a foldable iPhone? Heck yes we do. - Mashable"
+  },
+  {
+   "q": "iPhone",
+   "src": "news",
+   "t": "After the iPhone Duo, I no longer trust Apple’s iPhone 20 Pro coming next year - PhoneArena"
+  },
+  {
+   "q": "iPhone",
+   "src": "news",
+   "t": "Everything we know about the iPhone 17 Air so far - Mashable"
   },
   {
    "q": "ChatGPT",
    "src": "news",
-   "t": "I tested Meta Muse and ChatGPT Dots, and here's the one I'm sticking with - Android Authority"
+   "t": "OpenAI | ChatGPT, Sam Altman, & Microsoft - Britannica"
   },
   {
    "q": "ChatGPT",
@@ -341,12 +339,17 @@
   {
    "q": "ChatGPT",
    "src": "news",
+   "t": "I tested Meta Muse and ChatGPT Dots, and here's the one I'm sticking with - Android Authority"
+  },
+  {
+   "q": "ChatGPT",
+   "src": "news",
    "t": "ChatGPT wedding vows: Efficient or grotesque? - Mashable"
   },
   {
    "q": "ChatGPT",
    "src": "news",
-   "t": "OpenAI Launches ChatGPT Wallet to Let AI Agents Shop—Without Crypto - Decrypt"
+   "t": "ChatGPT Wallet Rolls Out in the US. Here’s How Checkout Works - Kingy AI"
   },
   {
    "q": "ChatGPT",
@@ -356,12 +359,22 @@
   {
    "q": "ChatGPT",
    "src": "news",
+   "t": "OpenAI Launches ChatGPT Wallet to Let AI Agents Shop—Without Crypto - Decrypt"
+  },
+  {
+   "q": "ChatGPT",
+   "src": "news",
    "t": "Core Update, ChatGPT Business Hub & AI Mode’s New Model – SEO Pulse - Search Engine Journal"
   },
   {
    "q": "ChatGPT",
    "src": "news",
-   "t": "Canva Craft vs ChatGPT: I tested both free AI image generators with 5 prompts to see which is better - Yahoo Tech"
+   "t": "Canva Craft vs ChatGPT: I tested both free AI image generators with 5 prompts to see which is better - TechRadar"
+  },
+  {
+   "q": "ChatGPT",
+   "src": "news",
+   "t": "How to rank in ChatGPT in 6 steps - Hostinger"
   },
   {
    "q": "ChatGPT",
@@ -376,42 +389,22 @@
   {
    "q": "ChatGPT",
    "src": "news",
-   "t": "I Asked ChatGPT If Working Part-Time Actually Helps Your Retirement — Here's the Math - AOL.com"
-  },
-  {
-   "q": "ChatGPT",
-   "src": "news",
-   "t": "Best Practices For Smart Business Owners Wanting To Make Optimal Use Of OpenAI’s New ‘Businesses In ChatGPT’ - Forbes"
-  },
-  {
-   "q": "ChatGPT",
-   "src": "news",
-   "t": "ChatGPT Wallet launches with purchase approvals - CASRAI"
-  },
-  {
-   "q": "ChatGPT",
-   "src": "news",
-   "t": "Introducing ChatGPT Wallet - OpenAI"
-  },
-  {
-   "q": "ChatGPT",
-   "src": "news",
-   "t": "ChatGPT Wallet Lets OpenAI's Dots AI Agents Shop On Your Behalf Without Accessing Actual Card Details - Benzinga"
-  },
-  {
-   "q": "ChatGPT",
-   "src": "news",
    "t": "OpenAI Launches ChatGPT Wallet, Excludes Crypto Payments - bloomingbit"
   },
   {
    "q": "ChatGPT",
    "src": "news",
-   "t": "XRP to $100 or $750 by 2030? We Asked ChatGPT to Test the Biggest Price Predictions - CCN.com"
+   "t": "I Asked ChatGPT If Working Part-Time Actually Helps Your Retirement — Here's the Math - AOL.com"
   },
   {
    "q": "ChatGPT",
    "src": "news",
-   "t": "Canva Craft and ChatGPT compared in AI image tests - Mezha.net"
+   "t": "OpenAI launches ChatGPT Wallet to let AI agents make purchases - jawlah.co"
+  },
+  {
+   "q": "ChatGPT",
+   "src": "news",
+   "t": "ChatGPT Wallet launches with purchase approvals - CASRAI"
   },
   {
    "q": "ChatGPT",
@@ -426,12 +419,12 @@
   {
    "q": "ChatGPT",
    "src": "news",
-   "t": "Explained: How does OpenAI's newly launched ChatGPT Wallet work? - The Federal"
+   "t": "The AI graveyard: a running list of projects and startups that didn’t make it - TechCrunch"
   },
   {
-   "q": "Android",
+   "q": "ChatGPT",
    "src": "news",
-   "t": "Italy fines Meta $887 million over Android users' data access - Reuters"
+   "t": "Canva Craft and ChatGPT compared in AI image tests - Mezha.net"
   },
   {
    "q": "Android",
@@ -441,32 +434,37 @@
   {
    "q": "Android",
    "src": "news",
-   "t": "Which Android Phones Are Most Similar To The OnePlus 16? - Engadget"
+   "t": "Meta fined $887 million in Italy over Android gallery photos and videos on Facebook - ABC News - Breaking News, Latest News and Videos"
   },
   {
    "q": "Android",
    "src": "news",
-   "t": "Italy fines Meta €805 million over Android app's photo access - Yahoo Finance"
+   "t": "The 5 Biggest Differences Between Cheap And Expensive Android Tablets - BGR"
   },
   {
    "q": "Android",
    "src": "news",
-   "t": "How I freed up 36GB on my Android phone without deleting a single photo - Android Authority"
+   "t": "There's A Hidden Way You Can Check Which Services Are Running On Your Android Phone - Engadget"
   },
   {
    "q": "Android",
    "src": "news",
-   "t": "Italy’s Privacy Authority Fines Meta €805 Million Over Android Photo Access: 27 outlets compared - NewsCord"
+   "t": "Italy slaps Meta with €805mn fine over access to Android photos - DW.com"
   },
   {
    "q": "Android",
    "src": "news",
-   "t": "5 easy ways I reuse old Android phones - Pocket-lint"
+   "t": "Italy fines Meta $887m for accessing Android users’ photos and videos - The Guardian"
   },
   {
    "q": "Android",
    "src": "news",
-   "t": "Italy fines Meta $887 million over Android users’ data access By Reuters - Investing.com"
+   "t": "Meta fined $887 million in Italy over Android gallery photos and videos on Facebook - Los Angeles Times"
+  },
+  {
+   "q": "Android",
+   "src": "news",
+   "t": "Android Auto with Gemini needs a 5-minute privacy check before anyone rides shotgun - Android Police"
   },
   {
    "q": "Android",
@@ -476,62 +474,67 @@
   {
    "q": "Android",
    "src": "news",
+   "t": "Ticker: Italy fines Facebook parent Meta over Android users’ photo gallery use - Boston Herald"
+  },
+  {
+   "q": "Android",
+   "src": "news",
+   "t": "Italy fines Meta €805m over Facebook's access to Android photo galleries - PPC Land"
+  },
+  {
+   "q": "Android",
+   "src": "news",
+   "t": "Italy fines Meta €805 million over Android app's photo access - Yahoo Finance"
+  },
+  {
+   "q": "Android",
+   "src": "news",
+   "t": "5 easy ways I reuse old Android phones - Pocket-lint"
+  },
+  {
+   "q": "Android",
+   "src": "news",
+   "t": "Italy’s Privacy Authority Fines Meta €805 Million Over Android Photo Access: 27 outlets compared - NewsCord"
+  },
+  {
+   "q": "Android",
+   "src": "news",
+   "t": "This Android Tablet Is A Powerful iPad Mini Replacement — If You Can Find One - BGR"
+  },
+  {
+   "q": "Android",
+   "src": "news",
+   "t": "Which Android Phones Are Most Similar To The OnePlus 16? - Engadget"
+  },
+  {
+   "q": "Android",
+   "src": "news",
+   "t": "I replaced learning apps with Gemini Guided Learning; it remembers my progress and adapts to my pace - Android Police"
+  },
+  {
+   "q": "Android",
+   "src": "news",
+   "t": "5 Android Tablets That Still Have A Headphone Jack In 2026 - BGR"
+  },
+  {
+   "q": "Android",
+   "src": "news",
+   "t": "Italy Fines Meta €805M for Accessing Android Photos - Briefs Finance"
+  },
+  {
+   "q": "Android",
+   "src": "news",
    "t": "Italy fines Meta €805 million over Facebook's access to Android users' photos - Startup Fortune"
-  },
-  {
-   "q": "Android",
-   "src": "news",
-   "t": "Meta fined $887 million in Italy over Android gallery photos and videos on Facebook - YourCentralValley.com"
-  },
-  {
-   "q": "Android",
-   "src": "news",
-   "t": "How to unlock the AirPods features Apple hides on Android - MakeUseOf"
-  },
-  {
-   "q": "Android",
-   "src": "news",
-   "t": "Italy fines Meta €805m over Facebook gallery access - The Next Web"
-  },
-  {
-   "q": "Android",
-   "src": "news",
-   "t": "Italy Fines Meta $887M Over Android Photo Access - shattered.io"
-  },
-  {
-   "q": "Android",
-   "src": "news",
-   "t": "Italy fines Meta $887 million over Android users' data access - The Jerusalem Post"
-  },
-  {
-   "q": "Android",
-   "src": "news",
-   "t": "Why your Android phone keeps waking up in your pocket (And how to fix it) - How-To Geek"
-  },
-  {
-   "q": "Android",
-   "src": "news",
-   "t": "Running Android apps on Ubuntu is now surprisingly easy - OMG! Ubuntu"
-  },
-  {
-   "q": "Android",
-   "src": "news",
-   "t": "One UI 9 Is The Final Major Update For These Older Samsung Galaxy Phones - Engadget"
-  },
-  {
-   "q": "Android",
-   "src": "news",
-   "t": "Italy fines Meta €805 million over access to Android users’ photos - Investing.com"
-  },
-  {
-   "q": "Android",
-   "src": "news",
-   "t": "I tested Meta Muse and ChatGPT Dots, and here's the one I'm sticking with - Android Authority"
   },
   {
    "q": "AI",
    "src": "news",
-   "t": "How I Used AI to Make My Grandson a Children’s Book for Less Than $200 - WSJ"
+   "t": "New AI Millionaires Want Wealth Advisers Who Can Help Give Their Money Away - WSJ"
+  },
+  {
+   "q": "AI",
+   "src": "news",
+   "t": "Inside the First AI Music Awards, a Chaotic Evening Attempting to Normalize Tech-Assisted Tunes - Variety"
   },
   {
    "q": "AI",
@@ -541,77 +544,7 @@
   {
    "q": "AI",
    "src": "news",
-   "t": "Can AI have empathy? My patient thanked me for its words. - KevinMD.com"
-  },
-  {
-   "q": "AI",
-   "src": "news",
-   "t": "The China Shock in the AI Era - Time Magazine"
-  },
-  {
-   "q": "AI",
-   "src": "news",
-   "t": "Open-source AI without Jensen - by Nathan Lambert - Interconnects AI"
-  },
-  {
-   "q": "AI",
-   "src": "news",
-   "t": "Dyania Partners With Nvidia, Expands Clinical AI Use Cases - HCI Innovation Group"
-  },
-  {
-   "q": "AI",
-   "src": "news",
-   "t": "Using AI to accelerate neuroscience research - Medical Xpress"
-  },
-  {
-   "q": "AI",
-   "src": "news",
-   "t": "The Microsoft outage didn’t lose your email — here’s what it does mean for you - Yahoo Finance"
-  },
-  {
-   "q": "AI",
-   "src": "news",
-   "t": "Is AI Making Us Worse at Cybersecurity? - SecurityWeek"
-  },
-  {
-   "q": "AI",
-   "src": "news",
-   "t": "AI's four colliding crises - Axios"
-  },
-  {
-   "q": "AI",
-   "src": "news",
-   "t": "The FAA’s IT troubles are far bigger then AI - Fast Company"
-  },
-  {
-   "q": "AI",
-   "src": "news",
-   "t": "The downfall of Jensen Huang, AI's $5.7 trillion man - Fortune"
-  },
-  {
-   "q": "AI",
-   "src": "news",
-   "t": "Music Awards Celebrate AI Innovations in Sound - GV Wire"
-  },
-  {
-   "q": "AI",
-   "src": "news",
-   "t": "AI is helping agents sound more knowledgeable than they are - RealEstateNews.com"
-  },
-  {
-   "q": "AI",
-   "src": "news",
-   "t": "Beware the New AI-Fueled Ransomware Boom - WIRED"
-  },
-  {
-   "q": "AI",
-   "src": "news",
-   "t": "‘It’s like the wild west’: how AI has rocked the literary world - The Guardian"
-  },
-  {
-   "q": "AI",
-   "src": "news",
-   "t": "What’s Working: What happens when AI bots take over landscaping? An Aspen company finds out - The Colorado Sun"
+   "t": "The downfall of AI’s $5.7 trillion man - Fortune"
   },
   {
    "q": "AI",
@@ -621,17 +554,77 @@
   {
    "q": "AI",
    "src": "news",
-   "t": "The Massive Chinese Spy Operation Targeting Western Tech and AI | The 10-Point for Nov. 14 - WSJ"
+   "t": "Can AI have empathy? My patient thanked me for its words. - KevinMD.com"
   },
   {
    "q": "AI",
    "src": "news",
-   "t": "Anthropic IPO to test Wall Street’s faith in AI as skepticism mounts - Yahoo Finance"
+   "t": "California schools should responsibly incorporate AI in classrooms, state education department says - The Mendocino Voice"
   },
   {
-   "q": "scam",
+   "q": "AI",
    "src": "news",
-   "t": "Fake TikTok accounts impersonating Worcester tattoo artist scam customers out of thousands - WCVB"
+   "t": "AI Retreat Fuels India Stock Comeback in Great Rotation Trade - Bloomberg.com"
+  },
+  {
+   "q": "AI",
+   "src": "news",
+   "t": "The FAA’s IT troubles are far bigger then AI - Fast Company"
+  },
+  {
+   "q": "AI",
+   "src": "news",
+   "t": "Governor Hochul announces AI research institute at Binghamton University - WWNY"
+  },
+  {
+   "q": "AI",
+   "src": "news",
+   "t": "Moore, Bonterra Unveil AI-Driven Fundraising Tools - The NonProfit Times"
+  },
+  {
+   "q": "AI",
+   "src": "news",
+   "t": "AT&T uses agentic AI to reinvent business processes from the ground up - SiliconANGLE"
+  },
+  {
+   "q": "AI",
+   "src": "news",
+   "t": "AI discovers a hidden heart signal that could predict sudden death - Science Daily"
+  },
+  {
+   "q": "AI",
+   "src": "news",
+   "t": "Open-source AI without Jensen - by Nathan Lambert - Interconnects AI"
+  },
+  {
+   "q": "AI",
+   "src": "news",
+   "t": "Beware the New AI-Fueled Ransomware Boom - WIRED"
+  },
+  {
+   "q": "AI",
+   "src": "news",
+   "t": "Developers Felt 20% Faster With AI. They Were 19% Slower. - Towards Data Science"
+  },
+  {
+   "q": "AI",
+   "src": "news",
+   "t": "What Areas of Law Will Be Most AI-Resilient After Your LL.M.? - LLM Guide"
+  },
+  {
+   "q": "AI",
+   "src": "news",
+   "t": "Nonprofit advocacy groups cite dangers, sue to stop development of artificial intelligence - Jurist.org"
+  },
+  {
+   "q": "AI",
+   "src": "news",
+   "t": "How I Used AI to Make My Grandson a Children’s Book for Less Than $200 - WSJ"
+  },
+  {
+   "q": "AI",
+   "src": "news",
+   "t": "The hottest job in AI right now may be counterintelligence as companies hire to protect secrets - Fortune"
   },
   {
    "q": "scam",
@@ -641,17 +634,37 @@
   {
    "q": "scam",
    "src": "news",
-   "t": "Online marketplace scam costs local victim $700 - News4JAX"
+   "t": "Loves Park Police to offer free scam-prevention seminar for seniors at The Courtyard - MyStateline"
   },
   {
    "q": "scam",
    "src": "news",
-   "t": "Winchester Police Department posts general reminder of scam alerts - Winchester Sun"
+   "t": "Scam selling tickets to a fake Noah Kahan event now disabled - WMTW"
   },
   {
    "q": "scam",
    "src": "news",
-   "t": "\"Backroads to Better Money\": Scam alert for the holidays - LEX 18 News"
+   "t": "Crestwood police warn of cash-collecting scam after $13K stolen - FOX 2"
+  },
+  {
+   "q": "scam",
+   "src": "news",
+   "t": "She Loses $180,000 to an Investment Scam at 74, as Older Adults Report $3 Billion in Fraud Losses. The Same Scammers Often Come Back for Her Social Security Dep"
+  },
+  {
+   "q": "scam",
+   "src": "news",
+   "t": "New scam targets family members of inmates - Cleveland 19 News"
+  },
+  {
+   "q": "scam",
+   "src": "news",
+   "t": "Fake TikTok accounts impersonating Worcester tattoo artist scam customers out of thousands - WCVB"
+  },
+  {
+   "q": "scam",
+   "src": "news",
+   "t": "Larry Carlton on the “grueling” sessions for Steely Dan’s Royal Scam - Guitar World"
   },
   {
    "q": "scam",
@@ -661,52 +674,37 @@
   {
    "q": "scam",
    "src": "news",
-   "t": "Robocall defenses lag as big carriers miss deadline; scam victims average $4,000 lost - KOMO"
+   "t": "YouTube pranksters lure California scammer to fake funeral — exposing role in $27M fraud ring - New York Post"
   },
   {
    "q": "scam",
    "src": "news",
-   "t": "Union County Sheriff Warns Residents of Phone Scam Impersonating Sheriff’s Officers - County of Union, New Jersey"
+   "t": "Winchester Police Department posts general reminder of scam alerts - Winchester Sun"
   },
   {
    "q": "scam",
    "src": "news",
-   "t": "Burbank Police Warn of Scam Callers - Outlook Newspapers"
+   "t": "Egg Harbor Township police issue warning about growing bank fraud - NJ.com"
   },
   {
    "q": "scam",
    "src": "news",
-   "t": "They train people to avoid 'honeypot' scams—here are the common red flags they spot: 'It feels so good to be wanted' - CNBC"
+   "t": "Online marketplace scam costs local victim $700 - News4JAX"
   },
   {
    "q": "scam",
    "src": "news",
-   "t": "84% of respondents of AARP survey say they were targeted by scammers or experienced fraud - Big Island Now"
+   "t": "\"Backroads to Better Money\": Scam alert for the holidays - LEX 18 News"
   },
   {
    "q": "scam",
    "src": "news",
-   "t": "Southeast Asian leaders, with US and Chinese counterparts, will renew alarm over online scams - WRAL"
+   "t": "From Assault Rifles To Phishing: Brazilian Criminal Groups Go Digital – Analysis - Eurasia Review"
   },
   {
    "q": "scam",
    "src": "news",
-   "t": "Pa. woman targeted in ‘pig butchering' gold scam, loses $25K. Here's 3 red flags - NBC10 Philadelphia"
-  },
-  {
-   "q": "scam",
-   "src": "news",
-   "t": "The Tennessee Secretary of State issued a warning to businesses about a deceptive email scam. - Tennessee Secretary of State website (.gov)"
-  },
-  {
-   "q": "scam",
-   "src": "news",
-   "t": "Worthington police warn about crypto scam - NBC4 WCMH-TV"
-  },
-  {
-   "q": "scam",
-   "src": "news",
-   "t": "Union County Sheriff Warns Residents About Phone Scam Impersonating Officers - News12 | New Jersey"
+   "t": "Hong Kong man loses nearly HK$18M in crypto scam that started with a YouTube ad - Crypto Briefing"
   },
   {
    "q": "scam",
@@ -716,32 +714,17 @@
   {
    "q": "scam",
    "src": "news",
-   "t": "‘I’m out of $1,300’: Wells Fargo impersonators scam Chesterfield man, what to look out for - WRIC ABC 8News"
+   "t": "Robocall defenses lag as big carriers miss deadline; scam victims average $4,000 lost - KOMO"
   },
   {
    "q": "scam",
    "src": "news",
-   "t": "Many people ignore these ‘early red flags’ in romance scams, says Harvard-trained psychologist - CNBC"
+   "t": "Forum: A brilliant scam - Traverse City Record-Eagle"
   },
   {
    "q": "scam",
    "src": "news",
-   "t": "BBB warns of fake horse-selling scam using Amarillo business names - KVII"
-  },
-  {
-   "q": "battery",
-   "src": "news",
-   "t": "Atlanta Braves News: Latest MLB offering, Evan Phillips, and more - Battery Power"
-  },
-  {
-   "q": "battery",
-   "src": "news",
-   "t": "What to know about the rise in lithium-ion battery fires - IAFF"
-  },
-  {
-   "q": "battery",
-   "src": "news",
-   "t": "Huawei set to challenge Tesla Powerwall with new, 20 kW home battery - Electrek"
+   "t": "How St. Joseph allegedly scammed the 1900 U.S. census - Albuquerque Journal"
   },
   {
    "q": "battery",
@@ -751,52 +734,17 @@
   {
    "q": "battery",
    "src": "news",
-   "t": "Europe Is Learning An Uncomfortable Truth About Local Battery Production - InsideEVs"
+   "t": "I Love EVs, But Kia and Hyundai Are Making That Harder - InsideEVs"
   },
   {
    "q": "battery",
    "src": "news",
-   "t": "Checking Your Apple Watch's Battery Health Is Easier Than You Think - Engadget"
+   "t": "BMW Manufacturing opens $700M battery assembly plant in Woodruff - Upstate Business Journal"
   },
   {
    "q": "battery",
    "src": "news",
-   "t": "Why Sunrun’s (RUN) Battery Network Matters as Subscriber Additions Fall - Yahoo Finance"
-  },
-  {
-   "q": "battery",
-   "src": "news",
-   "t": "Zinc-iodine battery retains nearly all capacity over 1,000 cycles in new study - Interesting Engineering"
-  },
-  {
-   "q": "battery",
-   "src": "news",
-   "t": "Exclusive | Brooklyn fire erupted after NYC partner in e-bike battery-swapping program didn't follow FDNY rules - New York Post"
-  },
-  {
-   "q": "battery",
-   "src": "news",
-   "t": "The $81,250 BMW iX5 Now Has Its Own Battery Plant 15 Miles Away. Here’s Where The Cells Come From - bmwblog"
-  },
-  {
-   "q": "battery",
-   "src": "news",
-   "t": "Charleston Battery’s historic comeback leads to USL Eastern Conference finals appearance - Post and Courier"
-  },
-  {
-   "q": "battery",
-   "src": "news",
-   "t": "Who Makes Tesla Batteries, And Where Are They Produced? - BGR"
-  },
-  {
-   "q": "battery",
-   "src": "news",
-   "t": "DeWalt’s 2-Pack of 20V Max 5Ah Batteries Is 60% Off at Walmart Right Now - Men's Journal"
-  },
-  {
-   "q": "battery",
-   "src": "news",
-   "t": "The 2027 Lexus NX Plug-In Hybrid Gets A Bigger Battery And Fast Charging - InsideEVs"
+   "t": "No heroic comeback for Charleston Battery as Louisville City FC wins conference final - Post and Courier"
   },
   {
    "q": "battery",
@@ -806,12 +754,62 @@
   {
    "q": "battery",
    "src": "news",
-   "t": "Why Ormat’s (ORA) Battery-Storage Revenue Jumped 145% - Yahoo Finance"
+   "t": "Sexual battery conviction sends man to prison - WSB-TV"
   },
   {
    "q": "battery",
    "src": "news",
-   "t": "Sodium Vs. Lithium-Ion Batteries: What's The Difference Between Them? - Engadget"
+   "t": "Washoe County deputies arrest man on domestic battery warrant | Local News | 2news.com - KTVN"
+  },
+  {
+   "q": "battery",
+   "src": "news",
+   "t": "Manganese Flakes Market To 2035: Battery Cathode Demand Drives Growth - News and Statistics - IndexBox"
+  },
+  {
+   "q": "battery",
+   "src": "news",
+   "t": "WCSO deputies arrest man on domestic battery warrant - KRXI2"
+  },
+  {
+   "q": "battery",
+   "src": "news",
+   "t": "Car battery stored in trunk sparked vehicle fire in New Port Richey, fire officials say - WFLA"
+  },
+  {
+   "q": "battery",
+   "src": "news",
+   "t": "Huawei set to challenge Tesla Powerwall with new, 20 kW home battery - Electrek"
+  },
+  {
+   "q": "battery",
+   "src": "news",
+   "t": "Washoe County deputies arrest man on domestic battery warrant - KTVN"
+  },
+  {
+   "q": "battery",
+   "src": "news",
+   "t": "Board member questioned about Belmont teacher accused of sexual battery, records show - Dayton Daily News"
+  },
+  {
+   "q": "battery",
+   "src": "news",
+   "t": "How To Make Your Nintendo Switch 2 Battery Last Longer - Engadget"
+  },
+  {
+   "q": "battery",
+   "src": "news",
+   "t": "This American Battery Could Break China’s Grip On The EV Supply Chain - InsideEVs"
+  },
+  {
+   "q": "battery",
+   "src": "news",
+   "t": "Open Circuit Voltage Graders Market To 2035: Battery Gigafactory Boom Supports Growth - News and Statistics - IndexBox"
+  },
+  {
+   "q": "battery",
+   "src": "news",
+   "t": "Atlanta Braves News: Latest MLB offering, Evan Phillips, and more - Battery Power"
   },
   {
    "q": "battery",
@@ -821,12 +819,17 @@
   {
    "q": "battery",
    "src": "news",
-   "t": "This New Electric Car Nearly Fills Its Battery In Under 9 Minutes - InsideEVs"
+   "t": "500,000 EV Battery Health Checks Put 20 Models To The Test. One Car Stood Out - InsideEVs"
   },
   {
    "q": "battery",
    "src": "news",
-   "t": "500,000 EV Battery Health Checks Put 20 Models To The Test. One Car Stood Out - InsideEVs"
+   "t": "China Wants Mass-Produced Solid-State Batteries By 2030. CATL Knows That's Hard - InsideEVs"
+  },
+  {
+   "q": "iOS update",
+   "src": "news",
+   "t": "How To Check Which iOS Version Your iPhone Is Running - Engadget"
   },
   {
    "q": "iOS update",
@@ -836,7 +839,7 @@
   {
    "q": "iOS update",
    "src": "news",
-   "t": "iOS 27 CarPlay Hands-On: The Big Updates! - AppleInsider"
+   "t": "Update: Microsoft offers explanation for day-long Internet outage - Macworld"
   },
   {
    "q": "iOS update",
@@ -846,22 +849,7 @@
   {
    "q": "iOS update",
    "src": "news",
-   "t": "iOs Updates at Triple Whale - Triple Whale"
-  },
-  {
-   "q": "iOS update",
-   "src": "news",
-   "t": "Top Stories: Apple's New Software Approach, iPhone Duo-Optimized Apps, and More - MacRumors"
-  },
-  {
-   "q": "iOS update",
-   "src": "news",
-   "t": "Fact Check: Apple 'Live Listen' update enabling remote access to your phone isn't as scary as it sounds - Yahoo Tech"
-  },
-  {
-   "q": "iOS update",
-   "src": "news",
-   "t": "Update: Microsoft offers explanation for day-long Internet outage - Macworld"
+   "t": "Hackers Jailbreak iPhone In Lockdown Mode - Here's Why This Matters - BGR"
   },
   {
    "q": "iOS update",
@@ -871,47 +859,22 @@
   {
    "q": "iOS update",
    "src": "news",
-   "t": "AT&T iPhone 18 Pro, Pro Max, and iPhone Duo deals: Save up to $1,200 on trade-ins - Mashable"
+   "t": "iOS 27.3 beta adds Siri AI app actions, revamped Health app and Siri Recap - news.lavx.hu"
   },
   {
    "q": "iOS update",
    "src": "news",
-   "t": "Hackers Jailbreak iPhone In Lockdown Mode - Here's Why This Matters - BGR"
+   "t": "1xBet App Nigeria: The Ultimate Download Guide for Bettors - ToffeeWeb"
   },
   {
    "q": "iOS update",
    "src": "news",
-   "t": "Google Pixel 11 Pro's most pointless feature just got a useful upgrade - Android Police"
+   "t": "4 Major New Features Coming to the Notes App in the iOS 27 Update - آي-فون إسلام"
   },
   {
    "q": "iOS update",
    "src": "news",
-   "t": "Apple Releases tvOS 27.2.1 With Siri AI for Older Apple TVs - MacRumors"
-  },
-  {
-   "q": "iOS update",
-   "src": "news",
-   "t": "100,000 iPhone Duo apps is a start, but there's a long way to go - AppleInsider"
-  },
-  {
-   "q": "iOS update",
-   "src": "news",
-   "t": "Apple iPhone 17 Pro and Pro Max announced: New design, huge battery, powerful cameras - Mashable"
-  },
-  {
-   "q": "iOS update",
-   "src": "news",
-   "t": "Siri AI Still Not Enabled on HomePod Mini 2 With Latest Software Update - MacRumors"
-  },
-  {
-   "q": "iOS update",
-   "src": "news",
-   "t": "Siri AI is coming to Apple TV 4K, including models from 2021 - AppleInsider"
-  },
-  {
-   "q": "iOS update",
-   "src": "news",
-   "t": "Two major features coming to the iPhone in the iOS 27.3 update - آي-فون إسلام"
+   "t": "iOS 27.3 update brings new StandBy mode faces from iPhone Duo to all iPhones - آي-فون إسلام"
   },
   {
    "q": "iOS update",
@@ -921,15 +884,50 @@
   {
    "q": "iOS update",
    "src": "news",
-   "t": "iOS 27 update will make old iPhones feel new, and here is why - آي-فون إسلام"
+   "t": "The \"Suggested Actions\" feature in the iOS 27.2 Messages app: How to customize it to suit your usage? - آي-فون إسلام"
   },
   {
    "q": "iOS update",
    "src": "news",
    "t": "iOS 27.2 update allows age verification with a quick selfie while fully protecting your privacy - آي-فون إسلام"
+  },
+  {
+   "q": "iOS update",
+   "src": "news",
+   "t": "Five Hidden Features in the iOS 27 Update You Might Have Missed - آي-فون إسلام"
+  },
+  {
+   "q": "iOS update",
+   "src": "news",
+   "t": "All the new AirPods features coming in the iOS 27 update - آي-فون إسلام"
+  },
+  {
+   "q": "iOS update",
+   "src": "news",
+   "t": "Apple prepares to upgrade base iPhone 18 memory to 9GB - آي-فون إسلام"
+  },
+  {
+   "q": "iOS update",
+   "src": "news",
+   "t": "Latest Updates in iOS 27 Apps in the Public Beta Version - آي-فون إسلام"
+  },
+  {
+   "q": "iOS update",
+   "src": "news",
+   "t": "iOS 27 Update: The Top 7 Features You Must Try Immediately After Installing the System on Your iPhone - آي-فون إسلام"
+  },
+  {
+   "q": "iOS update",
+   "src": "news",
+   "t": "The iPhone camera gets smarter: Your guide to using Visual Intelligence and \"Siri mode\" in the iOS 27 update - آي-فون إسلام"
+  },
+  {
+   "q": "iOS update",
+   "src": "news",
+   "t": "How did Apple improve the Phone and FaceTime apps in iOS 27? - آي-فون إسلام"
   }
  ],
  "top_reels": [],
- "updated_at": "2026-11-14T18:39:24+00:00",
+ "updated_at": "2026-11-15T02:08:24+00:00",
  "version": 1
 }
