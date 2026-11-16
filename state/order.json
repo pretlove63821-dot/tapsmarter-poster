@@ -1,15 +1,15 @@
 {
  "based_on": {
-  "stats_updated_at": "2026-11-16T02:53:26+00:00",
+  "stats_updated_at": "2026-11-16T15:00:20+00:00",
   "trends_updated_at": "2026-11-15T23:24:59+00:00"
  },
- "generated_at": "2026-11-16T05:23:52+00:00",
+ "generated_at": "2026-11-16T15:00:20+00:00",
  "note": "Next 14 videos: trend score 6+ or a top-Reel topic goes first, the rest keep plan order; top Reels so far: wd-102.",
  "order": [
   "ai-081",
   "ai-063",
   "ai-077",
-  "ai-020",
+  "ai-084",
   "ai-017",
   "ai-078",
   "ai-072",
@@ -18,13 +18,13 @@
   "ai-071",
   "ai-022",
   "ai-052",
-  "ai-082",
+  "ai-079",
   "ai-053",
   "ai-061",
   "ai-080",
   "ai-041",
   "ai-026",
-  "ai-079",
+  "ai-082",
   "ai-040",
   "ai-028",
   "ai-065",
@@ -65,7 +65,6 @@
  "reasons": {
   "ai-017": "no trend match (plan order)",
   "ai-018": "no trend match (plan order)",
-  "ai-020": "no trend match (plan order)",
   "ai-022": "no trend match (plan order)",
   "ai-052": "trend score 3: friend (+3: 1 trend)",
   "ai-053": "no trend match (plan order)",
@@ -74,48 +73,49 @@
   "ai-072": "no trend match (plan order)",
   "ai-077": "trend score 2: like top Reels: iphone (+2)",
   "ai-078": "no trend match (plan order)",
+  "ai-079": "no trend match (plan order)",
   "ai-081": "trend score 8: keep (+6: 2 trends); like top Reels: iphone (+2)",
-  "ai-082": "no trend match (plan order)",
-  "ai-083": "trend score 3: runs (+3: 1 trend)"
+  "ai-083": "trend score 3: runs (+3: 1 trend)",
+  "ai-084": "no trend match (plan order)"
  },
- "schedule_sha256": "fbbdbf94b6564cb3d8934bfc1818113cd111c673d4b9fc8b85fa538281bd70f0",
+ "schedule_sha256": "4c5fc528178ec1895c6b7d64b084fb3f174a1f0bfbe5eec3bba459c860e1ceb2",
  "status": "trends",
  "upcoming": [
   {
    "id": "ai-081",
    "reason": "trend score 8: keep (+6: 2 trends); like top Reels: iphone (+2)",
-   "slot": "2026-11-16T14:00:00+00:00",
-   "slot_rome": "Mon 16 Nov 15:00"
-  },
-  {
-   "id": "ai-063",
-   "reason": "trend score 2: like top Reels: iphone (+2)",
    "slot": "2026-11-16T21:00:00+00:00",
    "slot_rome": "Mon 16 Nov 22:00"
   },
   {
-   "id": "ai-077",
+   "id": "ai-063",
    "reason": "trend score 2: like top Reels: iphone (+2)",
    "slot": "2026-11-17T14:00:00+00:00",
    "slot_rome": "Tue 17 Nov 15:00"
   },
   {
-   "id": "ai-020",
-   "reason": "no trend match (plan order)",
+   "id": "ai-077",
+   "reason": "trend score 2: like top Reels: iphone (+2)",
    "slot": "2026-11-17T21:00:00+00:00",
    "slot_rome": "Tue 17 Nov 22:00"
   },
   {
-   "id": "ai-017",
+   "id": "ai-084",
    "reason": "no trend match (plan order)",
    "slot": "2026-11-18T14:00:00+00:00",
    "slot_rome": "Wed 18 Nov 15:00"
   },
   {
-   "id": "ai-078",
+   "id": "ai-017",
    "reason": "no trend match (plan order)",
    "slot": "2026-11-18T21:00:00+00:00",
    "slot_rome": "Wed 18 Nov 22:00"
+  },
+  {
+   "id": "ai-078",
+   "reason": "no trend match (plan order)",
+   "slot": "2026-11-19T14:00:00+00:00",
+   "slot_rome": "Thu 19 Nov 15:00"
   }
  ],
  "version": 1

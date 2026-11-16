@@ -80,12 +80,17 @@
     "at": "2026-11-16T02:53:26+00:00",
     "followers_count": 0,
     "media_count": 4
+   },
+   {
+    "at": "2026-11-16T15:00:20+00:00",
+    "followers_count": 0,
+    "media_count": 5
    }
   ],
   "latest": {
-   "at": "2026-11-16T02:53:26+00:00",
+   "at": "2026-11-16T15:00:20+00:00",
    "followers_count": 0,
-   "media_count": 4
+   "media_count": 5
   }
  },
  "daily": {
@@ -174,6 +179,17 @@
     "views": 4
    }
   ],
+  "18100691954413412": [
+   {
+    "comments": 1,
+    "d": "2026-11-16",
+    "likes": 0,
+    "reach": 0,
+    "saved": 0,
+    "shares": 0,
+    "views": 0
+   }
+  ],
   "18128449036676317": [
    {
     "comments": 1,
@@ -217,10 +233,10 @@
     "comments": 1,
     "d": "2026-11-16",
     "likes": 0,
-    "reach": 24,
+    "reach": 29,
     "saved": 0,
     "shares": 0,
-    "views": 24
+    "views": 29
    }
   ]
  },
@@ -241,7 +257,7 @@
    "shares": 1,
    "timestamp": "2026-11-12T15:23:54+0000",
    "total_interactions": 3,
-   "updated_at": "2026-11-16T02:53:26+00:00",
+   "updated_at": "2026-11-16T15:00:20+00:00",
    "video_id": "wd-102",
    "views": 111
   },
@@ -260,9 +276,28 @@
    "shares": 0,
    "timestamp": "2026-11-13T18:41:44+0000",
    "total_interactions": 1,
-   "updated_at": "2026-11-16T02:53:26+00:00",
+   "updated_at": "2026-11-16T15:00:20+00:00",
    "video_id": "wd-106",
    "views": 4
+  },
+  "18100691954413412": {
+   "caption": "Cancelled flight? Don't take the voucher. You may be owed cash ✈️",
+   "category": "AI TOOLS",
+   "comments_count": 1,
+   "ig_reels_avg_watch_time": 0,
+   "ig_reels_video_view_total_time": 0,
+   "keyword": "FLIGHT",
+   "like_count": 0,
+   "media_id": "18100691954413412",
+   "permalink": "https://www.instagram.com/reel/DfzoOsAJyry/",
+   "reach": 0,
+   "saved": 0,
+   "shares": 0,
+   "timestamp": "2026-11-16T15:01:23+0000",
+   "total_interactions": 1,
+   "updated_at": "2026-11-16T15:00:20+00:00",
+   "video_id": "ai-020",
+   "views": 0
   },
   "18128449036676317": {
    "caption": "Nvidia's CEO just quit. Here's the scam lesson for you.",
@@ -279,7 +314,7 @@
    "shares": 0,
    "timestamp": "2026-11-14T15:13:17+0000",
    "total_interactions": 1,
-   "updated_at": "2026-11-16T02:53:26+00:00",
+   "updated_at": "2026-11-16T15:00:20+00:00",
    "video_id": "wd-166",
    "views": 101
   },
@@ -287,25 +322,25 @@
    "caption": "Stop making flashcards, Google made me 60 from one link! 📚",
    "category": "AI TOOLS",
    "comments_count": 1,
-   "ig_reels_avg_watch_time": 2904,
-   "ig_reels_video_view_total_time": 72601,
+   "ig_reels_avg_watch_time": 2718,
+   "ig_reels_video_view_total_time": 86996,
    "keyword": "NOTES",
    "like_count": 0,
    "media_id": "18135179164748449",
    "permalink": "https://www.instagram.com/reel/DfxHVg0MZz7/",
-   "reach": 24,
+   "reach": 29,
    "saved": 0,
    "shares": 0,
    "timestamp": "2026-11-15T15:35:20+0000",
    "total_interactions": 1,
-   "updated_at": "2026-11-16T02:53:26+00:00",
+   "updated_at": "2026-11-16T15:00:20+00:00",
    "video_id": "ai-015",
-   "views": 24
+   "views": 29
   }
  },
  "note": "views, reach, saves and shares are on",
  "permission": "ok",
  "unsupported_metrics": [],
- "updated_at": "2026-11-16T02:53:26+00:00",
+ "updated_at": "2026-11-16T15:00:20+00:00",
  "version": 1
 }

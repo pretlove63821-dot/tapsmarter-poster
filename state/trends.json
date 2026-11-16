@@ -37,13 +37,6 @@
    "score": 0,
    "trend": 0
   },
-  "ai-020": {
-   "matched": [],
-   "performance": 0,
-   "reason": "no trend match (plan order)",
-   "score": 0,
-   "trend": 0
-  },
   "ai-021": {
    "matched": [],
    "performance": 0,
@@ -433,6 +426,13 @@
    "reason": "trend score 3: runs (+3: 1 trend)",
    "score": 3,
    "trend": 3
+  },
+  "ai-084": {
+   "matched": [],
+   "performance": 0,
+   "reason": "no trend match (plan order)",
+   "score": 0,
+   "trend": 0
   }
  },
  "sources": [
