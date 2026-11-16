@@ -769,6 +769,20 @@
   "cap": "Don't tap that weird text. Circle it first to check for scams 🔍\nHow to check if a text is a scam with Circle to Search on Android\n\n1. Open the text. Touch and hold the home button (3-button navigation) or the navigation bar at the bottom of the screen (gesture navigation)\n2. Draw a circle around the message\n3. Read the AI Overview. Google says it gives guidance and suggested next steps\n4. Red flags? Google says to consider deleting the message and blocking the number\n5. Nothing happens? On a Pixel, check Settings > System > Circle to Search. On other phones, search your Settings for Circle to Search\n\nWorks on select Android phones, including Pixel 6 and later. Google says results, availability and compatibility may vary, so treat it as a second opinion. Never tap a link in a text you weren't expecting. If it might be real, contact the company using a number or website you know is real (F",
   "url": "https://github.com/pretlove63821-dot/tapsmarter-poster/releases/download/videos/ai-082.mp4"
  },
+ "ai-083": {
+  "t": "Stop paying to sign PDFs. It's free, zero uploads ✍️",
+  "kw": "BENTO",
+  "dur": 20.97,
+  "vo": [
+   "Stop paying to sign PDFs. It's free, zero uploads.",
+   "Open it in your browser, on any computer or phone.",
+   "Use Merge PDF, then Sign PDF. Draw your signature and download.",
+   "Your files never leave your device. No watermarks. It's open source, too.",
+   "Send this to someone who signs school forms. Comment bento for the link!"
+  ],
+  "cap": "Stop paying to sign PDFs. It's free, zero uploads ✍️\nHow to merge and sign a PDF free without uploading it: BentoPDF (open source, works in your browser)\n\n1. Open bentopdf.com in your web browser, on a computer or a phone. No sign-up\n2. To join files, pick Merge PDF, add your PDFs, drag them into order, then click Merge PDFs\n3. To sign a lease or a school form, pick Sign PDF, open the file, then draw, type or upload your signature and drag it into place\n4. Turn on Flatten PDF, then click Save & Download Signed PDF\n\nBentoPDF is free and open source (AGPL-3.0), with about 16,000 stars on GitHub. It says your files are processed in your browser and never uploaded to a server. The signature is an image on the page. BentoPDF says that's widely accepted for everyday forms, but whether it's binding depends on where you live and the agreement. If your landlord or school sent you a signing link, ",
+  "url": "https://github.com/pretlove63821-dot/tapsmarter-poster/releases/download/videos/ai-083.mp4"
+ },
  "wd-102": {
   "t": "iPhone call screening for unknown callers",
   "kw": "SCREEN",
