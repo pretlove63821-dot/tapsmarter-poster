@@ -3,7 +3,7 @@
   "stats_updated_at": "2026-11-16T02:53:26+00:00",
   "trends_updated_at": "2026-11-15T23:24:59+00:00"
  },
- "generated_at": "2026-11-16T02:53:26+00:00",
+ "generated_at": "2026-11-16T05:23:52+00:00",
  "note": "Next 14 videos: trend score 6+ or a top-Reel topic goes first, the rest keep plan order; top Reels so far: wd-102.",
  "order": [
   "ai-081",
@@ -14,6 +14,7 @@
   "ai-078",
   "ai-072",
   "ai-018",
+  "ai-083",
   "ai-071",
   "ai-022",
   "ai-052",
@@ -68,16 +69,16 @@
   "ai-022": "no trend match (plan order)",
   "ai-052": "trend score 3: friend (+3: 1 trend)",
   "ai-053": "no trend match (plan order)",
-  "ai-061": "no trend match (plan order)",
   "ai-063": "trend score 2: like top Reels: iphone (+2)",
   "ai-071": "trend score 3: wire (+3: 1 trend)",
   "ai-072": "no trend match (plan order)",
   "ai-077": "trend score 2: like top Reels: iphone (+2)",
   "ai-078": "no trend match (plan order)",
   "ai-081": "trend score 8: keep (+6: 2 trends); like top Reels: iphone (+2)",
-  "ai-082": "no trend match (plan order)"
+  "ai-082": "no trend match (plan order)",
+  "ai-083": "trend score 3: runs (+3: 1 trend)"
  },
- "schedule_sha256": "e8a31ab18b583f883a1f09ce0e66dff4db381b2d5d9200ce824fed6e155a7259",
+ "schedule_sha256": "fbbdbf94b6564cb3d8934bfc1818113cd111c673d4b9fc8b85fa538281bd70f0",
  "status": "trends",
  "upcoming": [
   {
